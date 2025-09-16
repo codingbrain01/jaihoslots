@@ -1,0 +1,245 @@
+:root {
+    --bg-dark: #00462e;
+    --bg-main-section: #009174;
+    --bg-light-section: #eefdf7;
+    --bg-dark-section: #009174;
+    --bg-wheat: wheat;
+    --text-black: black;
+}
+
+*,
+:after,
+:before {
+    box-sizing: border-box;
+    border: 0 solid transparent
+}
+
+html {
+    scroll-behavior: smooth;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    position: relative;
+}
+
+ul {
+    margin-top: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header {
+    background-color: var(--bg-dark);
+    height: 80px;
+    transition: all .5s ease;
+}
+
+.banner-img {
+    filter: drop-shadow(50px 9px 6px rgba(0, 0, 0, 0.3)) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+}
+
+.coin-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Each coin */
+.coin {
+    position: absolute;
+    top: -150px;
+    width: 50px;
+    height: 50px;
+
+    /* Use your image as texture */
+    background: url("../images/gold-coin.png") center/contain no-repeat;
+
+    /* Remove 3D “ball” styling */
+    border-radius: 0;
+    box-shadow: none;
+
+    animation: fall 6s linear infinite;
+}
+
+/* Create multiple coins with different delays & positions */
+.coin:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.coin:nth-child(2) {
+    left: 25%;
+    animation-delay: 1s;
+    width: 40px;
+    height: 40px;
+}
+
+.coin:nth-child(3) {
+    left: 40%;
+    animation-delay: 2s;
+    width: 60px;
+    height: 60px;
+}
+
+.coin:nth-child(4) {
+    left: 55%;
+    animation-delay: 1.5s;
+}
+
+.coin:nth-child(5) {
+    left: 70%;
+    animation-delay: 0.5s;
+}
+
+.coin:nth-child(6) {
+    left: 85%;
+    animation-delay: 2.5s;
+    width: 45px;
+    height: 45px;
+}
+
+.coin:nth-child(7) {
+    left: 50%;
+    animation-delay: 3s;
+    width: 35px;
+    height: 35px;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.bg-main-section {
+    background-color: var(--bg-dark-section);
+}
+
+.bg-light-section {
+    background-color: var(--bg-light-section);
+}
+
+.bg-dark-section {
+    background-color: var(--bg-dark-section);
+}
+
+.bg-dark-1 {
+    background-color: var(--bg-dark);
+}
+
+.promo-title {
+    --colorA: yellow;
+    --colorB: blue;
+    --colorC: red;
+
+    animation-name: changeColor;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+}
+
+@keyframes changeColor {
+    0% {
+        color: var(--colorA);
+    }
+
+    25% {
+        color: var(--colorB);
+    }
+
+    50% {
+        color: var(--colorC);
+    }
+
+    75% {
+        color: var(--colorB);
+    }
+
+    100% {
+        color: var(--colorA);
+    }
+}
+
+.bg-color {
+    background-color: var(--bg-dark);
+}
+
+.scroll-to-top {
+    bottom: 0px;
+    right: 24px;
+    height: 48px;
+    width: 48px;
+    background: #000000 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAclBMVEUAAABfJaBfJZ9gIp9eJaFcJZtfJZ9fJJ9fJJ9fJZ5eJZ9iIZ1fI55fJZ9fJZ9fJZ9fJZ9fJZ9fJaBZLpBfJZ9fJZ9fJZ9eJZ9fJJ9fJaBeJJ9eJZ9fJJ9fJZ9eJZ9fJaBfJZ9fJp5fJZ9jHJxgKJ9fJZ+kLYIxAAAAJXRSTlMAs6QXEhTO08rW0Q8d3tdt9dw8A/zt59iJe0kju5jDdGBX4AktBNydJwAAAiFJREFUeNrt29tuglAQheGxoqBoQRSKHDzW93/FJkY7YjNdJEOYm1mXlOT/2I2JJC0ptt1v1mm6biqy2Sq6PTaJyWD15fa7cEajb7W+vexzSiOO+7zFaALu2wi4byPgvo2A+yYC7gtbjvBp5L6VYLXhnoGA+wYC7lsIuG8j4L6NgPuWgumCGwYC7hsIuG8h4L6NgPsGAtAHgsCmz5sHg/VDkAICgz4LjPossOuzQN+3FMy4byCQnr9Iqn36fjHdV8kFCPTPz++B2e7takVEwRwL9P2v6f2Hh+7V8H4xjoBA3ee3j4/u5QkRiWcQBQM/vwygYLAzCCKxLwOwQN8HACDQ9wFgKEEcCZ8/AAACfR8AkEDdBwAsUPYBAHyGoQD3MQALFH0E0AlwHwIUAthfTAkDFALUD2eEAb2/TUSx3N9O0PNjAD6DZisCjvgdCwPwGSTiAeS4jwFYUEhHkIE+APR/q8uEmxPQBwB0Bvh3sAd9AOh/Bkfh1hP4zAJAf8FJuLMGz48AvX8LNQk74OfHAHwGB5KW7VAfA7Bgl5G4BH2XxwAsSOifnfOHsr3SkACKn/fnZ3Bj0qyLqPwm0gH+LmsXedEcY9IMA/Ac4AAHOMABDnCAAxzgAAc4wAEOcIADHOAABzjAAQ5wgAMc4AAHOMABDhhqZRfQ0tiruoAzjb1r8drPYxp9p+6fJhms5f4Hmez5Twa7cks2q8tlmoZlTYr9AMeRAwpDUBs2AAAAAElFTkSuQmCC) no-repeat 50%;
+    background-size: 20px;
+    z-index: 9999;
+    background-color: wheat;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: .2s ease-in;
+    -webkit-animation: animatedBackground 1s infinite alternate;
+    animation: animatedBackground 1s infinite alternate
+}
+
+@media (max-width: 960px) {
+    .scroll-to-top {
+        height: 48px;
+        width: 48px;
+        bottom: 90px;
+    }
+}
+
+@-webkit-keyframes animatedBackground {
+    0% {
+        background-position: center 70%
+    }
+
+    to {
+        background-position: 50%
+    }
+}
+
+@keyframes animatedBackground {
+    0% {
+        background-position: center 70%
+    }
+
+    to {
+        background-position: 50%
+    }
+}
+
+.apk-download {
+    transition: 0.2s ease-in;
+    transform: translateY(140%);
+    background-color: wheat;
+    color: black;
+}
+
+.bg-scroll-to-top {
+    background-color: var(--bg-dark);
+}
+
+.btn-cta-1 {
+    background-color: var(--bg-wheat);
+    color: var(--text-black);
+}
+
+.box-shadow {
+    box-shadow: 0 0 10px rgb(255, 208, 0);
+}
