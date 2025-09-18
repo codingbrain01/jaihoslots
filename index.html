@@ -16,6 +16,7 @@
 
     <!-- CSS -->
     <!--<link rel="stylesheet" href="css/style.css" />-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- Icon -->
     <link rel="icon" href="images/icon_header.ico" type="image/x-icon" sizes="any" />
@@ -69,7 +70,7 @@
             left: 0;
             width: 50vw;
             height: 100vh;
-            background: url("images/icon_a_refer.svg") no-repeat left center;
+            background: url("images/icon_b_influencer.svg") no-repeat left center;
             background-size: cover;
             pointer-events: none;
             z-index: -1;
@@ -114,6 +115,11 @@
             width: 56px;
             height: 56px;
         }
+
+        .spin {
+            animation: spin 3s linear infinite;
+        }
+
 
         nav {
             display: flex;
@@ -214,11 +220,21 @@
         }
 
         .game-actions {
-            position: sticky;
             bottom: 0;
             padding-top: 8px;
             display: flex;
             gap: 1rem;
+        }
+
+        .bonuses {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .bonuses .btn:hover {
+            text-decoration: underline;
         }
 
         .btn {
@@ -275,7 +291,31 @@
             text-align: center;
         }
 
-        /* Responsive */
+        /* Responsiveness */
+        @keyframes spin {
+            from {
+                transform: rotate(0);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 1000px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .bonuses {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 1000px) {
             .hero {
                 grid-template-columns: 1fr;
@@ -363,7 +403,7 @@
 
 <body>
     <main>
-        <!-- <div class="refer-bg"></div> -->
+        <!--<div class="refer-bg"></div>-->
         <header role="banner">
             <div class="brand">
                 <!-- <div class="logo" aria-hidden="true">JS</div> -->
@@ -629,7 +669,8 @@
         <section id="bonus" aria-labelledby="bonus-h">
             <h2 id="bonus-h" style="margin-top: 28px">Bonuses & Offers</h2>
             <div class="bonuses">
-                <div class="card">
+                <div class="card" data-aos="fade-right"
+     data-aos-easing="ease-in-sine">
                     <img src="images/icon_a_refer.svg" alt="" />
                     <h3>Refer and Earn</h3>
                     <p class="meta">Earn up to ₹50,000 every time you refer a friend</p>
@@ -641,7 +682,9 @@
                     </div>
                 </div>
 
-                <div class="card">
+                <div class="card" data-aos="fade-left"
+     data-aos-easing="ease-in-sine">
+                    <img src="images/icon_b_influencer.svg" alt="" />
                     <h3>Are you an Influencer?</h3>
                     <p class="meta">
                         Earn ₹100,000 of rupees everytime your followers play a game
@@ -739,6 +782,9 @@
             return false;
         }
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>AOS.init({ once: false, duration: 300 });</script>
 </body>
 
 </html>
