@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Play Online Slot Games in India | Free Bonus at JaiHo Slots</title>
+    <meta name="description"
+        content="Grand Evergreen Casino — Play slots, blackjack, roulette and win jackpots. Fast, accessible, SEO-friendly casino-style demo site." />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Grand Evergreen Casino — Play & Win" />
+    <meta property="og:description" content="Play slots, blackjack, roulette and win jackpots." />
+    <meta property="og:type" content="website" />
+
+    <!-- CSS -->
+    <!--<link rel="stylesheet" href="css/style.css" />-->
+
+    <!-- Icon -->
+    <link rel="icon" href="images/icon_header.ico" type="image/x-icon" sizes="any" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Jaiho Slots",
+        "url": "https://example.com/",
+        "description": "Play slots, blackjack, roulette and win jackpots."
+      }
+    </script>
+
+    <style>
+        /* === style.css === */
+        :root {
+            --bg: #07140b;
+            --card: #0b1f15;
+            --muted: #98a79a;
+            --accent: #ffd166;
+            --accent-2: #34d399;
+            --glass: rgba(255, 255, 255, 0.03);
+            --radius: 14px;
+            --container: 1100px;
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+                "Helvetica Neue", Arial;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            background: linear-gradient(180deg, #041009 0%, #07140b 100%);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #eef6ea;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Fixed SVG background --- */
+
+        .refer-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 50vw;
+            height: 100vh;
+            background: url("images/icon_a_refer.svg") no-repeat left center;
+            background-size: cover;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(6px);
+            background: linear-gradient(180deg,
+                    rgba(11, 31, 21, 0.45),
+                    rgba(11, 31, 21, 0.25));
+            border-radius: 10px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .brand {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .logo {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #065f46, #10b981);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: #04210d;
+        }
+
+        /* SVG chip spin small animation */
+        .chip {
+            width: 56px;
+            height: 56px;
+        }
+
+        nav {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        main {
+            max-width: var(--container);
+            margin: 28px auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 22px;
+            align-items: center;
+            margin-top: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(1.6rem, 3.6vw, 2.6rem);
+            margin: 0 0 6px;
+        }
+
+        .sub {
+            color: var(--muted);
+            margin: 0 0 14px;
+        }
+
+        .promo-pills {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            background: var(--glass);
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-weight: 700;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: linear-gradient(180deg,
+                    rgba(255, 255, 255, 0.02),
+                    rgba(255, 255, 255, 0.01));
+            border-radius: var(--radius);
+            padding: 14px;
+            min-height: 120px;
+            box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h3 {
+            margin: 0 0 8px;
+        }
+
+        .grid .card img {
+            border-radius: var(--radius);
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+
+        .toggle {
+            display: none;
+        }
+
+        .extra-info {
+            display: none;
+            margin: 0;
+        }
+
+        .toggle:checked~.extra-info {
+            display: block;
+        }
+
+        .toggle:checked~.hide-on-click {
+            display: none;
+        }
+
+        .meta {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .game-actions {
+            position: sticky;
+            bottom: 0;
+            padding-top: 8px;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.35s ease;
+        }
+
+        .btn-join {
+            background: linear-gradient(90deg, var(--accent), #ffb74d);
+            color: #082018;
+        }
+
+        .btn-play {
+            background: linear-gradient(90deg, var(--accent-2), #60a5a6);
+            color: #02120c;
+        }
+
+        .btn-play:hover {
+            filter: brightness(1.05);
+            transform: translateY(-1px);
+            background: linear-gradient(90deg, var(--accent-2), var(--accent));
+        }
+
+        .btn-details {
+            cursor: pointer;
+            user-select: none;
+            transition: color 0.2s ease;
+        }
+
+        .btn-details:hover {
+            color: yellow;
+            text-shadow: 0 0 20px rgb(255, 0, 0);
+        }
+
+        .ticker {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 10px;
+            background: linear-gradient(90deg,
+                    rgba(255, 209, 102, 0.06),
+                    rgba(52, 211, 153, 0.02));
+        }
+
+        footer {
+            margin: 28px 0;
+            color: var(--muted);
+            font-size: 0.88rem;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 1000px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            main {
+                padding: 12px;
+            }
+
+            nav {
+                display: none;
+            }
+        }
+
+        /* Utilities */
+        .muted {
+            color: var(--muted);
+        }
+
+        /* Hide mobile version by default */
+        .mobile-nav {
+            display: none;
+        }
+
+        /* style the summary (toggle button) */
+        .mobile-nav summary {
+            list-style: none;
+            /* remove default triangle */
+            cursor: pointer;
+            padding: 8px 12px;
+            font-size: 1.5rem;
+            border-radius: 8px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* remove default disclosure marker */
+        .mobile-nav summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /* show links when open */
+        .mobile-nav[open] nav {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        /* responsive: show mobile menu, hide desktop nav */
+        @media (max-width: 600px) {
+            .desktop-nav {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: block;
+            }
+        }
+
+        /* screen reader helper */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <!-- <div class="refer-bg"></div> -->
+        <header role="banner">
+            <div class="brand">
+                <!-- <div class="logo" aria-hidden="true">JS</div> -->
+                <img class="logo" src="images/icon_jaihoslots.png" alt="JaihoSlots icon" />
+                <div>
+                    <div style="font-weight: 800">JaihoSlots</div>
+                    <div class="muted" style="font-size: 0.86rem">
+                        Safe • Fast • Fair
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop nav stays as-is -->
+            <nav aria-label="Primary navigation" class="desktop-nav">
+                <a href="#games">Games</a>
+                <a href="#jackpots">Jackpots</a>
+                <a href="#bonus">Bonuses</a>
+                <a href="#support">Support</a>
+                <a href="#signup">Join Now</a>
+            </nav>
+
+            <!-- Mobile menu: pure CSS toggle -->
+            <details class="mobile-nav">
+                <summary aria-haspopup="true">
+                    ☰ <span class="sr-only">Open menu</span>
+                </summary>
+                <nav aria-label="Mobile menu" id="mobileMenu">
+                    <a href="#games">Games</a>
+                    <a href="#jackpots">Jackpots</a>
+                    <a href="#bonus">Bonuses</a>
+                    <a href="#support">Support</a>
+                    <a href="#signup">Join Now</a>
+                </nav>
+            </details>
+        </header>
+
+        <section class="hero" aria-labelledby="hero-heading">
+            <div>
+                <h1 id="hero-heading">
+                    365 Days of Non-Stop Winning Here on
+                    <span style="color: var(--accent)">Jaiho Slots</span>
+                </h1>
+                <p class="sub">Sign in for double welcome bonus.</p>
+
+                <div class="promo-pills">
+                    <span class="pill">Welcome rewards up to ₹100,000</span>
+                    <span class="pill">Zero Fraud Guarantee</span>
+                    <span class="pill">24/7 Support</span>
+                </div>
+
+                <div style="margin-top: 14px">
+                    <a href="#games" class="btn btn-play">Play Now</a>
+                    <button class="btn" style="
+                background: transparent;
+                color: var(--muted);
+                border: 1px solid rgba(255, 255, 255, 0.04);
+                margin-left: 8px;
+              ">
+                        How it works
+                    </button>
+                </div>
+
+                <div style="margin-top: 12px" class="ticker" role="status" aria-live="polite">
+                    <svg class="chip spin" viewBox="0 0 64 64" aria-hidden="true">
+                        <circle cx="32" cy="32" r="30" stroke="rgba(0,0,0,0.1)" stroke-width="4" fill="none" />
+                        <path d="M32 10 A22 22 0 1 0 32 54 A22 22 0 1 0 32 10" fill="none" stroke="var(--accent-2)"
+                            stroke-width="4" />
+                    </svg>
+                    <div class="muted">
+                        Slots Gamer: <strong>AnonPlayer</strong> — Won
+                        <strong>₹2 Crore+</strong> on JaihoSlots
+                    </div>
+                </div>
+            </div>
+
+            <aside style="padding: 8px">
+                <div class="card" aria-labelledby="jackpot-title">
+                    <h3 id="jackpot-title">Progressive Jackpot</h3>
+                    <p class="meta">Current: <strong>$1,245,600</strong></p>
+                    <p class="muted">
+                        Download <strong>Jaiho Slots</strong> now to take the jackpot.
+                    </p>
+                    <div style="margin-top: 20px">
+                        <a class="btn btn-play" href="#games">Download APK</a>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 12px">
+                    <h4>Never Stop Playing</h4>
+                    <p class="muted">
+                        Real Cash Games, 100% Bonus Games, Gadget Leagues & Many More!
+                    </p>
+                </div>
+            </aside>
+        </section>
+
+        <!-- Games -->
+
+        <section id="games" aria-label="Featured games">
+            <h2 style="margin-top: 28px">Top Games on JaihoSlots</h2>
+            <p class="muted">
+                Discover some of the most popular titles that players love on
+                JaihoSlots.
+            </p>
+
+            <div class="grid" role="list">
+                <!-- Article 1 -->
+                <article class="card" role="listitem" aria-labelledby="g1">
+                    <input type="checkbox" id="toggle-detail0" class="toggle" />
+                    <h3 id="g1">Power of The Kraken</h3>
+                    <div class="hide-on-click">
+                        <img src="images/icon_potk.png" alt="Power of The Kraken game icon" width="92" height="92" />
+                        <p class="meta">-</p>
+                        <p class="muted">-</p>
+                    </div>
+
+                    <p class="muted extra-info">
+                        is a new online slot game that features an ocean-monster theme,
+                        high volatility, and bonus rounds where players can win
+                        multipliers and free spins.
+                    </p>
+
+                    <div class="game-actions">
+                        <a class="btn btn-play" href="#play-megaslots">Play</a>
+                        <label for="toggle-detail0" class="btn-details muted" style="align-self: center">Details</label>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="card" role="listitem" aria-labelledby="g1">
+                    <input type="checkbox" id="toggle-detail1" class="toggle" />
+                    <h3 id="g1">Aviator</h3>
+                    <div class="hide-on-click">
+                        <img src="images/icon_aviator.png" alt="Power of The Kraken game icon" width="92" height="92" />
+                        <p class="meta">-</p>
+                        <p class="muted">-</p>
+                    </div>
+
+                    <p class="muted extra-info">
+                        is a thrilling online crash game where players bet on a rising
+                        multiplier and decide when to cash out before the plane flies
+                        away, offering fast-paced rounds and big potential wins.
+                    </p>
+
+                    <div class="game-actions">
+                        <a class="btn btn-play" href="#play-megaslots">Play</a>
+                        <label for="toggle-detail1" class="btn-details muted" style="align-self: center">Details</label>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="card" role="listitem" aria-labelledby="g1">
+                    <input type="checkbox" id="toggle-detail2" class="toggle" />
+                    <h3 id="g1">Sugar Bang Bang</h3>
+                    <div class="hide-on-click">
+                        <img src="images/icon_sbb.png" alt="Power of The Kraken game icon" width="92" height="92" />
+                        <p class="meta">-</p>
+                        <p class="muted">-</p>
+                    </div>
+
+                    <p class="muted extra-info">
+                        is a new online slot game that features an ocean-monster theme,
+                        high volatility, and bonus rounds where players can win
+                        multipliers and free spins.
+                    </p>
+
+                    <div class="game-actions">
+                        <a class="btn btn-play" href="#play-megaslots">Play</a>
+                        <label for="toggle-detail2" class="btn-details muted" style="align-self: center">Details</label>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="card" role="listitem" aria-labelledby="g1">
+                    <input type="checkbox" id="toggle-detail3" class="toggle" />
+                    <h3 id="g1">Jungle Delight</h3>
+                    <div class="hide-on-click">
+                        <img src="images/icon_jd.png" alt="Power of The Kraken game icon" width="92" height="92" />
+                        <p class="meta">-</p>
+                        <p class="muted">-</p>
+                    </div>
+
+                    <p class="muted extra-info">
+                        is a new online slot game that features an ocean-monster theme,
+                        high volatility, and bonus rounds where players can win
+                        multipliers and free spins.
+                    </p>
+
+                    <div class="game-actions">
+                        <a class="btn btn-play" href="#play-megaslots">Play</a>
+                        <label for="toggle-detail3" class="btn-details muted" style="align-self: center">Details</label>
+                    </div>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="card" role="listitem" aria-labelledby="g1">
+                    <input type="checkbox" id="toggle-detail4" class="toggle" />
+                    <h3 id="g1">Super Ace Deluxe</h3>
+                    <div class="hide-on-click">
+                        <img src="images/icon_sad.png" alt="Power of The Kraken game icon" width="92" height="92" />
+                        <p class="meta">-</p>
+                        <p class="muted">-</p>
+                    </div>
+
+                    <p class="muted extra-info">
+                        is a new online slot game that features an ocean-monster theme,
+                        high volatility, and bonus rounds where players can win
+                        multipliers and free spins.
+                    </p>
+
+                    <div class="game-actions">
+                        <a class="btn btn-play" href="#play-megaslots">Play</a>
+                        <label for="toggle-detail4" class="btn-details muted" style="align-self: center">Details</label>
+                    </div>
+                </article>
+
+                <!-- Article 6 -->
+                <article class="card" role="listitem" aria-labelledby="g1">
+                    <input type="checkbox" id="toggle-detail5" class="toggle" />
+                    <h3 id="g1">Gates of Olympus</h3>
+                    <div class="hide-on-click">
+                        <img src="images/icon_goo.png" alt="Power of The Kraken game icon" width="92" height="92" />
+                        <p class="meta">-</p>
+                        <p class="muted">-</p>
+                    </div>
+
+                    <p class="muted extra-info">
+                        is a new online slot game that features an ocean-monster theme,
+                        high volatility, and bonus rounds where players can win
+                        multipliers and free spins.
+                    </p>
+
+                    <div class="game-actions">
+                        <a class="btn btn-play" href="#play-megaslots">Play</a>
+                        <label for="toggle-detail5" class="btn-details muted" style="align-self: center">Details</label>
+                    </div>
+                </article>
+
+                <!-- Article 7 -->
+                <article class="card" role="listitem" aria-labelledby="g1">
+                    <input type="checkbox" id="toggle-detail6" class="toggle" />
+                    <h3 id="g1">Fortune Gems</h3>
+                    <div class="hide-on-click">
+                        <img src="images/icon_fg.png" alt="Power of The Kraken game icon" width="92" height="92" />
+                        <p class="meta">-</p>
+                        <p class="muted">-</p>
+                    </div>
+
+                    <p class="muted extra-info">
+                        is a new online slot game that features an ocean-monster theme,
+                        high volatility, and bonus rounds where players can win
+                        multipliers and free spins.
+                    </p>
+
+                    <div class="game-actions">
+                        <a class="btn btn-play" href="#play-megaslots">Play</a>
+                        <label for="toggle-detail6" class="btn-details muted" style="align-self: center">Details</label>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="bonus" aria-labelledby="bonus-h">
+            <h2 id="bonus-h" style="margin-top: 28px">Bonuses & Offers</h2>
+            <div class="bonuses">
+                <div class="card">
+                    <img src="images/icon_a_refer.svg" alt="" />
+                    <h3>Refer and Earn</h3>
+                    <p class="meta">Earn up to ₹50,000 every time you refer a friend</p>
+                    <p class="muted">
+                        Play now and refer a friend to receive an exclusive bonus.
+                    </p>
+                    <div style="margin-top: 12px">
+                        <a class="btn" href="#signup">Know more</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Are you an Influencer?</h3>
+                    <p class="meta">
+                        Earn ₹100,000 of rupees everytime your followers play a game
+                    </p>
+                    <p class="muted">
+                        Play now and start building your followers to earn greater
+                        rewards.
+                    </p>
+                    <div style="margin-top: 12px">
+                        <a class="btn" href="#jackpots">Know more</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="signup" aria-labelledby="signup-h">
+            <h2 id="signup-h" style="margin-top: 28px">Create an Account</h2>
+            <p class="muted">Sign up to claim bonus rewards and track your play.</p>
+
+            <form class="card" aria-label="Sign-up form" onsubmit="return demoSignup(event)">
+                <label for="fullname">Full name</label>
+                <input id="fullname" name="fullname" type="text" required style="
+              display: block;
+              width: 100%;
+              padding: 8px;
+              margin: 6px 0 12px;
+              border-radius: 8px;
+              border: 1px solid rgba(255, 255, 255, 0.06);
+              background: transparent;
+              color: inherit;
+            " autocomplete="off" />
+
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required style="
+              display: block;
+              width: 100%;
+              padding: 8px;
+              margin: 6px 0 12px;
+              border-radius: 8px;
+              border: 1px solid rgba(255, 255, 255, 0.06);
+              background: transparent;
+              color: inherit;
+            " autocomplete="off" />
+
+                <label for="limit">Deposit limit (optional)</label>
+                <select id="limit" name="limit" style="
+              display: block;
+              width: 100%;
+              padding: 8px;
+              margin: 6px 0 12px;
+              border-radius: 8px;
+              border: 1px solid rgba(255, 255, 255, 0.06);
+              background: transparent;
+              color: inherit;
+            " autocomplete="off">
+                    <option value="none">No limit</option>
+                    <option value="50">$50 / week</option>
+                    <option value="200">$200 / week</option>
+                </select>
+
+                <div style="
+              display: flex;
+              gap: 8px;
+              align-items: center;
+              margin-top: 8px;
+            ">
+                    <input id="tos" name="tos" type="checkbox" required />
+                    <label for="tos">I agree to the <a href="#terms">terms & conditions</a></label>
+                </div>
+
+                <button type="submit" class="btn btn-join" style="margin-top: 12px">
+                    Create account
+                </button>
+            </form>
+        </section>
+
+        <footer>
+            <div style="margin-bottom: 8px">
+                © <time datetime="2025-09-17">2025</time> Jaiho Slots — Play. Win.
+                Earn.
+            </div>
+            <!--<div class="muted">
+                This site is a demo. Real gambling sites are subject to local laws and
+                licensing. Never gamble more than you can afford.
+            </div>-->
+        </footer>
+    </main>
+
+    <script>
+        function demoSignup(e) {
+            e.preventDefault();
+            const name = e.target.fullname.value || "friend";
+            alert("Thanks " + name + "! This demo does not create a real account.");
+            e.target.reset();
+            return false;
+        }
+    </script>
+</body>
+
+</html>
