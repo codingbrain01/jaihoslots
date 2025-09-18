@@ -60,7 +60,6 @@
             background-attachment: fixed;
             color: #eef6ea;
             scroll-behavior: smooth;
-            overflow-x: hidden;
         }
 
         /* --- Fixed SVG background --- */
@@ -241,7 +240,6 @@
         .aos-wrapper {
             overflow-x: hidden;
         }
-
 
         .btn {
             padding: 10px 14px;
@@ -675,40 +673,37 @@
         <section id="bonus" aria-labelledby="bonus-h">
             <h2 id="bonus-h" style="margin-top: 28px">Bonuses & Offers</h2>
             <div class="bonuses">
-                <div class="card">
-                    <div class="aos-wrapper">
-                        <div data-aos="fade-right">
-                            <img src="images/icon_a_refer.svg" alt="" />
-                            <h3>Refer and Earn</h3>
-                            <p class="meta">Earn up to ₹50,000 every time you refer a friend</p>
-                            <p class="muted">
-                                Play now and refer a friend to receive an exclusive bonus.
-                            </p>
-                            <div style="margin-top: 12px">
-                                <a class="btn" href="#signup">Know more</a>
-                            </div>
+                <div class="aos-wrapper">
+                    <div class="card" data-aos="fade-right" data-aos-easing="ease-in-sine">
+                        <img src="images/icon_a_refer.svg" alt="" />
+                        <h3>Refer and Earn</h3>
+                        <p class="meta">Earn up to ₹50,000 every time you refer a friend</p>
+                        <p class="muted">
+                            Play now and refer a friend to receive an exclusive bonus.
+                        </p>
+                        <div style="margin-top: 12px">
+                            <a class="btn" href="#signup">Know more</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="aos-wrapper">
-                        <div data-aos="fade-left">
-                            <img src="images/icon_b_influencer.svg" alt="" />
-                            <h3>Are you an Influencer?</h3>
-                            <p class="meta">
-                                Earn ₹100,000 of rupees everytime your followers play a game
-                            </p>
-                            <p class="muted">
-                                Play now and start building your followers to earn greater
-                                rewards.
-                            </p>
-                            <div style="margin-top: 12px">
-                                <a class="btn" href="#jackpots">Know more</a>
-                            </div>
+                <div class="aos-wrapper">
+                    <div class="card" data-aos="fade-left" data-aos-easing="ease-in-sine">
+                        <img src="images/icon_b_influencer.svg" alt="" />
+                        <h3>Are you an Influencer?</h3>
+                        <p class="meta">
+                            Earn ₹100,000 of rupees everytime your followers play a game
+                        </p>
+                        <p class="muted">
+                            Play now and start building your followers to earn greater
+                            rewards.
+                        </p>
+                        <div style="margin-top: 12px">
+                            <a class="btn" href="#jackpots">Know more</a>
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
 
         <section id="signup" aria-labelledby="signup-h">
