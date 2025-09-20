@@ -5,18 +5,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Play Online Slot Games in India | Free Bonus at JaiHo Slots</title>
-    <meta name="description"
-        content="Grand Evergreen Casino — Play slots, blackjack, roulette and win jackpots. Fast, accessible, SEO-friendly casino-style demo site." />
+    <meta name="description" content="Jaiho Slots — Play slots, crash, roulette and win jackpots." />
     <meta name="robots" content="index, follow" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Grand Evergreen Casino — Play & Win" />
-    <meta property="og:description" content="Play slots, blackjack, roulette and win jackpots." />
+    <meta property="og:title" content="Play Online Slot Games in India | Free Bonus at JaiHo Slots" />
+    <meta property="og:description" content="Play slots, crash, roulette and win jackpots." />
     <meta property="og:type" content="website" />
 
     <!-- CSS -->
     <!--<link rel="stylesheet" href="css/style.css" />-->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <!-- Icon -->
     <link rel="icon" href="images/icon_header.ico" type="image/x-icon" sizes="any" />
@@ -120,7 +119,6 @@
             animation: spin 3s linear infinite;
         }
 
-
         nav {
             display: flex;
             gap: 14px;
@@ -141,12 +139,14 @@
         }
 
         .hero {
-            display: grid;
-            grid-template-columns: 1fr 420px;
-            gap: 22px;
-            align-items: center;
-            margin-top: 18px;
-        }
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 22px;
+    align-items: center;       /* vertical alignment of items inside rows */
+    justify-content: center;   /* centers the grid itself horizontally */
+    margin-top: 18px;
+}
+
 
         .hero h1 {
             font-size: clamp(1.6rem, 3.6vw, 2.6rem);
@@ -173,7 +173,7 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 16px;
             margin-top: 20px;
         }
@@ -241,6 +241,10 @@
             overflow-x: hidden;
         }
 
+        .aos-wrapper .card {
+            box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+
         .btn {
             padding: 10px 14px;
             border-radius: 10px;
@@ -289,10 +293,18 @@
         }
 
         footer {
-            margin: 28px 0;
+            margin: 3% 0;
             color: var(--muted);
             font-size: 0.88rem;
             text-align: center;
+        }
+
+        footer,
+        .footer-logo,
+        .badge-title,
+        .badge-sub,
+        .footer-disclaimer {
+            text-align: left;
         }
 
         /* Responsiveness */
@@ -402,6 +414,45 @@
             white-space: nowrap;
             border: 0;
         }
+
+        /* Footer */
+        .trust-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.02);
+            min-width: 180px;
+        }
+
+        .badge-title {
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .badge-sub {
+            margin: 0;
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .footer-disclaimer {
+            margin-top: 16px;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.7);
+        }
     </style>
 </head>
 
@@ -453,13 +504,13 @@
                 <p class="sub">Sign in for double welcome bonus.</p>
 
                 <div class="promo-pills">
-                    <span class="pill">Welcome rewards up to ₹100,000</span>
+                    <span class="pill">Welcome bonus</span>
                     <span class="pill">Zero Fraud Guarantee</span>
                     <span class="pill">24/7 Support</span>
                 </div>
 
                 <div style="margin-top: 14px">
-                    <a href="#games" class="btn btn-play">Play Now</a>
+                    <a href="#games" class="btn btn-play">Download APK</a>
                     <button class="btn" style="
                 background: transparent;
                 color: var(--muted);
@@ -485,22 +536,21 @@
 
             <aside style="padding: 8px">
                 <div class="card" aria-labelledby="jackpot-title">
-                    <h3 id="jackpot-title">Progressive Jackpot</h3>
-                    <p class="meta">Current: <strong>$1,245,600</strong></p>
+                    <img src="images/icon_promo.svg" alt="Promo icon" style="height: 100px;">
+                    <h3 id="jackpot-title">PROMO CODE</h3>
                     <p class="muted">
-                        Download <strong>Jaiho Slots</strong> now to take the jackpot.
+                        Unlock Extra Rewards! Use <strong>JaihoSlots</strong> promo codes to
+                        claim exclusive bonuses, free spins, cashback offers, and deposit
+                        rewards. Simply enter the promo code during deposit or in the
+                        promo section to enjoy extra perks on your gameplay.
                     </p>
-                    <div style="margin-top: 20px">
-                        <a class="btn btn-play" href="#games">Download APK</a>
-                    </div>
-                </div>
-
-                <div class="card" style="margin-top: 12px">
-                    <h4>Never Stop Playing</h4>
                     <p class="muted">
-                        Real Cash Games, 100% Bonus Games, Gadget Leagues & Many More!
+                        Stay updated on our latest promo codes through our official Telegram
+                        channel or in-app notifications so you never miss a reward! Play
+                        more, win more — only with <strong>JaihoSlots</strong> Promo Codes!
                     </p>
                 </div>
+                
             </aside>
         </section>
 
@@ -531,7 +581,7 @@
                     </p>
 
                     <div class="game-actions">
-                        <a class="btn btn-play" href="#play-megaslots">Play</a>
+                        <a class="btn btn-play" href="#play-power-of-the-kraken">Play</a>
                         <label for="toggle-detail0" class="btn-details muted" style="align-self: center">Details</label>
                     </div>
                 </article>
@@ -553,7 +603,7 @@
                     </p>
 
                     <div class="game-actions">
-                        <a class="btn btn-play" href="#play-megaslots">Play</a>
+                        <a class="btn btn-play" href="#play-aviator">Play</a>
                         <label for="toggle-detail1" class="btn-details muted" style="align-self: center">Details</label>
                     </div>
                 </article>
@@ -569,13 +619,12 @@
                     </div>
 
                     <p class="muted extra-info">
-                        is a new online slot game that features an ocean-monster theme,
-                        high volatility, and bonus rounds where players can win
-                        multipliers and free spins.
+                        a sweet slot adventure on a 4-5-5-5-4 grid, packed with candy
+                        symbols, bonus spins, and fun soundtrack.
                     </p>
 
                     <div class="game-actions">
-                        <a class="btn btn-play" href="#play-megaslots">Play</a>
+                        <a class="btn btn-play" href="#play-sugar-bang-bang">Play</a>
                         <label for="toggle-detail2" class="btn-details muted" style="align-self: center">Details</label>
                     </div>
                 </article>
@@ -591,13 +640,12 @@
                     </div>
 
                     <p class="muted extra-info">
-                        is a new online slot game that features an ocean-monster theme,
-                        high volatility, and bonus rounds where players can win
-                        multipliers and free spins.
+                        a fruit-themed slot with Mystery Boxes, Sticky Symbols, and Free
+                        Spins hosted by the King of the Jungle.
                     </p>
 
                     <div class="game-actions">
-                        <a class="btn btn-play" href="#play-megaslots">Play</a>
+                        <a class="btn btn-play" href="#play-jungle-delight">Play</a>
                         <label for="toggle-detail3" class="btn-details muted" style="align-self: center">Details</label>
                     </div>
                 </article>
@@ -613,13 +661,12 @@
                     </div>
 
                     <p class="muted extra-info">
-                        is a new online slot game that features an ocean-monster theme,
-                        high volatility, and bonus rounds where players can win
-                        multipliers and free spins.
+                        mahjong-inspired slot featuring Star Cards, cascading reels, and
+                        combo multipliers for bigger wins.
                     </p>
 
                     <div class="game-actions">
-                        <a class="btn btn-play" href="#play-megaslots">Play</a>
+                        <a class="btn btn-play" href="#play-super-ace-deluxe">Play</a>
                         <label for="toggle-detail4" class="btn-details muted" style="align-self: center">Details</label>
                     </div>
                 </article>
@@ -635,13 +682,12 @@
                     </div>
 
                     <p class="muted extra-info">
-                        is a new online slot game that features an ocean-monster theme,
-                        high volatility, and bonus rounds where players can win
-                        multipliers and free spins.
+                        Mythical slot with multipliers and free spins; join Zeus on a
+                        celestial quest for epic rewards.
                     </p>
 
                     <div class="game-actions">
-                        <a class="btn btn-play" href="#play-megaslots">Play</a>
+                        <a class="btn btn-play" href="#play-gates-of-olympus">Play</a>
                         <label for="toggle-detail5" class="btn-details muted" style="align-self: center">Details</label>
                     </div>
                 </article>
@@ -657,29 +703,55 @@
                     </div>
 
                     <p class="muted extra-info">
-                        is a new online slot game that features an ocean-monster theme,
-                        high volatility, and bonus rounds where players can win
-                        multipliers and free spins.
+                        3×3 Asian-style slot with vivid gems, wild masks, turbo spins, and
+                        payouts up to 5× your bet.
                     </p>
 
                     <div class="game-actions">
-                        <a class="btn btn-play" href="#play-megaslots">Play</a>
+                        <a class="btn btn-play" href="#play-fortune-gems">Play</a>
                         <label for="toggle-detail6" class="btn-details muted" style="align-self: center">Details</label>
+                    </div>
+                </article>
+
+                <!-- Article 8 -->
+                <article class="card" role="listitem" aria-labelledby="g1">
+                    <input type="checkbox" id="toggle-detail7" class="toggle" />
+                    <h3 id="g1">Doomsday Rampage</h3>
+                    <div class="hide-on-click">
+                        <img src="images/icon_dd.png" alt="Doomsday Rampage game icon" width="92" height="92" />
+                        <p class="meta">-</p>
+                        <p class="muted">-</p>
+                    </div>
+
+                    <p class="muted extra-info">
+                        a post-apocalyptic slot from PG Soft featuring raiders, shelters,
+                        and Anna, a fearless scientist. Smooth animations, vivid visuals,
+                        and mobile-first gameplay make this chaotic adventure
+                        unforgettable.
+                    </p>
+
+                    <div class="game-actions">
+                        <a class="btn btn-play" href="#play-doomsday-rampage">Play</a>
+                        <label for="toggle-detail7" class="btn-details muted" style="align-self: center">Details</label>
                     </div>
                 </article>
             </div>
         </section>
 
         <section id="bonus" aria-labelledby="bonus-h">
-            <h2 id="bonus-h" style="margin-top: 28px">Bonuses & Offers</h2>
+            <h2 id="bonus-h" style="margin-top: 28px">Bonuses & Rewards</h2>
             <div class="bonuses">
                 <div class="aos-wrapper">
                     <div class="card" data-aos="fade-right" data-aos-easing="ease-in-sine">
-                        <img src="images/icon_a_refer.svg" alt="" />
-                        <h3>Refer and Earn</h3>
-                        <p class="meta">Earn up to ₹50,000 every time you refer a friend</p>
+                        <img src="images/icon_lucky.svg" alt="Refer" loading="lazy" style="height: 100px;" />
+                        <h3>LUCKY GULLAK</h3>
+                        <p class="meta">
+                            Catch the Gullak, Claim the Reward!
+                            The more Gullaks you catch, the bigger your reward! 💰✨
+                        </p>
                         <p class="muted">
-                            Play now and refer a friend to receive an exclusive bonus.
+                            Collect as many Gullaks as you can and unlock exciting cash prizes waiting just for you.
+                            Don’t miss the chance to boost your balance with Lucky Gullak rewards! 🎉
                         </p>
                         <div style="margin-top: 12px">
                             <a class="btn" href="#signup">Know more</a>
@@ -689,17 +761,19 @@
 
                 <div class="aos-wrapper">
                     <div class="card" data-aos="fade-left" data-aos-easing="ease-in-sine">
-                        <img src="images/icon_b_influencer.svg" alt="" />
-                        <h3>Are you an Influencer?</h3>
+                        <img src="images/icon_mystery.svg" alt="Influencer" loading="lazy" style="height: 100px;" />
+                        <h3>MYSTERY BONUS?</h3>
                         <p class="meta">
-                            Earn ₹100,000 of rupees everytime your followers play a game
+                            Direct to Your Mailbox!
+                            Keep an eye on your in-app mailbox — JaihoSlots surprises players with exclusive Mystery
+                            Bonuses from time to time! There is a special rewards waiting just for you.
                         </p>
                         <p class="muted">
-                            Play now and start building your followers to earn greater
-                            rewards.
+                            It’s our way of saying thank you for playing. Open your mailbox regularly so you never miss
+                            out on a hidden reward!
                         </p>
                         <div style="margin-top: 12px">
-                            <a class="btn" href="#jackpots">Know more</a>
+                            <a class="btn" href="#signup">Know more</a>
                         </div>
                     </div>
                 </div>
@@ -768,14 +842,59 @@
         </section>
 
         <footer>
-            <div style="margin-bottom: 8px">
+            <!-- Trust & Certification Badges -->
+            <img src="images/icon_logo.png" alt="JaihoSlots logo" class="footer-logo" width="192" height="auto"
+                loading="lazy" />
+            <div class="trust-badges" aria-label="Platform trust and certifications">
+                <div class="badge">
+                    <img src="images/icon_crown.png" alt="100% Secure Fair Play Policy" width="20" height="20"
+                        loading="lazy" />
+                    <div>
+                        <h4 class="badge-title">100% Secure</h4>
+                        <p class="badge-sub">Fair Play Policy</p>
+                    </div>
+                </div>
+
+                <div class="badge">
+                    <img src="images/icon_company.png" alt="ISO Certified Company" width="20" height="20"
+                        loading="lazy" />
+                    <div>
+                        <h4 class="badge-title">ISO Certified</h4>
+                        <p class="badge-sub">Company</p>
+                    </div>
+                </div>
+
+                <div class="badge">
+                    <img src="images/icon_flash.png" alt="Instant Withdrawal" width="20" height="20" loading="lazy" />
+                    <div>
+                        <h4 class="badge-title">Instant</h4>
+                        <p class="badge-sub">Withdrawal</p>
+                    </div>
+                </div>
+
+                <div class="badge">
+                    <img src="images/icon_crore_users.png" alt="1 Crore+ Trusted Users" width="20" height="20"
+                        loading="lazy" />
+                    <div>
+                        <h4 class="badge-title">1 Crore +</h4>
+                        <p class="badge-sub">Trusted Users</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Company Info -->
+            <p class="footer-disclaimer">
+                Launched in 2017, <strong>JaihoSlots</strong> is the first online
+                gaming app introduced by <span>Yono Tech Co. Ltd.</span> Within a
+                short time, JaihoSlots has won the hearts of millions of table-game
+                enthusiasts across India. Play exciting cash games, join big
+                tournaments, and showcase your skills on the
+                <strong>JaihoSlots</strong> app today.
+            </p>
+            <div style="margin: 3% 0; text-align: center">
                 © <time datetime="2025-09-17">2025</time> Jaiho Slots — Play. Win.
                 Earn.
             </div>
-            <!--<div class="muted">
-                This site is a demo. Real gambling sites are subject to local laws and
-                licensing. Never gamble more than you can afford.
-            </div>-->
         </footer>
     </main>
 
@@ -790,7 +909,9 @@
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script>AOS.init({ once: false, duration: 300 });</script>
+    <script>
+        AOS.init({ once: false, duration: 300 });
+    </script>
 </body>
 
 </html>
