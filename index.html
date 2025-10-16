@@ -27,6 +27,7 @@
             --bg-cta: #058C4D;
             --background-color-1: #1E1E1E;
             --background-color-2: #2B2B2B;
+            --background-color-3: #191919;
             --text-color: #ffffff;
             --text-color-1: #000000;
             --header-height: 60px;
@@ -485,6 +486,80 @@
         .about-title h2 {
             font-size: medium;
         }
+
+        /*
+        ################################################################
+        ||                                                            ||
+        ||                         FOOTER CSS                         ||
+        ||                                                            ||
+        ################################################################
+        */
+
+        footer {
+            width: 100%;
+            padding: 1.5rem 6.5rem;
+            background-color: var(--background-color-3);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .brand img {
+            height: 40px;
+            /* adjust the height to fit your design */
+            margin-right: 10px;
+        }
+
+        .footer-wrapper {
+            border-top: 1px solid #444;
+            margin-top: 1rem;
+        }
+
+        .footer-wrapper hr {
+            border: none;
+            border-top: 1px solid #444;
+            margin: 1rem 0;
+        }
+
+        .footer-content {
+            margin: 1rem 0;
+
+        }
+
+        .footer-content .row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-content .col {
+            width: 18%;
+        }
+
+        .col h4 {
+            font-size: 1rem;
+        }
+
+        .col a {
+            display: block;
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0.5rem 0;
+            font-size: .75rem;
+        }
+
+        .sponsors {
+            margin: 1rem 0;
+        }
+
+        .contact {
+            margin: 1rem 0;
+        }
+
+        .copyright {
+            margin: 1rem 0;
+        }
     </style>
 </head>
 
@@ -787,14 +862,80 @@
                     <h2 style="text-align: center;">I AM STILL THINKING<br>IDEAS ABOUT<br>THIS SECTION</h2>
                     <br>
                     <br>
-                    <p style="text-align: center;">abdafbsfgPIHBKOJH<br>SJFHKJBNfs<br>SKFHVBKJFGVB<br>zkCVNBkrUJAD<br>jkxvcvcjjnvcjn<br><br><br><br><br>😺 🍀</p>
+                    <p style="text-align: center;">
+                        abdafbsfgPIHBKOJH<br>SJFHKJBNfs<br>SKFHVBKJFGVB<br>zkCVNBkrUJAD<br>jkxvcvcjjnvcjn<br><br><br><br><br>😺
+                        🍀</p>
                 </div>
             </div>
         </section>
 
     </main>
+
     <footer aria-label="Footer section">
+        <div class="brand" role="banner">
+            <a href="index.html" aria-label="JaihoSlots Home">
+                <img class="logo" src="images/icon_logo.png" alt="JaihoSlots logo" />
+            </a>
+        </div>
+        <div class="footer-wrapper">
+            <div class="footer-content">
+                <div class="row">
+                    <div class="col">
+                        <h4>I-Gaming</h4>
+                        <a href="">All Games</a>
+                        <a href="">Table</a>
+                        <a href="">Slots</a>
+                        <a href="">Live</a>
+                        <a href="">Roulette</a>
+                    </div>
+                    <div class="col">
+                        <h4>Quick Links</h4>
+                        <a href="">Promotions</a>
+                        <a href="">Tournaments</a>
+                        <a href="">VIP Program</a>
+                        <a href="">Lottery</a>
+                        <a href="">Sportsbook</a>
+                        <a href="">Christmas-Calendar</a>
+                        <a href="">Bonus Store</a>
+                    </div>
+                    <div class="col">
+                        <h4>About Us</h4>
+                        <a href="">Payments</a>
+                        <a href="">About JaihoSlots</a>
+                    </div>
+                    <div class="col">
+                        <h4>Help</h4>
+                        <a href="">Support</a>
+                        <a href="">FAQ</a>
+                        <a href="">Terms and Conditions</a>
+                        <a href="">Bonus Terms and Conditions</a>
+                        <a href="">Privacy and Policy</a>
+                        <a href="">Responsile Gaming</a>
+                    </div>
+                    <div class="col">
+                        <p>The Casino Online has a legal permission to conduct online gambling on the basis of the
+                            international License. We understand that ensuring the fair game is one of the most
+                            important conditions for the casino operation. Therefore, we offer you only games from
+                            reliable and long proven certified manufacturers.</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="sponsors">
+                <h4>Sponsors Section</h4>
+            </div>
+            <hr>
+            <div class="contact">
+                <h4>Contact Section Icons</h4>
+            </div>
+
+            <div class="copyright">
+                <p>© 2024 JaihoSlots. All rights reserved.</p>
+                <p>Terms of Service | Privacy Policy | Responsible Gaming</p>
+            </div>
+        </div>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script>
         new Swiper("#swiper-1", {
