@@ -108,25 +108,31 @@
             margin-right: 10px;
         }
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
+        .download-app .download-btn {
             display: flex;
-        }
-
-        nav ul li {
-            margin-right: 20px;
-        }
-
-        nav a {
-            color: var(--text-color);
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.875rem;
+            border: none;
+            border-radius: 0.5rem;
             text-decoration: none;
-            font-weight: var(--font-weight);
+            font-weight: var(--font-weight-2);
+            color: var(--text-color-1);
+            background: linear-gradient(90deg,
+                    var(--bg-cta) 0%,
+                    var(--bg-cta) 50%,
+                    #cbee69 65%,
+                    var(--bg-cta) 100%);
+            background-size: 200% 200%;
+            background-position: right center;
+            transition: background-position 0.5s ease, transform 0.3s ease;
+            cursor: pointer;
+            
         }
 
-        nav a:hover {
-            text-decoration: underline;
+        .download-app .download-btn:hover {
+            background-position: left center;
         }
 
         /*
@@ -228,32 +234,36 @@
         ################################################################
         */
 
+        /* === Game Category Section === */
         .game-category-section {
             padding: 1.5rem 6.5rem;
         }
 
+        /* Outer wrapper */
         .game-category {
             padding: 1rem;
             background: #323232;
-            border-radius: .75rem;
+            border-radius: 0.75rem;
             overflow-x: auto;
+            scrollbar-width: thin;
         }
 
+        /* Main category navigation */
         .category {
             display: flex;
             flex-wrap: nowrap;
             gap: 1rem;
             justify-content: flex-start;
             align-items: center;
-        }
-
-        .category-2 {
-            display: none;
+            white-space: nowrap;
         }
 
         .category .button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             padding: 0.75rem 1.5rem;
-            font-size: .875rem;
+            font-size: 0.875rem;
             border: none;
             border-radius: 0.5rem;
             text-decoration: none;
@@ -266,19 +276,69 @@
                     var(--bg-cta) 100%);
             background-size: 200% 200%;
             background-position: right center;
+            transition: background-position 0.5s ease, transform 0.3s ease;
             cursor: pointer;
-            transition: background-position .5s ease, transform 0.3s ease;
         }
 
-        /* Hover state — slow gradient shift + small lift */
+        /* Hover effect — smooth gradient transition */
         .category .button:hover {
             background-position: left center;
+            /*transform: translateY(-2px);*/
         }
 
-        .button img {
+        .category .button img {
             height: 1rem;
-            margin-right: .5rem;
             vertical-align: middle;
+        }
+
+        /* === Search Button === */
+        .category .search-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.6rem;
+            height: 2.6rem;
+            margin-left: auto;
+            background: var(--background-color-1);
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .category .search-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+        }
+
+        /* === Providers Dropdown === */
+        .category .providers {
+            padding: 0 1rem;
+            height: 2.6rem;
+            width: 16rem;
+            background: var(--background-color-1);
+            border-radius: 0.5rem;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+
+        /* Visually hidden label (for accessibility) */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        /* === Mobile Version === */
+        .category-2 {
+            display: none;
         }
 
         @media screen and (max-width: 768px) {
@@ -287,10 +347,22 @@
             }
 
             .category-2 {
-                display: block;
-                text-align: center;
+                display: flex;
+                justify-content: center;
+                margin-top: 1rem;
+            }
+
+            .category-2 select {
+                width: 80%;
+                padding: 0.75rem;
+                border-radius: 0.5rem;
+                border: none;
+                background: var(--background-color-1);
+                color: var(--text-color);
+                font-size: 1rem;
             }
         }
+
 
         /*
         ################################################################
@@ -383,6 +455,208 @@
             width: 100%;
             border-radius: .75rem;
         }
+
+        /*
+        ################################################################
+        ||                                                            ||
+        ||                          SLOTS CSS                         ||
+        ||                                                            ||
+        ################################################################
+        */
+
+        .slots-section {
+            padding: 1.5rem 6.5rem;
+        }
+
+        .slots-title {
+            display: flex;
+            margin: 0 0 1rem 0;
+        }
+
+        .slots-title h2 {
+            font-size: medium;
+        }
+
+        .slots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+            gap: 1rem;
+            align-items: stretch;
+        }
+
+        .slots-grid .grid-img,
+        .slots-grid .grid-img-banner {
+            width: 100%;
+            height: auto;
+            border-radius: 0.75rem;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .slots-grid .grid-img:hover {
+            transform: scale(1.05);
+        }
+
+        .slots-grid .grid-img-banner {
+            grid-column: span 2;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 768px) {
+            .slots-grid {
+                min-width: 100px;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .slots-grid .grid-img-banner {
+                grid-column: 1 / -1;
+                order: -1;
+            }
+        }
+
+        /*
+        ################################################################
+        ||                                                            ||
+        ||                     FLYING GAMES CSS                       ||
+        ||                                                            ||
+        ################################################################
+        */
+
+        .flying-games-section {
+            padding: 1.5rem 6.5rem;
+        }
+
+        .flying-games-title {
+            display: flex;
+            margin: 0 0 1rem 0;
+        }
+
+        .flying-games-title h2 {
+            font-size: medium;
+        }
+
+        /* ✅ FIXED SIZE GRID */
+        .flying-games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 208px);
+            /* fixed width per item */
+            gap: 1rem;
+            justify-content: stretch;
+            /* centers the grid instead of stretching */
+        }
+
+        .flying-games-grid .grid-img,
+        .flying-games-grid .grid-img-banner {
+            width: 208px;
+            /* fixed width */
+            height: 280.08px;
+            /* fixed height */
+            border-radius: 0.75rem;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .flying-games-grid .grid-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* ✅ Grid banner still spans two columns when space allows */
+        .flying-games-grid .grid-img-banner {
+            grid-column: span 2;
+        }
+
+        /* ✅ Responsive behavior */
+        @media (max-width: 768px) {
+            .flying-games-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                justify-content: center;
+            }
+
+            .flying-games-grid .grid-img,
+            .flying-games-grid .grid-img-banner {
+                width: 100%;
+                height: auto;
+            }
+
+            .flying-games-grid .grid-img-banner {
+                grid-column: 1 / -1;
+                order: -1;
+            }
+        }
+
+        /*
+        ################################################################
+        ||                                                            ||
+        ||                    SPINNING WHEELS CSS                     ||
+        ||                                                            ||
+        ################################################################
+        */
+
+        .spinning-wheels-section {
+            padding: 1.5rem 6.5rem;
+        }
+
+        .spinning-wheels-title {
+            display: flex;
+            margin: 0 0 1rem 0;
+        }
+
+        .spinning-wheels-title h2 {
+            font-size: medium;
+        }
+
+        /* ✅ FIXED SIZE GRID */
+        .spinning-wheels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 208px);
+            /* fixed width per item */
+            gap: 1rem;
+            justify-content: stretch;
+            /* centers the grid instead of stretching */
+        }
+
+        .spinning-wheels-grid .grid-img,
+        .spinning-wheels-grid .grid-img-banner {
+            width: 208px;
+            /* fixed width */
+            height: 280.08px;
+            /* fixed height */
+            border-radius: 0.75rem;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .spinning-wheels-grid .grid-img:hover {
+            transform: scale(1.05);
+        }
+
+        /* ✅ Grid banner still spans two columns when space allows */
+        .spinning-wheels-grid .grid-img-banner {
+            grid-column: span 2;
+        }
+
+        /* ✅ Responsive behavior */
+        @media (max-width: 768px) {
+            .spinning-wheels-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                justify-content: center;
+            }
+
+            .spinning-wheels-grid .grid-img,
+            .spinning-wheels-grid .grid-img-banner {
+                width: 100%;
+                height: auto;
+            }
+
+            .spinning-wheels-grid .grid-img-banner {
+                grid-column: 1 / -1;
+                order: -1;
+            }
+        }
+
 
         /*
         ################################################################
@@ -487,6 +761,59 @@
             font-size: medium;
         }
 
+        .about-content {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .about-icon img {
+            width: 17rem;
+            height: auto;
+        }
+
+        .about-description {
+            width: 35rem;
+            line-height: 1.6;
+        }
+
+        .about-description h2 {
+            size: medium;
+            margin-bottom: 1rem;
+        }
+
+        .about-description p {
+            color: #969595
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+            justify-content: center;
+        }
+
+        .card {
+            background: #2b2b2b;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            width: 18.75rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card h3 {
+            font-size: small;
+        }
+
+        .card p {
+            font-size: smaller;
+            color: #969595;
+            margin-top: 0.5rem;
+            line-height: 1.6;
+        }
+
         /*
         ################################################################
         ||                                                            ||
@@ -495,70 +822,88 @@
         ################################################################
         */
 
-        footer {
-            width: 100%;
-            padding: 1.5rem 6.5rem;
-            background-color: var(--background-color-3);
+        /* Footer Base */
+        .site-footer {
+            background: var(--background-color-3);
+            /* dark purple-black tone */
+            color: #f5f5f5;
+            padding: 3rem 2rem;
+            text-align: center;
+            line-height: 1.6;
         }
 
-        .brand {
+        /* Footer Badges */
+        .footer-badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .badge {
             display: flex;
             align-items: center;
+            gap: 0.75rem;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 0.75rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-width: 200px;
         }
 
-        .brand img {
-            height: 40px;
-            /* adjust the height to fit your design */
-            margin-right: 10px;
+        .badge:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
-        .footer-wrapper {
-            border-top: 1px solid #444;
-            margin-top: 1rem;
-        }
-
-        .footer-wrapper hr {
-            border: none;
-            border-top: 1px solid #444;
-            margin: 1rem 0;
-        }
-
-        .footer-content {
-            margin: 1rem 0;
-
-        }
-
-        .footer-content .row {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .footer-content .col {
-            width: 18%;
-        }
-
-        .col h4 {
+        /* Badge Text */
+        .badge-title {
             font-size: 1rem;
+            font-weight: 700;
+            margin: 0;
         }
 
-        .col a {
-            display: block;
-            color: var(--text-color);
-            text-decoration: none;
-            margin: 0.5rem 0;
-            font-size: .75rem;
+        .badge-sub {
+            font-size: 0.875rem;
+            color: #969595;
+            margin: 0;
         }
 
-        .sponsors {
-            margin: 1rem 0;
+        /* Footer Info Text */
+        .footer-info {
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            color: #969595;
+            font-size: 0.95rem;
         }
 
-        .contact {
-            margin: 1rem 0;
+        /* Footer Bottom */
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 2rem;
+            padding-top: 1rem;
+            font-size: 0.875rem;
+            color: #aaa;
         }
 
-        .copyright {
-            margin: 1rem 0;
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .footer-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .badge {
+                width: 90%;
+                justify-content: center;
+            }
+
+            .footer-info {
+                font-size: 0.9rem;
+                padding: 0 1rem;
+            }
         }
     </style>
 </head>
@@ -572,13 +917,9 @@
         </div>
 
         <!-- Desktop nav stays as-is -->
-        <nav aria-label="Primary navigation" role="navigation">
-            <ul>
-                <li><a href="#games">Games</a></li>
-                <li><a href="#promotion">Promotion</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-        </nav>
+        <div class="download-app">
+            <a class="download-btn" href="">DOWNLOAD ANDROID APP</a>
+        </div>
     </header>
 
     <main>
@@ -634,30 +975,58 @@
             </div> <!-- end swiper -->
         </section>
 
-        <section class="game-category-section" aria-label="Game Category">
-            <div class="game-category">
-                <div class="game-category-wrapper">
+        <!-- ✅ Game Category Section -->
+        <section class="game-category-section" aria-label="Game categories and provider filter">
+            <div class="game-category-wrapper">
+                <div class="game-category" role="navigation" aria-label="Game category navigation">
                     <div class="category">
-                        <a class="button" href="#toppicks"><img src="images/icon1.svg" alt="">Top Picks</a>
-                        <a class="button" href="#promotions"><img src="images/icon2.svg" alt="">Promotions</a>
-                        <a class="button" href="#slots"><img src="images/icon3.svg" alt="">Slots</a>
-                        <a class="button" href="#flyinggames"><img src="images/icon4.svg" alt="">Flying Games</a>
-                        <a class="button" href="#spinningwwheels"><img src="images/icon5.svg" alt="">Spinning Wheels</a>
-                        <a class="button" href="#aboutus"><img src="images/icon6.svg" alt="">About Us</a>
+                        <a class="button" href="#toppicks" aria-label="Top Picks category">
+                            <img src="images/icon1.svg" alt="" /> Top Picks
+                        </a>
+                        <a class="button" href="#promotions" aria-label="Promotions category">
+                            <img src="images/icon2.svg" alt="" /> Promotions
+                        </a>
+                        <a class="button" href="#slots" aria-label="Slots category">
+                            <img src="images/icon3.svg" alt="" /> Slots
+                        </a>
+                        <a class="button" href="#flyinggames" aria-label="Flying Games category">
+                            <img src="images/icon4.svg" alt="" /> Flying Games
+                        </a>
+                        <a class="button" href="#spinningwheels" aria-label="Spinning Wheels category">
+                            <img src="images/icon5.svg" alt="" /> Spinning Wheels
+                        </a>
+                        <a class="button" href="#aboutus" aria-label="About Us section">
+                            <img src="images/icon6.svg" alt="" /> About Us
+                        </a>
+
+                        <!-- ✅ Search Icon Button (Accessible) -->
+                        <button class="search-btn" aria-label="Search games">
+                            <i class="fa-solid fa-magnifying-glass fa-xl" style="color: #6b6b6b;"
+                                aria-hidden="true"></i>
+                        </button>
+
+                        <!-- ✅ Providers Dropdown -->
+                        <label for="providers" class="visually-hidden">Select game provider</label>
+                        <select id="providers" class="providers" aria-label="Select game provider">
+                            <option value="Providers" selected hidden>Providers</option>
+                        </select>
                     </div>
-                </div>
-                <div class="category-2">
-                    <select>
-                        <option value="Top Picks" selected>Top Picks</option>
-                        <option value="Promotions">Promotions</option>
-                        <option value="Slots">Slots</option>
-                        <option value="Flying Games">Flying Games</option>
-                        <option value="Spinning Wheels">Spinning Wheels</option>
-                        <option value="About Us">About Us</option>
-                    </select>
+
+                    <!-- ✅ Mobile-only Dropdown (for smaller screens) -->
+                    <div class="category-2">
+                        <select aria-label="Mobile game category">
+                            <option value="toppicks">Top Picks</option>
+                            <option value="promotions">Promotions</option>
+                            <option value="slots">Slots</option>
+                            <option value="flyinggames">Flying Games</option>
+                            <option value="spinningwheels">Spinning Wheels</option>
+                            <option value="aboutus">About Us</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </section>
+
 
         <section class="top-picks-section" id="games">
             <div class="top-picks">
@@ -704,85 +1073,62 @@
             </div>
         </section>
 
-        <section class="top-picks-section" id="games">
-            <div class="top-picks">
-                <div class="top-picks-title">
+        <section class="slots-section" id="games">
+            <div class="slots">
+                <div class="slots-title">
                     <h2><i class="fa-solid fa-circle-dollar-to-slot icon"></i> SLOTS</h2>
                 </div>
-                <div class="top-picks-wrapper">
-                    <div class="top-picks-grid">
-                        <img class="grid-img" src="images/img_filler_1.png" alt="">
-                        <img class="grid-img" src="images/img_filler_2.png" alt="">
-                        <img class="grid-img" src="images/img_filler_3.png" alt="">
-                        <img class="grid-img" src="images/img_filler_4.png" alt="">
-                        <img class="grid-img" src="images/img_filler_5.png" alt="">
-                        <img class="grid-img" src="images/img_filler_6.png" alt="">
-                        <img class="grid-img" src="images/img_filler_7.png" alt="">
-                        <img class="grid-img" src="images/img_filler_8.png" alt="">
-                        <img class="grid-img" src="images/img_filler_9.png" alt="">
-                        <img class="grid-img" src="images/img_filler_10.png" alt="">
-                        <img class="grid-img" src="images/img_filler_11.png" alt="">
-                        <img class="grid-img" src="images/img_filler_12.png" alt="">
-                        <img class="grid-img" src="images/img_filler_13.png" alt="">
-                        <img class="grid-img" src="images/img_filler_14.png" alt="">
-                        <img class="grid-img" src="images/img_filler_15.png" alt="">
-                        <img class="grid-img" src="images/img_filler_16.png" alt="">
+                <div class="slots-wrapper">
+                    <div class="slots-grid">
+                        <img class="grid-img" src="images/game1.svg" alt="">
+                        <img class="grid-img" src="images/game2.svg" alt="">
+                        <img class="grid-img" src="images/game3.svg" alt="">
+                        <img class="grid-img" src="images/game4.svg" alt="">
+                        <img class="grid-img" src="images/game5.svg" alt="">
+                        <img class="grid-img" src="images/game6.svg" alt="">
+                        <img class="grid-img" src="images/game7.svg" alt="">
+                        <img class="grid-img" src="images/game8.svg" alt="">
+                        <img class="grid-img" src="images/game9.svg" alt="">
+                        <img class="grid-img" src="images/game10.svg" alt="">
+                        <img class="grid-img" src="images/game11.svg" alt="">
+                        <img class="grid-img" src="images/game12.svg" alt="">
+                        <img class="grid-img" src="images/game13.svg" alt="">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="top-picks-section" id="games">
-            <div class="top-picks">
-                <div class="top-picks-title">
+        <section class="flying-games-section" id="games">
+            <div class="flying-games">
+                <div class="flying-games-title">
                     <h2><i class="fa-solid fa-plane-departure icon"></i> FLYING GAMES</h2>
                 </div>
-                <div class="top-picks-wrapper">
-                    <div class="top-picks-grid">
-                        <img class="grid-img" src="images/img_filler_1.png" alt="">
-                        <img class="grid-img" src="images/img_filler_2.png" alt="">
-                        <img class="grid-img" src="images/img_filler_3.png" alt="">
-                        <img class="grid-img" src="images/img_filler_4.png" alt="">
-                        <img class="grid-img" src="images/img_filler_5.png" alt="">
-                        <img class="grid-img" src="images/img_filler_6.png" alt="">
-                        <img class="grid-img" src="images/img_filler_7.png" alt="">
-                        <img class="grid-img" src="images/img_filler_8.png" alt="">
-                        <img class="grid-img" src="images/img_filler_9.png" alt="">
-                        <img class="grid-img" src="images/img_filler_10.png" alt="">
-                        <img class="grid-img" src="images/img_filler_11.png" alt="">
-                        <img class="grid-img" src="images/img_filler_12.png" alt="">
-                        <img class="grid-img" src="images/img_filler_13.png" alt="">
-                        <img class="grid-img" src="images/img_filler_14.png" alt="">
-                        <img class="grid-img" src="images/img_filler_15.png" alt="">
-                        <img class="grid-img" src="images/img_filler_16.png" alt="">
+                <div class="flying-games-wrapper">
+                    <div class="flying-games-grid">
+                        <img class="grid-img" src="images/flying1.svg" alt="">
+                        <img class="grid-img" src="images/flying2.svg" alt="">
+                        <img class="grid-img" src="images/flying3.svg" alt="">
+                        <img class="grid-img" src="images/flying4.svg" alt="">
+                        <img class="grid-img" src="images/flying5.svg" alt="">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="top-picks-section" id="games">
-            <div class="top-picks">
-                <div class="top-picks-title">
+        <section class="spinning-wheels-section" id="games">
+            <div class="spinning-wheels">
+                <div class="spinning-wheels-title">
                     <h2><i class="fa-solid fa-dharmachakra icon"></i> SPINNING WHEELS</h2>
                 </div>
-                <div class="top-picks-wrapper">
-                    <div class="top-picks-grid">
-                        <img class="grid-img" src="images/img_filler_1.png" alt="">
-                        <img class="grid-img" src="images/img_filler_2.png" alt="">
-                        <img class="grid-img" src="images/img_filler_3.png" alt="">
-                        <img class="grid-img" src="images/img_filler_4.png" alt="">
-                        <img class="grid-img" src="images/img_filler_5.png" alt="">
-                        <img class="grid-img" src="images/img_filler_6.png" alt="">
-                        <img class="grid-img" src="images/img_filler_7.png" alt="">
-                        <img class="grid-img" src="images/img_filler_8.png" alt="">
-                        <img class="grid-img" src="images/img_filler_9.png" alt="">
-                        <img class="grid-img" src="images/img_filler_10.png" alt="">
-                        <img class="grid-img" src="images/img_filler_11.png" alt="">
-                        <img class="grid-img" src="images/img_filler_12.png" alt="">
-                        <img class="grid-img" src="images/img_filler_13.png" alt="">
-                        <img class="grid-img" src="images/img_filler_14.png" alt="">
-                        <img class="grid-img" src="images/img_filler_15.png" alt="">
-                        <img class="grid-img" src="images/img_filler_16.png" alt="">
+                <div class="spinning-wheels-wrapper">
+                    <div class="spinning-wheels-grid">
+                        <img class="grid-img" src="images/spinning1.svg" alt="">
+                        <img class="grid-img" src="images/spinning2.svg" alt="">
+                        <img class="grid-img" src="images/spinning3.svg" alt="">
+                        <img class="grid-img" src="images/spinning4.svg" alt="">
+                        <img class="grid-img" src="images/spinning5.svg" alt="">
+                        <img class="grid-img" src="images/spinning6.svg" alt="">
+                        <img class="grid-img" src="images/spinning7.svg" alt="">
                     </div>
                 </div>
             </div>
@@ -859,82 +1205,109 @@
                     <h2><i class="fa-solid fa-circle-info icon"></i> ABOUT US</h2>
                 </div>
                 <div class="about-wrapper">
-                    <h2 style="text-align: center;">I AM STILL THINKING<br>IDEAS ABOUT<br>THIS SECTION</h2>
-                    <br>
-                    <br>
-                    <p style="text-align: center;">
-                        abdafbsfgPIHBKOJH<br>SJFHKJBNfs<br>SKFHVBKJFGVB<br>zkCVNBkrUJAD<br>jkxvcvcjjnvcjn<br><br><br><br><br>😺
-                        🍀</p>
+                    <div class="about-content">
+                        <div class="about-icon">
+                            <img src="images/icon_jaihoslots-2.png" alt="">
+                        </div>
+                        <div class="about-description">
+                            <h2>WELCOME TO JAIHOSLOTS!</h2>
+                            <p><b>JaiHoSlots</b> is your trusted gaming partner where fun meets real rewards. Enjoy
+                                non-stop
+                                entertainment, exciting features, and a seamless experience across all devices — perfect
+                                for
+                                both casual players and high rollers.
+                            </p>
+                            <p>With exclusive rewards, personalized game picks, 24/7 support, and lightning-fast
+                                withdrawals, we keep your journey thrilling and worry-free. Backed by top-notch
+                                security,
+                                fairness, and responsible gaming, JaiHoSlots lets you play with confidence and win with
+                                peace of mind.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="about-card">
+                        <div class="cards">
+                            <div class="card card-1">
+                                <h3>CUSTOMER CARE AND SUPPORT</h3>
+                                <p>Our customer support team is always hands-on to answer any of your questions 24/7</p>
+                            </div>
+                            <div class="card card-2">
+                                <h3>FAIR PAYMENTS</h3>
+                                <p>Guaranteed payments issued on-time every month</p>
+                            </div>
+                            <div class="card card-3">
+                                <h3>WORLD CLASS SECURITY</h3>
+                                <p>100% safe and secure transactions. Zero Fraud Guarantee. Complete data and identity
+                                    privacy</p>
+                            </div>
+                            <div class="card card-4">
+                                <h3>VERY FAST</h3>
+                                <p>An average cash out time for the past 24 hours</p>
+                            </div>
+                            <div class="card card-5">
+                                <h3>JACKPOTS</h3>
+                                <p>Our enormous Progressive Jackpots are climbing every second</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <footer aria-label="Footer section">
-        <div class="brand" role="banner">
-            <a href="index.html" aria-label="JaihoSlots Home">
-                <img class="logo" src="images/icon_logo.png" alt="JaihoSlots logo" />
-            </a>
-        </div>
-        <div class="footer-wrapper">
-            <div class="footer-content">
-                <div class="row">
-                    <div class="col">
-                        <h4>I-Gaming</h4>
-                        <a href="">All Games</a>
-                        <a href="">Table</a>
-                        <a href="">Slots</a>
-                        <a href="">Live</a>
-                        <a href="">Roulette</a>
-                    </div>
-                    <div class="col">
-                        <h4>Quick Links</h4>
-                        <a href="">Promotions</a>
-                        <a href="">Tournaments</a>
-                        <a href="">VIP Program</a>
-                        <a href="">Lottery</a>
-                        <a href="">Sportsbook</a>
-                        <a href="">Christmas-Calendar</a>
-                        <a href="">Bonus Store</a>
-                    </div>
-                    <div class="col">
-                        <h4>About Us</h4>
-                        <a href="">Payments</a>
-                        <a href="">About JaihoSlots</a>
-                    </div>
-                    <div class="col">
-                        <h4>Help</h4>
-                        <a href="">Support</a>
-                        <a href="">FAQ</a>
-                        <a href="">Terms and Conditions</a>
-                        <a href="">Bonus Terms and Conditions</a>
-                        <a href="">Privacy and Policy</a>
-                        <a href="">Responsile Gaming</a>
-                    </div>
-                    <div class="col">
-                        <p>The Casino Online has a legal permission to conduct online gambling on the basis of the
-                            international License. We understand that ensuring the fair game is one of the most
-                            important conditions for the casino operation. Therefore, we offer you only games from
-                            reliable and long proven certified manufacturers.</p>
-                    </div>
+    <footer class="site-footer" aria-label="JaihoSlots Footer">
+        <!-- Trust & Certification Badges -->
+        <section class="footer-badges" aria-label="Trust and Certifications">
+            <div class="badge">
+                <img src="images/icon_footer_crown.png" alt="100% Secure Fair Play Policy icon" width="24" height="24"
+                    loading="lazy" />
+                <div>
+                    <h3 class="badge-title">100% Secure</h3>
+                    <p class="badge-sub">Fair Play Policy</p>
                 </div>
             </div>
-            <hr>
-            <div class="sponsors">
-                <h4>Sponsors Section</h4>
+            <div class="badge">
+                <img src="images/icon_footer_company.png" alt="ISO Certified Company icon" width="24" height="24"
+                    loading="lazy" />
+                <div>
+                    <h3 class="badge-title">ISO Certified</h3>
+                    <p class="badge-sub">Company</p>
+                </div>
             </div>
-            <hr>
-            <div class="contact">
-                <h4>Contact Section Icons</h4>
+            <div class="badge">
+                <img src="images/icon_footer_flash.png" alt="Instant Withdrawal icon" width="24" height="24" loading="lazy" />
+                <div>
+                    <h3 class="badge-title">Instant</h3>
+                    <p class="badge-sub">Withdrawal</p>
+                </div>
             </div>
+            <div class="badge">
+                <img src="images/icon_footer_crown.png" alt="1 Crore Plus Trusted Users icon" width="24" height="24"
+                    loading="lazy" />
+                <div>
+                    <h3 class="badge-title">1 Crore +</h3>
+                    <p class="badge-sub">Trusted Users</p>
+                </div>
+            </div>
+        </section>
 
-            <div class="copyright">
-                <p>© 2024 JaihoSlots. All rights reserved.</p>
-                <p>Terms of Service | Privacy Policy | Responsible Gaming</p>
-            </div>
+        <!-- Company Info -->
+        <section class="footer-info" aria-label="About JaihoSlots">
+            <p>
+                Launched in 2017, <strong>JaihoSlots</strong> is the first online gaming app introduced by
+                <strong>Yono Tech Co. Ltd.</strong> In just a short span of time, JaihoSlots has made its way
+                into the hearts of millions of table-game lovers across India. Play exciting cash games, join
+                big tournaments, and showcase your skills on the <strong>JaihoSlots</strong> app now.
+            </p>
+        </section>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>© <time datetime="2025">2025</time> JaihoSlots — Play. Win. Earn.</p>
         </div>
     </footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script>
@@ -968,10 +1341,10 @@
                 modifier: 1.5,   // reduced exaggeration for symmetry
                 slideShadows: false
             },
-            autoplay: {
+            /*autoplay: {
                 delay: 2500,                // autoplay interval
                 disableOnInteraction: false,
-            },
+            },*/
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
