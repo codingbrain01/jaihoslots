@@ -84,12 +84,16 @@ header {
 
 .brand {
     display: flex;
-    align-items: center;
+    
 }
 
 .brand img {
     height: 40px;
-    margin-right: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* or simply margin: auto 0; */
+
+
 }
 
 /* Download button stays same (desktop) */
@@ -137,6 +141,7 @@ header {
     .brand img {
         height: 36px;
         /* Slightly smaller logo for mobile */
+        margin-left: 25px;
     }
 
     .download-app .download-btn {
