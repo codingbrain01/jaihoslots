@@ -1,60 +1,61 @@
 :root {
-            --bg-cta: #058C4D;
-            --background-color-1: #1E1E1E;
-            --background-color-2: #2B2B2B;
-            --background-color-3: #191919;
-            --text-color: #ffffff;
-            --text-color-1: #000000;
-            --header-height: 60px;
-            --font-weight-1: light;
-            --font-weight-2: bold;
-            --font-size-1: 24px;
-            --font-size-2: 44px;
-            font-family: "Noto Sans", Arial, sans-serif;
-        }
+    --bg-cta: #058C4D;
+    --background-color-1: #1E1E1E;
+    --background-color-2: #2B2B2B;
+    --background-color-3: #191919;
+    --text-color: #ffffff;
+    --text-color-1: #000000;
+    --header-height: 60px;
+    --font-weight-1: light;
+    --font-weight-2: bold;
+    --font-size-1: 24px;
+    --font-size-2: 44px;
+    font-family: "Noto Sans", Arial, sans-serif;
+}
 
-        ::-webkit-scrollbar {
-            width: 1.5px;
+::-webkit-scrollbar {
+    width: 1.5px;
 
-            /* adjust the width to your liking */
-        }
+    /* adjust the width to your liking */
+}
 
-        ::-webkit-scrollbar-thumb {
-            background-color: #363636;
-            /* adjust the color to your liking */
-            border-radius: 10px;
-        }
+::-webkit-scrollbar-thumb {
+    background-color: #363636;
+    /* adjust the color to your liking */
+    border-radius: 10px;
+}
 
-        ::-webkit-scrollbar-track {
-            background-color: transparent;
+::-webkit-scrollbar-track {
+    background-color: transparent;
 
-        }
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-            min-width: 430px;
-            background-color: var(--background-color-1);
-            color: var(--text-color);
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-            /* Prevent horizontal scroll */
-        }
+html,
+body {
+    width: 100%;
+    height: 100%;
+    min-width: 430px;
+    background-color: var(--background-color-1);
+    color: var(--text-color);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* Prevent horizontal scroll */
+}
 
-        .icon {
-            color: grey;
-            font-size: 1.25rem;
-            margin-right: 0.5rem;
-        }
+.icon {
+    color: grey;
+    font-size: 1.25rem;
+    margin-right: 0.5rem;
+}
 
-        /*
+/*
         ################################################################
         ||                                                            ||
         ||                         HEADER CSS                         ||
@@ -62,90 +63,93 @@
         ################################################################
         */
 
-        /* === HEADER DESKTOP (unchanged) === */
-        .header-nav {
-            width: 100%;
-            display: flex;
-            position: sticky;
-            top: 0;
-            padding: 0 104px;
-            height: var(--header-height);
-            background-color: var(--background-color-2);
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            overflow: hidden;
-        }
+/* === HEADER DESKTOP (unchanged) === */
+header {
+    top: 0;
+    position: sticky;
+    z-index: 1000;
+}
 
-        .brand {
-            display: flex;
-            align-items: center;
-        }
+.header-nav {
+    width: 100%;
+    display: flex;
+    padding: 0 104px;
+    height: var(--header-height);
+    background-color: var(--background-color-2);
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
 
-        .brand img {
-            height: 40px;
-            margin-right: 10px;
-        }
+.brand {
+    display: flex;
+    align-items: center;
+}
 
-        /* Download button stays same (desktop) */
-        .download-app .download-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            font-size: 0.875rem;
-            border: none;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: var(--font-weight-2);
-            color: var(--text-color-1);
-            background: linear-gradient(90deg,
-                    var(--bg-cta) 0%,
-                    var(--bg-cta) 50%,
-                    #cbee69 65%,
-                    var(--bg-cta) 100%);
-            background-size: 200% 200%;
-            background-position: right center;
-            transition: background-position 0.5s ease, transform 0.3s ease;
-            cursor: pointer;
-        }
+.brand img {
+    height: 40px;
+    margin-right: 10px;
+}
 
-        .download-app .download-btn:hover {
-            background-position: left center;
-        }
+/* Download button stays same (desktop) */
+.download-app .download-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    border: none;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: var(--font-weight-2);
+    color: var(--text-color-1);
+    background: linear-gradient(90deg,
+            var(--bg-cta) 0%,
+            var(--bg-cta) 50%,
+            #cbee69 65%,
+            var(--bg-cta) 100%);
+    background-size: 200% 200%;
+    background-position: right center;
+    transition: background-position 0.5s ease, transform 0.3s ease;
+    cursor: pointer;
+}
 
-
-        /* === ✅ MOBILE RESPONSIVENESS FIX === */
-        @media (max-width: 768px) {
-
-            .header-nav {
-                padding: 1.5rem 1rem;
-                /* Reduce large side padding */
-                height: auto;
-                /* Allow auto height so stacking doesn't squeeze */
-                flex-direction: column;
-                /* Stack logo + button vertically */
-                gap: 0.75rem;
-                text-align: center;
-            }
-
-            .brand img {
-                height: 36px;
-                /* Slightly smaller logo for mobile */
-            }
-
-            .download-app .download-btn {
-                width: 100%;
-                /* Make full width button */
-                justify-content: center;
-                padding: 0.9rem 1rem;
-                /* Slightly larger tap size */
-                font-size: 1rem;
-            }
-        }
+.download-app .download-btn:hover {
+    background-position: left center;
+}
 
 
-        /*
+/* === ✅ MOBILE RESPONSIVENESS FIX === */
+@media (max-width: 768px) {
+
+    .header-nav {
+        padding: 1.5rem 1rem;
+        /* Reduce large side padding */
+        height: auto;
+        /* Allow auto height so stacking doesn't squeeze */
+        flex-direction: column;
+        /* Stack logo + button vertically */
+        gap: 0.75rem;
+        text-align: center;
+    }
+
+    .brand img {
+        height: 36px;
+        /* Slightly smaller logo for mobile */
+    }
+
+    .download-app .download-btn {
+        width: 100%;
+        /* Make full width button */
+        justify-content: center;
+        padding: 0.9rem 1rem;
+        /* Slightly larger tap size */
+        font-size: 1rem;
+    }
+}
+
+
+/*
         ########################################################################
         ||                                                                    ||
         ||                               MAIN CSS                             ||
@@ -153,7 +157,7 @@
         #######################################################################
         */
 
-        /*
+/*
         ################################################################
         ||                                                            ||
         ||                         SWIPER CSS                         ||
@@ -162,112 +166,128 @@
         */
 
 
-        /* Swiper Section Wrapper */
-        .swiper-section {
-            padding: 1.5rem 6.5rem;
-        }
+/* Swiper Section Wrapper */
+.swiper-section {
+    padding: 1.5rem 6.5rem;
+}
 
-        /* Banner Content Positioning (Desktop) */
-        .banner-content {
-            position: absolute;
-            top: clamp(3rem, 10vw, 10rem);
-            left: clamp(1rem, 6vw, 5rem);
-            z-index: 10;
-            max-width: 60%;
-        }
+/* Banner Content Positioning (Desktop) */
+.banner-content {
+    position: absolute;
+    top: clamp(3rem, 10vw, 10rem);
+    left: clamp(1rem, 6vw, 5rem);
+    z-index: 10;
+    max-width: 60%;
+}
 
-        /* Text Styles */
-        .banner-content .banner-text-1 {
-            font-size: clamp(1.4rem, 2.5vw, var(--font-size-1));
-            font-weight: var(--font-weight-1);
-            line-height: 1.2;
-        }
+/* Text Styles */
+.banner-content .banner-text-1 {
+    font-size: clamp(1.4rem, 2.5vw, var(--font-size-1));
+    font-weight: var(--font-weight-1);
+    line-height: 1.2;
+    text-shadow: #000000 2px 2px 4px;
+    color: orange;
+}
 
-        .banner-content .banner-text-2 {
-            font-size: clamp(1rem, 1.8vw, var(--font-size-2));
-            font-weight: var(--font-weight-2);
-            margin-top: 0.4rem;
-        }
+.banner-content .banner-text-2 {
+    font-size: clamp(1rem, 1.8vw, var(--font-size-2));
+    font-weight: var(--font-weight-2);
+    margin-top: 0.4rem;
+    text-shadow: #000000 2px 2px 4px;
+    color: lightgreen;
+}
 
-        /* CTA Button */
-        .banner-content .button {
-            margin-top: 1.5rem;
-            padding: .75rem 1.5rem;
-            border: none;
-            border-radius: 0.75rem;
-            font-weight: var(--font-weight-2);
-            background: linear-gradient(104deg, #cbee69 3.97%, var(--bg-cta) 101.83%);
-            background-size: 200% 200%;
-            background-position: right center;
-            cursor: pointer;
-            transition: background-position .5s ease, transform .3s ease;
-        }
+/* CTA Button */
+.banner-content .button {
+    margin-top: 1.5rem;
+    padding: .75rem 1.5rem;
+    border: none;
+    border-radius: 0.75rem;
+    font-weight: var(--font-weight-2);
+    background: linear-gradient(104deg, #cbee69 3.97%, var(--bg-cta) 101.83%);
+    background-size: 200% 200%;
+    background-position: right center;
+    cursor: pointer;
+    transition: background-position .5s ease, transform .3s ease;
+}
 
-        .banner-content .button:hover {
-            background-position: left center;
-        }
+.banner-content .button:hover {
+    background-position: left center;
+}
 
-        /* Banner Images */
-        .swiper-slide img {
-            width: 100%;
-            height: clamp(16rem, 40vw, 26.25rem);
-            object-fit: cover;
-            border-radius: 1.5rem;
-        }
+/* Banner Images */
+.swiper-slide img {
+    width: 100%;
+    height: clamp(16rem, 40vw, 26.25rem);
+    object-fit: cover;
+    border-radius: 1.5rem;
+}
 
-        /* Pagination */
-        #swiper-1 .swiper-pagination {
-            bottom: 2rem;
-        }
+/* Pagination */
+#swiper-1 .swiper-pagination {
+    bottom: 2rem;
+}
 
-        #swiper-1 .swiper-pagination-bullet {
-            margin: 0 .25rem;
-            opacity: 1;
-            background-color: rgba(255, 255, 255, 0.4);
-            width: .45rem;
-            height: .45rem;
-        }
+#swiper-1 .swiper-pagination-bullet {
+    margin: 0 .25rem;
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: .45rem;
+    height: .45rem;
+}
 
-        #swiper-1 .swiper-pagination-bullet-active {
-            background: linear-gradient(104deg, #d0e98c 3.97%, #a6ec95 101.83%);
-            width: .55rem;
-            height: .55rem;
-        }
+#swiper-1 .swiper-pagination-bullet-active {
+    background: linear-gradient(104deg, #d0e98c 3.97%, #a6ec95 101.83%);
+    width: .55rem;
+    height: .55rem;
+}
 
-        /* ✅ Mobile Responsive */
-        @media (max-width: 768px) {
+/* ✅ Mobile Responsive */
+@media (max-width: 768px) {
 
-            .swiper-section {
-                padding: 1rem;
-            }
+    .swiper-section {
+        padding: 1rem;
+    }
 
-            .swiper-slide img {
-                object-position: right center;
-            }
+    .swiper-slide img {
+        object-position: right center;
+    }
 
-            #swiper-1 .swiper-pagination {
-                display: none;
-            }
+    #swiper-1 .swiper-pagination {
+        display: none;
+    }
 
-            .banner-content {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                max-width: 90%;
-                transform: translate(-50%, -50%);
-                text-align: center;
-                /* Minimal shadow */
-                text-shadow: 0 3px 8px rgba(0, 0, 0, 0.55);
-            }
+    .swiper-slide {
+        position: relative;
+    }
 
-            .banner-content .button {
-                width: 70%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-        }
+    .slide-a::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        backdrop-filter: blur(2px);
+        border-radius: 1.5rem;
+    }
 
-        /*
+    .banner-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        max-width: 90%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        /* Minimal shadow */
+        text-shadow: 0 3px 8px rgba(0, 0, 0, 0.55);
+    }
+
+    .banner-content .button {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/*
         ################################################################
         ||                                                            ||
         ||                      GAME CATEGORY CSS                     ||
@@ -275,139 +295,139 @@
         ################################################################
         */
 
-        /* === Game Category Section === */
-        .game-category-section {
-            padding: 1.5rem 6.5rem;
-        }
+/* === Game Category Section === */
+.game-category-section {
+    padding: 1.5rem 6.5rem;
+}
 
-        /* Outer wrapper */
-        .game-category {
-            padding: 1rem;
-            background: #323232;
-            border-radius: 0.75rem;
-            overflow-x: auto;
-            scrollbar-width: thin;
-        }
+/* Outer wrapper */
+.game-category {
+    padding: 1rem;
+    background: #323232;
+    border-radius: 0.75rem;
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
 
-        /* Main category navigation */
-        .category {
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 1rem;
-            justify-content: flex-start;
-            align-items: center;
-            white-space: nowrap;
-        }
+/* Main category navigation */
+.category {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+    white-space: nowrap;
+}
 
-        .category .button {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            font-size: 0.875rem;
-            border: none;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: var(--font-weight-2);
-            color: var(--text-color-1);
-            background: linear-gradient(90deg,
-                    var(--bg-cta) 0%,
-                    var(--bg-cta) 50%,
-                    #cbee69 65%,
-                    var(--bg-cta) 100%);
-            background-size: 200% 200%;
-            background-position: right center;
-            transition: background-position 0.5s ease, transform 0.3s ease;
-            cursor: pointer;
-        }
+.category .button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    border: none;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: var(--font-weight-2);
+    color: var(--text-color-1);
+    background: linear-gradient(90deg,
+            var(--bg-cta) 0%,
+            var(--bg-cta) 50%,
+            #cbee69 65%,
+            var(--bg-cta) 100%);
+    background-size: 200% 200%;
+    background-position: right center;
+    transition: background-position 0.5s ease, transform 0.3s ease;
+    cursor: pointer;
+}
 
-        /* Hover effect */
-        .category .button:hover {
-            background-position: left center;
-        }
+/* Hover effect */
+.category .button:hover {
+    background-position: left center;
+}
 
-        .category .button img {
-            height: 1rem;
-        }
+.category .button img {
+    height: 1rem;
+}
 
-        /* Search Button */
-        .category .search-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 2.6rem;
-            height: 2.6rem;
-            margin-left: auto;
-            /* ✅ Keep search on far right */
-            background: var(--background-color-1);
-            border-radius: 0.5rem;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.2s ease;
-        }
+/* Search Button */
+.category .search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    margin-left: auto;
+    /* ✅ Keep search on far right */
+    background: var(--background-color-1);
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
 
-        .category .search-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: scale(1.05);
-        }
+.category .search-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+}
 
-        /* Providers Dropdown */
-        .category .providers {
-            padding: 0 1rem;
-            height: 2.6rem;
-            width: 16rem;
-            background: var(--background-color-1);
-            border-radius: 0.5rem;
-            border: none;
-            color: var(--text-color);
-            cursor: pointer;
-            font-size: 0.875rem;
-        }
+/* Providers Dropdown */
+.category .providers {
+    padding: 0 1rem;
+    height: 2.6rem;
+    width: 16rem;
+    background: var(--background-color-1);
+    border-radius: 0.5rem;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 0.875rem;
+}
 
-        /* ✅ Mobile Version */
-        .category-2 {
-            display: none;
-        }
+/* ✅ Mobile Version */
+.category-2 {
+    display: none;
+}
 
-        /* ✅ FIX RESPONSIVENESS */
-        @media (max-width: 768px) {
+/* ✅ FIX RESPONSIVENESS */
+@media (max-width: 768px) {
 
-            .game-category-section {
-                padding: 1rem;
-                /* ✅ Remove large side padding */
-            }
+    .game-category-section {
+        padding: 1rem;
+        /* ✅ Remove large side padding */
+    }
 
-            .game-category {
-                padding: 0.75rem;
-                border-radius: 0.6rem;
-            }
+    .game-category {
+        padding: 0.75rem;
+        border-radius: 0.6rem;
+    }
 
-            .category {
-                display: none;
-                /* Hide desktop nav */
-            }
+    .category {
+        display: none;
+        /* Hide desktop nav */
+    }
 
-            .category-2 {
-                display: flex;
-                justify-content: center;
-                margin-top: 0.5rem;
-            }
+    .category-2 {
+        display: flex;
+        justify-content: center;
+        margin-top: 0.5rem;
+    }
 
-            .category-2 select {
-                width: 100%;
-                max-width: 380px;
-                /* ✅ Perfect for Samsung phones */
-                padding: 0.75rem;
-                border-radius: 0.5rem;
-                border: none;
-                background: var(--background-color-1);
-                color: var(--text-color);
-                font-size: 1rem;
-            }
-        }
+    .category-2 select {
+        width: 100%;
+        max-width: 380px;
+        /* ✅ Perfect for Samsung phones */
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        border: none;
+        background: var(--background-color-1);
+        color: var(--text-color);
+        font-size: 1rem;
+    }
+}
 
 
-        /*
+/*
         ################################################################
         ||                                                            ||
         ||                       TOP PICKS CSS                        ||
@@ -415,112 +435,112 @@
         ################################################################
         */
 
-        .top-picks-section {
-            padding: 1.5rem 6.5rem;
-        }
+.top-picks-section {
+    padding: 1.5rem 6.5rem;
+}
 
-        .top-picks-title {
-            display: flex;
-            justify-content: space-between;
-            /* space between h2 and link */
-            align-items: center;
-            /* vertically center */
-            margin: 0 0 1rem 0;
-        }
+.top-picks-title {
+    display: flex;
+    justify-content: space-between;
+    /* space between h2 and link */
+    align-items: center;
+    /* vertically center */
+    margin: 0 0 1rem 0;
+}
 
-        .top-picks-title h2 {
-            font-size: medium;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            /* space between icon and text */
-        }
+.top-picks-title h2 {
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* space between icon and text */
+}
 
-        .top-picks-title a {
-            font-size: 0.9rem;
-            text-decoration: none;
-            color: var(--accent, #34d399);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+.top-picks-title a {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--accent, #34d399);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
 
-        .top-picks-title a:hover {
-            color: var(--accent-2, #ffd166);
-        }
+.top-picks-title a:hover {
+    color: var(--accent-2, #ffd166);
+}
 
-        .top-picks-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, 196px);
-            /* Fixed card width */
-            grid-auto-rows: 16.063rem;
-            /* Fixed card height */
-            gap: 1.2rem;
-            justify-content: center;
-            /* Center the grid */
-        }
+.top-picks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 196px);
+    /* Fixed card width */
+    grid-auto-rows: 16.063rem;
+    /* Fixed card height */
+    gap: 1.2rem;
+    justify-content: center;
+    /* Center the grid */
+}
 
-        /* Card appearance */
-        .top-picks-grid .grid-img,
-        .top-picks-grid .grid-img-banner {
-            width: 100%;
-            height: 100%;
-            border-radius: 0.75rem;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
+/* Card appearance */
+.top-picks-grid .grid-img,
+.top-picks-grid .grid-img-banner {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.75rem;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
 
-        /* Hover effect */
-        .top-picks-grid .grid-img:hover {
-            transform: scale(1.05);
-        }
+/* Hover effect */
+.top-picks-grid .grid-img:hover {
+    transform: scale(1.05);
+}
 
-        /* ✅ Banner spans 2 columns AND 2 rows */
-        .top-picks-grid .grid-img-banner {
-            grid-column: span 2;
-        }
+/* ✅ Banner spans 2 columns AND 2 rows */
+.top-picks-grid .grid-img-banner {
+    grid-column: span 2;
+}
 
-        /* ✅ Responsive layout — fixed (replace existing mobile rules for .top-picks-grid) */
-        @media (max-width: 768px) {
-            .top-picks-section {
-                padding: 1.5rem 1rem;
-            }
+/* ✅ Responsive layout — fixed (replace existing mobile rules for .top-picks-grid) */
+@media (max-width: 768px) {
+    .top-picks-section {
+        padding: 1.5rem 1rem;
+    }
 
-            .top-picks-grid {
-                grid-template-columns: repeat(2, 1fr);
-                /* let rows size to content instead of forcing a fixed row height */
-                grid-auto-rows: auto;
-                gap: 0.75rem;
-                padding: 0 1rem;
-                align-items: start;
-                /* important: prevent items from stretching & overlapping */
-            }
+    .top-picks-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* let rows size to content instead of forcing a fixed row height */
+        grid-auto-rows: auto;
+        gap: 0.75rem;
+        padding: 0 1rem;
+        align-items: start;
+        /* important: prevent items from stretching & overlapping */
+    }
 
-            /* Banner becomes full width and flows naturally */
-            .top-picks-grid .grid-img-banner {
-                grid-column: 1 / -1;
-                /* full width */
-                width: 100%;
-                height: auto;
-                /* let image decide height */
-                display: block;
-                object-fit: cover;
-                /* cover behavior if aspect ratio differs */
-                align-self: start;
-                /* ensure banner sits at top of its grid cell */
-            }
+    /* Banner becomes full width and flows naturally */
+    .top-picks-grid .grid-img-banner {
+        grid-column: 1 / -1;
+        /* full width */
+        width: 100%;
+        height: auto;
+        /* let image decide height */
+        display: block;
+        object-fit: cover;
+        /* cover behavior if aspect ratio differs */
+        align-self: start;
+        /* ensure banner sits at top of its grid cell */
+    }
 
-            /* Regular grid items keep a consistent height but won't overlap banner */
-            .top-picks-grid .grid-img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                align-self: start;
-                /* prevent vertical stretch that causes overlap */
-            }
-        }
+    /* Regular grid items keep a consistent height but won't overlap banner */
+    .top-picks-grid .grid-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        align-self: start;
+        /* prevent vertical stretch that causes overlap */
+    }
+}
 
-        /*
+/*
         ################################################################
         ||                                                            ||
         ||                      PROMOTIONS CSS                        ||
@@ -528,60 +548,60 @@
         ################################################################
         */
 
-        .promotions-section {
-            padding: 1.5rem 6.5rem;
-        }
+.promotions-section {
+    padding: 1.5rem 6.5rem;
+}
 
-        .promotions-title {
-            display: flex;
-            justify-content: space-between;
-            /* evenly space out h2 and link */
-            align-items: center;
-            /* vertically center */
-            margin: 0 0 1rem 0;
-        }
+.promotions-title {
+    display: flex;
+    justify-content: space-between;
+    /* evenly space out h2 and link */
+    align-items: center;
+    /* vertically center */
+    margin: 0 0 1rem 0;
+}
 
-        .promotions-title h2 {
-            font-size: medium;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            /* space between icon and text */
-        }
+.promotions-title h2 {
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* space between icon and text */
+}
 
-        .promotions-title a {
-            font-size: 0.9rem;
-            text-decoration: none;
-            color: var(--accent, #34d399);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+.promotions-title a {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--accent, #34d399);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
 
-        .promotions-title a:hover {
-            color: var(--accent-2, #ffd166);
-        }
+.promotions-title a:hover {
+    color: var(--accent-2, #ffd166);
+}
 
 
-        .promotions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(12rem, 2fr));
-            gap: 1rem;
+.promotions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 2fr));
+    gap: 1rem;
 
-            justify-content: center;
-        }
+    justify-content: center;
+}
 
-        .promotions-grid img {
-            width: 100%;
-            border-radius: .75rem;
-        }
+.promotions-grid img {
+    width: 100%;
+    border-radius: .75rem;
+}
 
-        @media (max-width: 768px) {
-            .promotions-section {
-                padding: 1.5rem 1rem;
-            }
-        }
+@media (max-width: 768px) {
+    .promotions-section {
+        padding: 1.5rem 1rem;
+    }
+}
 
-        /*
+/*
         ################################################################
         ||                                                            ||
         ||                          SLOTS CSS                         ||
@@ -589,92 +609,92 @@
         ################################################################
         */
 
-        .slots-section {
-            padding: 1.5rem 6.5rem;
-        }
+.slots-section {
+    padding: 1.5rem 6.5rem;
+}
 
-        .slots-title {
-            display: flex;
-            justify-content: space-between;
-            /* space between h2 and link */
-            align-items: center;
-            /* vertically center */
-            margin: 0 0 1rem 0;
-        }
+.slots-title {
+    display: flex;
+    justify-content: space-between;
+    /* space between h2 and link */
+    align-items: center;
+    /* vertically center */
+    margin: 0 0 1rem 0;
+}
 
-        .slots-title h2 {
-            font-size: medium;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            /* space between icon and text */
-        }
+.slots-title h2 {
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* space between icon and text */
+}
 
-        .slots-title a {
-            font-size: 0.9rem;
-            text-decoration: none;
-            color: var(--accent, #34d399);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+.slots-title a {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--accent, #34d399);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
 
-        .slots-title a:hover {
-            color: var(--accent-2, #ffd166);
-        }
+.slots-title a:hover {
+    color: var(--accent-2, #ffd166);
+}
 
-        .slots-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, 196px);
-            /* Fixed card width */
-            grid-auto-rows: 16.063rem;
-            /* Fixed card height */
-            gap: 1.2rem;
-            justify-content: center;
-            /* Center the grid */
-        }
+.slots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 196px);
+    /* Fixed card width */
+    grid-auto-rows: 16.063rem;
+    /* Fixed card height */
+    gap: 1.2rem;
+    justify-content: center;
+    /* Center the grid */
+}
 
-        /* Card appearance */
-        .slots-grid .grid-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 0.75rem;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
+/* Card appearance */
+.slots-grid .grid-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.75rem;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
 
-        /* Hover effect */
-        .slots-grid .grid-img:hover {
-            transform: scale(1.05);
-        }
+/* Hover effect */
+.slots-grid .grid-img:hover {
+    transform: scale(1.05);
+}
 
-        /* ✅ Responsive layout — fixed (replace existing mobile rules for .top-picks-grid) */
-        @media (max-width: 768px) {
-            .slots-section {
-                padding: 1.5rem 1rem;
-            }
+/* ✅ Responsive layout — fixed (replace existing mobile rules for .top-picks-grid) */
+@media (max-width: 768px) {
+    .slots-section {
+        padding: 1.5rem 1rem;
+    }
 
-            .slots-grid {
-                grid-template-columns: repeat(2, 1fr);
-                /* let rows size to content instead of forcing a fixed row height */
-                grid-auto-rows: auto;
-                gap: 0.75rem;
-                padding: 0 1rem;
-                align-items: start;
-                /* important: prevent items from stretching & overlapping */
-            }
+    .slots-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* let rows size to content instead of forcing a fixed row height */
+        grid-auto-rows: auto;
+        gap: 0.75rem;
+        padding: 0 1rem;
+        align-items: start;
+        /* important: prevent items from stretching & overlapping */
+    }
 
-            /* Regular grid items keep a consistent height but won't overlap banner */
-            .slots-grid .grid-img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                align-self: start;
-                /* prevent vertical stretch that causes overlap */
-            }
-        }
+    /* Regular grid items keep a consistent height but won't overlap banner */
+    .slots-grid .grid-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        align-self: start;
+        /* prevent vertical stretch that causes overlap */
+    }
+}
 
-        /*
+/*
         ################################################################
         ||                                                            ||
         ||                     FLYING GAMES CSS                       ||
@@ -682,92 +702,92 @@
         ################################################################
         */
 
-        .flying-games-section {
-            padding: 1.5rem 6.5rem;
-        }
+.flying-games-section {
+    padding: 1.5rem 6.5rem;
+}
 
-        .flying-games-title {
-            display: flex;
-            justify-content: space-between;
-            /* space between h2 and link */
-            align-items: center;
-            /* vertically center */
-            margin: 0 0 1rem 0;
-        }
+.flying-games-title {
+    display: flex;
+    justify-content: space-between;
+    /* space between h2 and link */
+    align-items: center;
+    /* vertically center */
+    margin: 0 0 1rem 0;
+}
 
-        .flying-games-title h2 {
-            font-size: medium;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            /* space between icon and text */
-        }
+.flying-games-title h2 {
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* space between icon and text */
+}
 
-        .flying-games-title a {
-            font-size: 0.9rem;
-            text-decoration: none;
-            color: var(--accent, #34d399);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+.flying-games-title a {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--accent, #34d399);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
 
-        .flying-games-title a:hover {
-            color: var(--accent-2, #ffd166);
-        }
+.flying-games-title a:hover {
+    color: var(--accent-2, #ffd166);
+}
 
-        .flying-games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, 196px);
-            /* Fixed card width */
-            grid-auto-rows: 16.063rem;
-            /* Fixed card height */
-            gap: 1.2rem;
-            justify-content: center;
-            /* Center the grid */
-        }
+.flying-games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 196px);
+    /* Fixed card width */
+    grid-auto-rows: 16.063rem;
+    /* Fixed card height */
+    gap: 1.2rem;
+    justify-content: center;
+    /* Center the grid */
+}
 
-        /* Card appearance */
-        .flying-games-grid .grid-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 0.75rem;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
+/* Card appearance */
+.flying-games-grid .grid-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.75rem;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
 
-        /* Hover effect */
-        .flying-games-grid .grid-img:hover {
-            transform: scale(1.05);
-        }
+/* Hover effect */
+.flying-games-grid .grid-img:hover {
+    transform: scale(1.05);
+}
 
-        /* ✅ Responsive layout — fixed (replace existing mobile rules for .top-picks-grid) */
-        @media (max-width: 768px) {
-            .flying-games-section {
-                padding: 1.5rem 1rem;
-            }
+/* ✅ Responsive layout — fixed (replace existing mobile rules for .top-picks-grid) */
+@media (max-width: 768px) {
+    .flying-games-section {
+        padding: 1.5rem 1rem;
+    }
 
-            .flying-games-grid {
-                grid-template-columns: repeat(2, 1fr);
-                /* let rows size to content instead of forcing a fixed row height */
-                grid-auto-rows: auto;
-                gap: 0.75rem;
-                padding: 0 1rem;
-                align-items: start;
-                /* important: prevent items from stretching & overlapping */
-            }
+    .flying-games-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* let rows size to content instead of forcing a fixed row height */
+        grid-auto-rows: auto;
+        gap: 0.75rem;
+        padding: 0 1rem;
+        align-items: start;
+        /* important: prevent items from stretching & overlapping */
+    }
 
-            /* Regular grid items keep a consistent height but won't overlap banner */
-            .flying-games-grid .grid-img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                align-self: start;
-                /* prevent vertical stretch that causes overlap */
-            }
-        }
+    /* Regular grid items keep a consistent height but won't overlap banner */
+    .flying-games-grid .grid-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        align-self: start;
+        /* prevent vertical stretch that causes overlap */
+    }
+}
 
-        /*
+/*
         ################################################################
         ||                                                            ||
         ||                    SPINNING WHEELS CSS                     ||
@@ -775,92 +795,92 @@
         ################################################################
         */
 
-        .spinning-wheels-section {
-            padding: 1.5rem 6.5rem;
-        }
+.spinning-wheels-section {
+    padding: 1.5rem 6.5rem;
+}
 
-        .spinning-wheels-title {
-            display: flex;
-            justify-content: space-between;
-            /* space between h2 and link */
-            align-items: center;
-            /* vertically center */
-            margin: 0 0 1rem 0;
-        }
+.spinning-wheels-title {
+    display: flex;
+    justify-content: space-between;
+    /* space between h2 and link */
+    align-items: center;
+    /* vertically center */
+    margin: 0 0 1rem 0;
+}
 
-        .spinning-wheels-title h2 {
-            font-size: medium;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            /* space between icon and text */
-        }
+.spinning-wheels-title h2 {
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* space between icon and text */
+}
 
-        .spinning-wheels-title a {
-            font-size: 0.9rem;
-            text-decoration: none;
-            color: var(--accent, #34d399);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+.spinning-wheels-title a {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--accent, #34d399);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
 
-        .spinning-wheels-title a:hover {
-            color: var(--accent-2, #ffd166);
-        }
+.spinning-wheels-title a:hover {
+    color: var(--accent-2, #ffd166);
+}
 
-        .spinning-wheels-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, 196px);
-            /* Fixed card width */
-            grid-auto-rows: 16.063rem;
-            /* Fixed card height */
-            gap: 1.2rem;
-            justify-content: center;
-            /* Center the grid */
-        }
+.spinning-wheels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 196px);
+    /* Fixed card width */
+    grid-auto-rows: 16.063rem;
+    /* Fixed card height */
+    gap: 1.2rem;
+    justify-content: center;
+    /* Center the grid */
+}
 
-        /* Card appearance */
-        .spinning-wheels-grid .grid-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 0.75rem;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
+/* Card appearance */
+.spinning-wheels-grid .grid-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.75rem;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
 
-        /* Hover effect */
-        .spinning-wheels-grid .grid-img:hover {
-            transform: scale(1.05);
-        }
+/* Hover effect */
+.spinning-wheels-grid .grid-img:hover {
+    transform: scale(1.05);
+}
 
-        /* ✅ Responsive layout — fixed (replace existing mobile rules for .top-picks-grid) */
-        @media (max-width: 768px) {
-            .spinning-wheels-section {
-                padding: 1.5rem 1rem;
-            }
+/* ✅ Responsive layout — fixed (replace existing mobile rules for .top-picks-grid) */
+@media (max-width: 768px) {
+    .spinning-wheels-section {
+        padding: 1.5rem 1rem;
+    }
 
-            .spinning-wheels-grid {
-                grid-template-columns: repeat(2, 1fr);
-                /* let rows size to content instead of forcing a fixed row height */
-                grid-auto-rows: auto;
-                gap: 0.75rem;
-                padding: 0 1rem;
-                align-items: start;
-                /* important: prevent items from stretching & overlapping */
-            }
+    .spinning-wheels-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* let rows size to content instead of forcing a fixed row height */
+        grid-auto-rows: auto;
+        gap: 0.75rem;
+        padding: 0 1rem;
+        align-items: start;
+        /* important: prevent items from stretching & overlapping */
+    }
 
-            /* Regular grid items keep a consistent height but won't overlap banner */
-            .spinning-wheels-grid .grid-img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                align-self: start;
-                /* prevent vertical stretch that causes overlap */
-            }
-        }
+    /* Regular grid items keep a consistent height but won't overlap banner */
+    .spinning-wheels-grid .grid-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        align-self: start;
+        /* prevent vertical stretch that causes overlap */
+    }
+}
 
-        /*
+/*
         ################################################################
         ||                                                            ||
         ||                     RANDOM GAME CSS                        ||
@@ -868,134 +888,134 @@
         ################################################################
         */
 
-        .game-carousel {
-            width: 100%;
-            padding: 1.5rem 6.5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.game-carousel {
+    width: 100%;
+    padding: 1.5rem 6.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .game-carousel .swiper {
-            width: 100%;
-            max-width: 1100px;
-            padding-bottom: 80px;
-        }
+.game-carousel .swiper {
+    width: 100%;
+    max-width: 1100px;
+    padding-bottom: 80px;
+}
 
-        .game-carousel-title {
-            margin: 0 0 1rem 0;
-            text-align: center;
-        }
+.game-carousel-title {
+    margin: 0 0 1rem 0;
+    text-align: center;
+}
 
-        .game-carousel-title h2 {
-            font-size: medium;
-        }
+.game-carousel-title h2 {
+    font-size: medium;
+}
 
-        .game-carousel .swiper-wrapper {
-            padding-top: 1.5rem;
-        }
+.game-carousel .swiper-wrapper {
+    padding-top: 1.5rem;
+}
 
-        /* Default Slide Size (Desktop View) */
-        .game-carousel .swiper-slide {
-            background: #1e1e1e;
-            border-radius: 20px;
-            width: 240px;
-            height: 340px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
-        }
+/* Default Slide Size (Desktop View) */
+.game-carousel .swiper-slide {
+    background: #1e1e1e;
+    border-radius: 20px;
+    width: 240px;
+    height: 340px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
 
-        .game-carousel .swiper-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 20px;
-            transition: transform 0.4s ease;
-        }
+.game-carousel .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.4s ease;
+}
 
-        .game-carousel .swiper-slide:hover img {
-            transform: scale(1.1);
-        }
+.game-carousel .swiper-slide:hover img {
+    transform: scale(1.1);
+}
 
-        /* Remove default absolute positioning */
-        .swiper-button-prev,
-        .swiper-button-next {
-            position: static !important;
-            margin: 0;
-        }
+/* Remove default absolute positioning */
+.swiper-button-prev,
+.swiper-button-next {
+    position: static !important;
+    margin: 0;
+}
 
-        /* Center container under carousel */
-        .carousel-nav {
-            display: flex;
-            justify-content: center;
-            gap: 5rem;
-            margin-top: 2.5rem;
-        }
+/* Center container under carousel */
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    margin-top: 2.5rem;
+}
 
-        /* Style buttons */
-        .carousel-nav button {
-            background: #2b2b2b;
-            color: #d0e98c;
-            border: none;
-            border-radius: 100px;
-            padding: 0.6rem 1.5rem;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: 0.25s ease-in-out;
-        }
+/* Style buttons */
+.carousel-nav button {
+    background: #2b2b2b;
+    color: #d0e98c;
+    border: none;
+    border-radius: 100px;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+}
 
-        /* Hover effect */
-        .carousel-nav button:hover {
-            background: #cbee69;
-            color: #1e1e1e;
-            transform: scale(1.05);
-        }
+/* Hover effect */
+.carousel-nav button:hover {
+    background: #cbee69;
+    color: #1e1e1e;
+    transform: scale(1.05);
+}
 
-        /* ✅ Tablet Responsive */
-        @media (max-width: 768px) {
-            .game-carousel {
-                padding: 1.5rem 2rem;
-                /* reduce padding so slider doesn’t overflow */
-            }
+/* ✅ Tablet Responsive */
+@media (max-width: 768px) {
+    .game-carousel {
+        padding: 1.5rem 2rem;
+        /* reduce padding so slider doesn’t overflow */
+    }
 
-            .game-carousel .swiper-slide {
-                width: 180px;
-                height: 260px;
-            }
-        }
+    .game-carousel .swiper-slide {
+        width: 180px;
+        height: 260px;
+    }
+}
 
-        /* ✅ Mobile Responsive */
-        @media (max-width: 480px) {
-            .game-carousel {
-                padding: 1.25rem 1rem;
-                /* tighter padding on mobile */
-            }
+/* ✅ Mobile Responsive */
+@media (max-width: 480px) {
+    .game-carousel {
+        padding: 1.25rem 1rem;
+        /* tighter padding on mobile */
+    }
 
-            .game-carousel .swiper {
-                padding-bottom: 60px;
-            }
+    .game-carousel .swiper {
+        padding-bottom: 60px;
+    }
 
-            .game-carousel .swiper-slide {
-                width: 150px;
-                height: 220px;
-            }
+    .game-carousel .swiper-slide {
+        width: 150px;
+        height: 220px;
+    }
 
-            .carousel-nav button {
-                padding: 0.5rem 1rem;
-                font-size: 0.8rem;
-            }
+    .carousel-nav button {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
 
-            .swiper-button-prev,
-            .swiper-button-next {
-                width: 32px;
-                height: 32px;
-            }
-        }
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 32px;
+        height: 32px;
+    }
+}
 
 
-        /*
+/*
         ################################################################
         ||                                                            ||
         ||                        ABOUT US CSS                        ||
@@ -1003,119 +1023,119 @@
         ################################################################
         */
 
-        .about-section {
-            padding: 1.5rem 6.5rem;
-        }
+.about-section {
+    padding: 1.5rem 6.5rem;
+}
 
-        /* Title */
-        .about-title {
-            display: flex;
-            margin-bottom: 1rem;
-        }
+/* Title */
+.about-title {
+    display: flex;
+    margin-bottom: 1rem;
+}
 
-        .about-title h2 {
-            font-size: medium;
-        }
+.about-title h2 {
+    font-size: medium;
+}
 
-        /* Desktop Layout */
-        .about-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-        }
+/* Desktop Layout */
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
 
-        .about-icon img {
-            width: 17rem;
-            max-width: 100%;
-            height: auto;
-        }
+.about-icon img {
+    width: 17rem;
+    max-width: 100%;
+    height: auto;
+}
 
-        .about-description {
-            width: 35rem;
-            max-width: 100%;
-            line-height: 1.6;
-        }
+.about-description {
+    width: 35rem;
+    max-width: 100%;
+    line-height: 1.6;
+}
 
-        .about-description h2 {
-            margin-bottom: 1rem;
-        }
+.about-description h2 {
+    margin-bottom: 1rem;
+}
 
-        .about-description p {
-            color: #969595;
-        }
+.about-description p {
+    color: #969595;
+}
 
-        /* Cards */
-        .cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1rem;
-            justify-content: center;
-        }
+/* Cards */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+}
 
-        .card {
-            background: #2b2b2b;
-            border-radius: 0.75rem;
-            padding: 1rem;
-            width: 18.75rem;
-            text-align: center;
-        }
+.card {
+    background: #2b2b2b;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    width: 18.75rem;
+    text-align: center;
+}
 
-        .card h3 {
-            font-size: small;
-        }
+.card h3 {
+    font-size: small;
+}
 
-        .card p {
-            font-size: smaller;
-            color: #969595;
-            margin-top: 0.5rem;
-            line-height: 1.6;
-        }
+.card p {
+    font-size: smaller;
+    color: #969595;
+    margin-top: 0.5rem;
+    line-height: 1.6;
+}
 
-        /* ✅ MOBILE RESPONSIVE */
-        @media (max-width: 768px) {
+/* ✅ MOBILE RESPONSIVE */
+@media (max-width: 768px) {
 
-            .about-section {
-                padding: 1.5rem 1.25rem;
-                /* reduce side padding */
-            }
+    .about-section {
+        padding: 1.5rem 1.25rem;
+        /* reduce side padding */
+    }
 
-            .about-content {
-                flex-direction: column;
-                /* stack image + text */
-                text-align: center;
-                gap: 1.5rem;
-            }
+    .about-content {
+        flex-direction: column;
+        /* stack image + text */
+        text-align: center;
+        gap: 1.5rem;
+    }
 
-            .about-description {
-                width: 100%;
-            }
+    .about-description {
+        width: 100%;
+    }
 
-            .about-icon img {
-                width: 12rem;
-                /* slightly smaller icon */
-            }
+    .about-icon img {
+        width: 12rem;
+        /* slightly smaller icon */
+    }
 
-            .card {
-                width: 100%;
-                /* cards stretch full width */
-            }
-        }
+    .card {
+        width: 100%;
+        /* cards stretch full width */
+    }
+}
 
-        /* ✅ EXTRA SMALL PHONES */
-        @media (max-width: 430px) {
-            .about-icon img {
-                width: 9rem;
-            }
+/* ✅ EXTRA SMALL PHONES */
+@media (max-width: 430px) {
+    .about-icon img {
+        width: 9rem;
+    }
 
-            .about-description {
-                font-size: 0.9rem;
-            }
-        }
+    .about-description {
+        font-size: 0.9rem;
+    }
+}
 
 
-        /*
+/*
         ################################################################
         ||                                                            ||
         ||                         FOOTER CSS                         ||
@@ -1123,86 +1143,86 @@
         ################################################################
         */
 
-        /* Footer Base */
-        .site-footer {
-            background: var(--background-color-3);
-            /* dark purple-black tone */
-            color: #f5f5f5;
-            padding: 3rem 2rem;
-            text-align: center;
-            line-height: 1.6;
-        }
+/* Footer Base */
+.site-footer {
+    background: var(--background-color-3);
+    /* dark purple-black tone */
+    color: #f5f5f5;
+    padding: 3rem 2rem;
+    text-align: center;
+    line-height: 1.6;
+}
 
-        /* Footer Badges */
-        .footer-badges {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
+/* Footer Badges */
+.footer-badges {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
 
-        .badge {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: rgba(255, 255, 255, 0.08);
-            padding: 0.75rem 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 0.75rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            min-width: 200px;
-        }
+.badge {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 0.75rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 200px;
+}
 
-        .badge:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
+.badge:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
 
-        /* Badge Text */
-        .badge-title {
-            font-size: 1rem;
-            font-weight: 700;
-            margin: 0;
-        }
+/* Badge Text */
+.badge-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+}
 
-        .badge-sub {
-            font-size: 0.875rem;
-            color: #969595;
-            margin: 0;
-        }
+.badge-sub {
+    font-size: 0.875rem;
+    color: #969595;
+    margin: 0;
+}
 
-        /* Footer Info Text */
-        .footer-info {
-            max-width: 800px;
-            margin: 0 auto 1.5rem;
-            color: #969595;
-            font-size: 0.95rem;
-        }
+/* Footer Info Text */
+.footer-info {
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+    color: #969595;
+    font-size: 0.95rem;
+}
 
-        /* Footer Bottom */
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 2rem;
-            padding-top: 1rem;
-            font-size: 0.875rem;
-            color: #aaa;
-        }
+/* Footer Bottom */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 2rem;
+    padding-top: 1rem;
+    font-size: 0.875rem;
+    color: #aaa;
+}
 
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .footer-badges {
-                flex-direction: column;
-                align-items: center;
-            }
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .footer-badges {
+        flex-direction: column;
+        align-items: center;
+    }
 
-            .badge {
-                width: 90%;
-                justify-content: center;
-            }
+    .badge {
+        width: 90%;
+        justify-content: center;
+    }
 
-            .footer-info {
-                font-size: 0.9rem;
-                padding: 0 1rem;
-            }
-        }
+    .footer-info {
+        font-size: 0.9rem;
+        padding: 0 1rem;
+    }
+}
