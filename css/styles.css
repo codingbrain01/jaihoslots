@@ -44,6 +44,8 @@ body {
     background-color: var(--background-color-1);
     color: var(--text-color);
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow-y: auto;
     /* Prevent horizontal scroll */
 }
 
@@ -1223,5 +1225,4 @@ header {
         font-size: 0.9rem;
         padding: 0 1rem;
     }
-
 }
