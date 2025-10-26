@@ -908,7 +908,7 @@ header {
 }
 
 .game-carousel-title h2 {
-    font-size: medium;
+    font-size: x-large;
 }
 
 .game-carousel .swiper-wrapper {
@@ -1225,4 +1225,5 @@ header {
         font-size: 0.9rem;
         padding: 0 1rem;
     }
+
 }
