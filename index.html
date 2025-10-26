@@ -64,6 +64,7 @@
         body {
             width: 100%;
             height: auto;
+            min-width: 430px;
             background-color: var(--background-color-1);
             color: var(--text-color);
             scroll-behavior: smooth;
@@ -83,6 +84,7 @@
         ################################################################
         */
 
+        /* === HEADER DESKTOP (unchanged) === */
         header {
             width: 100%;
             display: flex;
@@ -104,10 +106,10 @@
 
         .brand img {
             height: 40px;
-            /* adjust the height to fit your design */
             margin-right: 10px;
         }
 
+        /* Download button stays same (desktop) */
         .download-app .download-btn {
             display: flex;
             align-items: center;
@@ -128,12 +130,42 @@
             background-position: right center;
             transition: background-position 0.5s ease, transform 0.3s ease;
             cursor: pointer;
-            
         }
 
         .download-app .download-btn:hover {
             background-position: left center;
         }
+
+
+        /* === ✅ MOBILE RESPONSIVENESS FIX === */
+        @media (max-width: 768px) {
+
+            header {
+                padding: 1.5rem 1rem;
+                /* Reduce large side padding */
+                height: auto;
+                /* Allow auto height so stacking doesn't squeeze */
+                flex-direction: column;
+                /* Stack logo + button vertically */
+                gap: 0.75rem;
+                text-align: center;
+            }
+
+            .brand img {
+                height: 36px;
+                /* Slightly smaller logo for mobile */
+            }
+
+            .download-app .download-btn {
+                width: 100%;
+                /* Make full width button */
+                justify-content: center;
+                padding: 0.9rem 1rem;
+                /* Slightly larger tap size */
+                font-size: 1rem;
+            }
+        }
+
 
         /*
         ########################################################################
@@ -152,79 +184,105 @@
         */
 
 
-        /* Swiper */
+        /* Swiper Section Wrapper */
         .swiper-section {
             padding: 1.5rem 6.5rem;
         }
 
+        /* Banner Content Positioning (Desktop) */
         .banner-content {
             position: absolute;
-            top: 10rem;
-            left: 5rem;
+            top: clamp(3rem, 10vw, 10rem);
+            left: clamp(1rem, 6vw, 5rem);
             z-index: 10;
+            max-width: 60%;
         }
 
+        /* Text Styles */
         .banner-content .banner-text-1 {
-            font-size: var(--font-size-1);
+            font-size: clamp(1.4rem, 2.5vw, var(--font-size-1));
             font-weight: var(--font-weight-1);
+            line-height: 1.2;
         }
 
         .banner-content .banner-text-2 {
-            font-size: var(--font-size-2);
+            font-size: clamp(1rem, 1.8vw, var(--font-size-2));
             font-weight: var(--font-weight-2);
+            margin-top: 0.4rem;
         }
 
+        /* CTA Button */
         .banner-content .button {
-            margin: 2rem 0 0 0;
-            padding: 0.75rem 1.5rem;
+            margin-top: 1.5rem;
+            padding: .75rem 1.5rem;
             border: none;
             border-radius: 0.75rem;
             font-weight: var(--font-weight-2);
-            color: var(--text-color);
             background: linear-gradient(104deg, #cbee69 3.97%, var(--bg-cta) 101.83%);
             background-size: 200% 200%;
             background-position: right center;
             cursor: pointer;
-            transition: background-position .5s ease, transform 0.3s ease;
+            transition: background-position .5s ease, transform .3s ease;
         }
 
-        /* Hover state — slow gradient shift + small lift */
         .banner-content .button:hover {
             background-position: left center;
         }
 
-
+        /* Banner Images */
         .swiper-slide img {
-            display: block;
             width: 100%;
-            height: 26.25rem;
+            height: clamp(16rem, 40vw, 26.25rem);
             object-fit: cover;
             border-radius: 1.5rem;
         }
 
+        /* Pagination */
         #swiper-1 .swiper-pagination {
             bottom: 2rem;
         }
 
         #swiper-1 .swiper-pagination-bullet {
-            margin: 0 .15rem;
+            margin: 0 .25rem;
             opacity: 1;
-            background-color: rgba(0, 128, 0, 0.466);
-            width: .4rem;
-            height: .4rem;
+            background-color: rgba(255, 255, 255, 0.4);
+            width: .45rem;
+            height: .45rem;
         }
 
         #swiper-1 .swiper-pagination-bullet-active {
             background: linear-gradient(104deg, #d0e98c 3.97%, #a6ec95 101.83%);
-            width: .5rem;
-            height: .5rem;
+            width: .55rem;
+            height: .55rem;
         }
 
-        @media screen and (max-width: 800px) {
-            .swiper-slide img {
-                height: 20rem;
+        /* ✅ Mobile Responsive */
+        @media (max-width: 768px) {
+
+            .swiper-section {
+                padding: 1rem;
+            }
+
+            #swiper-1 .swiper-pagination {
+                display: none;
+            }
+
+            .banner-content {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                max-width: 90%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+            }
+
+            .banner-content .button {
+                width: 70%;
+                margin-left: auto;
+                margin-right: auto;
             }
         }
+
 
         /*
         ################################################################
@@ -280,18 +338,16 @@
             cursor: pointer;
         }
 
-        /* Hover effect — smooth gradient transition */
+        /* Hover effect */
         .category .button:hover {
             background-position: left center;
-            /*transform: translateY(-2px);*/
         }
 
         .category .button img {
             height: 1rem;
-            vertical-align: middle;
         }
 
-        /* === Search Button === */
+        /* Search Button */
         .category .search-btn {
             display: flex;
             align-items: center;
@@ -299,6 +355,7 @@
             width: 2.6rem;
             height: 2.6rem;
             margin-left: auto;
+            /* ✅ Keep search on far right */
             background: var(--background-color-1);
             border-radius: 0.5rem;
             border: none;
@@ -311,7 +368,7 @@
             transform: scale(1.05);
         }
 
-        /* === Providers Dropdown === */
+        /* Providers Dropdown */
         .category .providers {
             padding: 0 1rem;
             height: 2.6rem;
@@ -324,36 +381,39 @@
             font-size: 0.875rem;
         }
 
-        /* Visually hidden label (for accessibility) */
-        .visually-hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            border: 0;
-        }
-
-        /* === Mobile Version === */
+        /* ✅ Mobile Version */
         .category-2 {
             display: none;
         }
 
-        @media screen and (max-width: 768px) {
+        /* ✅ FIX RESPONSIVENESS */
+        @media (max-width: 768px) {
+
+            .game-category-section {
+                padding: 1rem;
+                /* ✅ Remove large side padding */
+            }
+
+            .game-category {
+                padding: 0.75rem;
+                border-radius: 0.6rem;
+            }
+
             .category {
                 display: none;
+                /* Hide desktop nav */
             }
 
             .category-2 {
                 display: flex;
                 justify-content: center;
-                margin-top: 1rem;
+                margin-top: 0.5rem;
             }
 
             .category-2 select {
-                width: 80%;
+                width: 100%;
+                max-width: 380px;
+                /* ✅ Perfect for Samsung phones */
                 padding: 0.75rem;
                 border-radius: 0.5rem;
                 border: none;
@@ -378,51 +438,104 @@
 
         .top-picks-title {
             display: flex;
+            justify-content: space-between;
+            /* space between h2 and link */
+            align-items: center;
+            /* vertically center */
             margin: 0 0 1rem 0;
         }
 
         .top-picks-title h2 {
             font-size: medium;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            /* space between icon and text */
+        }
+
+        .top-picks-title a {
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: var(--accent, #34d399);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .top-picks-title a:hover {
+            color: var(--accent-2, #ffd166);
         }
 
         .top-picks-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-            gap: 1rem;
-            align-items: stretch;
+            grid-template-columns: repeat(auto-fit, 196px);
+            /* Fixed card width */
+            grid-auto-rows: 16.063rem;
+            /* Fixed card height */
+            gap: 1.2rem;
+            justify-content: center;
+            /* Center the grid */
         }
 
+        /* Card appearance */
         .top-picks-grid .grid-img,
         .top-picks-grid .grid-img-banner {
             width: 100%;
-            height: auto;
+            height: 100%;
             border-radius: 0.75rem;
             object-fit: cover;
             transition: transform 0.3s ease;
             cursor: pointer;
         }
 
+        /* Hover effect */
         .top-picks-grid .grid-img:hover {
             transform: scale(1.05);
         }
 
+        /* ✅ Banner spans 2 columns AND 2 rows */
         .top-picks-grid .grid-img-banner {
             grid-column: span 2;
         }
 
-        /* Responsive layout */
+        /* ✅ Responsive layout — fixed (replace existing mobile rules for .top-picks-grid) */
         @media (max-width: 768px) {
-            .top-picks-grid {
-                min-width: 100px;
-                grid-template-columns: repeat(2, 1fr);
+            .top-picks-section {
+                padding: 1.5rem 1rem;
             }
 
+            .top-picks-grid {
+                grid-template-columns: repeat(2, 1fr);
+                /* let rows size to content instead of forcing a fixed row height */
+                grid-auto-rows: auto;
+                gap: 0.75rem;
+                padding: 0 1rem;
+                align-items: start;
+                /* important: prevent items from stretching & overlapping */
+            }
+
+            /* Banner becomes full width and flows naturally */
             .top-picks-grid .grid-img-banner {
                 grid-column: 1 / -1;
-                order: -1;
+                /* full width */
+                width: 100%;
+                height: auto;
+                /* let image decide height */
+                display: block;
+                object-fit: cover;
+                /* cover behavior if aspect ratio differs */
+                align-self: start;
+                /* ensure banner sits at top of its grid cell */
+            }
+
+            /* Regular grid items keep a consistent height but won't overlap banner */
+            .top-picks-grid .grid-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                align-self: start;
+                /* prevent vertical stretch that causes overlap */
             }
         }
-
 
         /*
         ################################################################
@@ -438,22 +551,51 @@
 
         .promotions-title {
             display: flex;
+            justify-content: space-between;
+            /* evenly space out h2 and link */
+            align-items: center;
+            /* vertically center */
             margin: 0 0 1rem 0;
         }
 
         .promotions-title h2 {
             font-size: medium;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            /* space between icon and text */
         }
+
+        .promotions-title a {
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: var(--accent, #34d399);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .promotions-title a:hover {
+            color: var(--accent-2, #ffd166);
+        }
+
 
         .promotions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(12rem, 2fr));
             gap: 1rem;
+
+            justify-content: center;
         }
 
         .promotions-grid img {
             width: 100%;
             border-radius: .75rem;
+        }
+
+        @media (max-width: 768px) {
+            .promotions-section {
+                padding: 1.5rem 1rem;
+            }
         }
 
         /*
@@ -470,48 +612,82 @@
 
         .slots-title {
             display: flex;
+            justify-content: space-between;
+            /* space between h2 and link */
+            align-items: center;
+            /* vertically center */
             margin: 0 0 1rem 0;
         }
 
         .slots-title h2 {
             font-size: medium;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            /* space between icon and text */
+        }
+
+        .slots-title a {
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: var(--accent, #34d399);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .slots-title a:hover {
+            color: var(--accent-2, #ffd166);
         }
 
         .slots-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
-            gap: 1rem;
-            align-items: stretch;
+            grid-template-columns: repeat(auto-fit, 196px);
+            /* Fixed card width */
+            grid-auto-rows: 16.063rem;
+            /* Fixed card height */
+            gap: 1.2rem;
+            justify-content: center;
+            /* Center the grid */
         }
 
-        .slots-grid .grid-img,
-        .slots-grid .grid-img-banner {
+        /* Card appearance */
+        .slots-grid .grid-img {
             width: 100%;
-            height: auto;
+            height: 100%;
             border-radius: 0.75rem;
             object-fit: cover;
             transition: transform 0.3s ease;
             cursor: pointer;
         }
 
+        /* Hover effect */
         .slots-grid .grid-img:hover {
             transform: scale(1.05);
         }
 
-        .slots-grid .grid-img-banner {
-            grid-column: span 2;
-        }
-
-        /* Responsive layout */
+        /* ✅ Responsive layout — fixed (replace existing mobile rules for .top-picks-grid) */
         @media (max-width: 768px) {
-            .slots-grid {
-                min-width: 100px;
-                grid-template-columns: repeat(2, 1fr);
+            .slots-section {
+                padding: 1.5rem 1rem;
             }
 
-            .slots-grid .grid-img-banner {
-                grid-column: 1 / -1;
-                order: -1;
+            .slots-grid {
+                grid-template-columns: repeat(2, 1fr);
+                /* let rows size to content instead of forcing a fixed row height */
+                grid-auto-rows: auto;
+                gap: 0.75rem;
+                padding: 0 1rem;
+                align-items: start;
+                /* important: prevent items from stretching & overlapping */
+            }
+
+            /* Regular grid items keep a consistent height but won't overlap banner */
+            .slots-grid .grid-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                align-self: start;
+                /* prevent vertical stretch that causes overlap */
             }
         }
 
@@ -529,60 +705,82 @@
 
         .flying-games-title {
             display: flex;
+            justify-content: space-between;
+            /* space between h2 and link */
+            align-items: center;
+            /* vertically center */
             margin: 0 0 1rem 0;
         }
 
         .flying-games-title h2 {
             font-size: medium;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            /* space between icon and text */
         }
 
-        /* ✅ FIXED SIZE GRID */
+        .flying-games-title a {
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: var(--accent, #34d399);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .flying-games-title a:hover {
+            color: var(--accent-2, #ffd166);
+        }
+
         .flying-games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, 208px);
-            /* fixed width per item */
-            gap: 1rem;
-            justify-content: stretch;
-            /* centers the grid instead of stretching */
+            grid-template-columns: repeat(auto-fit, 196px);
+            /* Fixed card width */
+            grid-auto-rows: 16.063rem;
+            /* Fixed card height */
+            gap: 1.2rem;
+            justify-content: center;
+            /* Center the grid */
         }
 
-        .flying-games-grid .grid-img,
-        .flying-games-grid .grid-img-banner {
-            width: 208px;
-            /* fixed width */
-            height: 280.08px;
-            /* fixed height */
+        /* Card appearance */
+        .flying-games-grid .grid-img {
+            width: 100%;
+            height: 100%;
             border-radius: 0.75rem;
             object-fit: cover;
             transition: transform 0.3s ease;
             cursor: pointer;
         }
 
+        /* Hover effect */
         .flying-games-grid .grid-img:hover {
             transform: scale(1.05);
         }
 
-        /* ✅ Grid banner still spans two columns when space allows */
-        .flying-games-grid .grid-img-banner {
-            grid-column: span 2;
-        }
-
-        /* ✅ Responsive behavior */
+        /* ✅ Responsive layout — fixed (replace existing mobile rules for .top-picks-grid) */
         @media (max-width: 768px) {
+            .flying-games-section {
+                padding: 1.5rem 1rem;
+            }
+
             .flying-games-grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-                justify-content: center;
+                grid-template-columns: repeat(2, 1fr);
+                /* let rows size to content instead of forcing a fixed row height */
+                grid-auto-rows: auto;
+                gap: 0.75rem;
+                padding: 0 1rem;
+                align-items: start;
+                /* important: prevent items from stretching & overlapping */
             }
 
-            .flying-games-grid .grid-img,
-            .flying-games-grid .grid-img-banner {
+            /* Regular grid items keep a consistent height but won't overlap banner */
+            .flying-games-grid .grid-img {
                 width: 100%;
-                height: auto;
-            }
-
-            .flying-games-grid .grid-img-banner {
-                grid-column: 1 / -1;
-                order: -1;
+                height: 100%;
+                object-fit: cover;
+                align-self: start;
+                /* prevent vertical stretch that causes overlap */
             }
         }
 
@@ -600,63 +798,84 @@
 
         .spinning-wheels-title {
             display: flex;
+            justify-content: space-between;
+            /* space between h2 and link */
+            align-items: center;
+            /* vertically center */
             margin: 0 0 1rem 0;
         }
 
         .spinning-wheels-title h2 {
             font-size: medium;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            /* space between icon and text */
         }
 
-        /* ✅ FIXED SIZE GRID */
+        .spinning-wheels-title a {
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: var(--accent, #34d399);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .spinning-wheels-title a:hover {
+            color: var(--accent-2, #ffd166);
+        }
+
         .spinning-wheels-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, 208px);
-            /* fixed width per item */
-            gap: 1rem;
-            justify-content: stretch;
-            /* centers the grid instead of stretching */
+            grid-template-columns: repeat(auto-fit, 196px);
+            /* Fixed card width */
+            grid-auto-rows: 16.063rem;
+            /* Fixed card height */
+            gap: 1.2rem;
+            justify-content: center;
+            /* Center the grid */
         }
 
-        .spinning-wheels-grid .grid-img,
-        .spinning-wheels-grid .grid-img-banner {
-            width: 208px;
-            /* fixed width */
-            height: 280.08px;
-            /* fixed height */
+        /* Card appearance */
+        .spinning-wheels-grid .grid-img {
+            width: 100%;
+            height: 100%;
             border-radius: 0.75rem;
             object-fit: cover;
             transition: transform 0.3s ease;
             cursor: pointer;
         }
 
+        /* Hover effect */
         .spinning-wheels-grid .grid-img:hover {
             transform: scale(1.05);
         }
 
-        /* ✅ Grid banner still spans two columns when space allows */
-        .spinning-wheels-grid .grid-img-banner {
-            grid-column: span 2;
-        }
-
-        /* ✅ Responsive behavior */
+        /* ✅ Responsive layout — fixed (replace existing mobile rules for .top-picks-grid) */
         @media (max-width: 768px) {
+            .spinning-wheels-section {
+                padding: 1.5rem 1rem;
+            }
+
             .spinning-wheels-grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-                justify-content: center;
+                grid-template-columns: repeat(2, 1fr);
+                /* let rows size to content instead of forcing a fixed row height */
+                grid-auto-rows: auto;
+                gap: 0.75rem;
+                padding: 0 1rem;
+                align-items: start;
+                /* important: prevent items from stretching & overlapping */
             }
 
-            .spinning-wheels-grid .grid-img,
-            .spinning-wheels-grid .grid-img-banner {
+            /* Regular grid items keep a consistent height but won't overlap banner */
+            .spinning-wheels-grid .grid-img {
                 width: 100%;
-                height: auto;
-            }
-
-            .spinning-wheels-grid .grid-img-banner {
-                grid-column: 1 / -1;
-                order: -1;
+                height: 100%;
+                object-fit: cover;
+                align-self: start;
+                /* prevent vertical stretch that causes overlap */
             }
         }
-
 
         /*
         ################################################################
@@ -918,7 +1137,7 @@
 
         <!-- Desktop nav stays as-is -->
         <div class="download-app">
-            <a class="download-btn" href="">DOWNLOAD ANDROID APP</a>
+            <a class="download-btn" href="#download-apk">DOWNLOAD ANDROID APP</a>
         </div>
     </header>
 
@@ -1006,7 +1225,6 @@
                         </button>
 
                         <!-- ✅ Providers Dropdown -->
-                        <label for="providers" class="visually-hidden">Select game provider</label>
                         <select id="providers" class="providers" aria-label="Select game provider">
                             <option value="Providers" selected hidden>Providers</option>
                         </select>
@@ -1032,6 +1250,7 @@
             <div class="top-picks">
                 <div class="top-picks-title">
                     <h2><i class="fa-solid fa-star icon"></i> TOP PICKS</h2>
+                    <a href="#">See more</a>
                 </div>
                 <div class="top-picks-wrapper">
                     <div class="top-picks-grid">
@@ -1059,6 +1278,7 @@
             <div class="promotions">
                 <div class="promotions-title">
                     <h2><i class="fa-solid fa-gift icon"></i> PROMOTIONS</h2>
+                    <a href="#">See more</a>
                 </div>
                 <div class="promotions-wrapper">
                     <div class="promotions-grid">
@@ -1077,6 +1297,7 @@
             <div class="slots">
                 <div class="slots-title">
                     <h2><i class="fa-solid fa-circle-dollar-to-slot icon"></i> SLOTS</h2>
+                    <a href="#">See more</a>
                 </div>
                 <div class="slots-wrapper">
                     <div class="slots-grid">
@@ -1102,6 +1323,7 @@
             <div class="flying-games">
                 <div class="flying-games-title">
                     <h2><i class="fa-solid fa-plane-departure icon"></i> FLYING GAMES</h2>
+                    <a href="#">See more</a>
                 </div>
                 <div class="flying-games-wrapper">
                     <div class="flying-games-grid">
@@ -1119,6 +1341,7 @@
             <div class="spinning-wheels">
                 <div class="spinning-wheels-title">
                     <h2><i class="fa-solid fa-dharmachakra icon"></i> SPINNING WHEELS</h2>
+                    <a href="#">See more</a>
                 </div>
                 <div class="spinning-wheels-wrapper">
                     <div class="spinning-wheels-grid">
@@ -1276,7 +1499,8 @@
                 </div>
             </div>
             <div class="badge">
-                <img src="images/icon_footer_flash.png" alt="Instant Withdrawal icon" width="24" height="24" loading="lazy" />
+                <img src="images/icon_footer_flash.png" alt="Instant Withdrawal icon" width="24" height="24"
+                    loading="lazy" />
                 <div>
                     <h3 class="badge-title">Instant</h3>
                     <p class="badge-sub">Withdrawal</p>
