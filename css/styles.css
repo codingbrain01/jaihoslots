@@ -65,6 +65,7 @@ body {
 
 /* === HEADER DESKTOP (unchanged) === */
 header {
+    user-select: none;
     top: 0;
     position: sticky;
     z-index: 1000;
@@ -168,6 +169,7 @@ header {
 
 /* Swiper Section Wrapper */
 .swiper-section {
+    user-select: none;
     padding: 1.5rem 6.5rem;
 }
 
@@ -297,6 +299,7 @@ header {
 
 /* === Game Category Section === */
 .game-category-section {
+    user-select: none;
     padding: 1.5rem 6.5rem;
 }
 
@@ -436,6 +439,7 @@ header {
         */
 
 .top-picks-section {
+    user-select: none;
     padding: 1.5rem 6.5rem;
 }
 
@@ -549,6 +553,7 @@ header {
         */
 
 .promotions-section {
+    user-select: none;
     padding: 1.5rem 6.5rem;
 }
 
@@ -610,6 +615,7 @@ header {
         */
 
 .slots-section {
+    user-select: none;
     padding: 1.5rem 6.5rem;
 }
 
@@ -703,6 +709,7 @@ header {
         */
 
 .flying-games-section {
+    user-select: none;
     padding: 1.5rem 6.5rem;
 }
 
@@ -796,6 +803,7 @@ header {
         */
 
 .spinning-wheels-section {
+    user-select: none;
     padding: 1.5rem 6.5rem;
 }
 
@@ -889,6 +897,7 @@ header {
         */
 
 .game-carousel {
+    user-select: none;
     width: 100%;
     padding: 1.5rem 6.5rem;
     display: flex;
@@ -1046,6 +1055,7 @@ header {
 }
 
 .about-icon img {
+    user-select: none;
     width: 17rem;
     max-width: 100%;
     height: auto;
@@ -1225,5 +1235,4 @@ header {
         font-size: 0.9rem;
         padding: 0 1rem;
     }
-
 }
