@@ -22,1219 +22,130 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
-    <style>
-        :root {
-            --bg-cta: #058C4D;
-            --background-color-1: #1E1E1E;
-            --background-color-2: #2B2B2B;
-            --background-color-3: #191919;
-            --text-color: #ffffff;
-            --text-color-1: #000000;
-            --header-height: 60px;
-            --font-weight-1: light;
-            --font-weight-2: bold;
-            --font-size-1: 24px;
-            --font-size-2: 44px;
-            font-family: "Noto Sans", Arial, sans-serif;
-        }
-
-        ::-webkit-scrollbar {
-            width: 1.5px;
-
-            /* adjust the width to your liking */
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #363636;
-            /* adjust the color to your liking */
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background-color: transparent;
-
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            width: 100%;
-            height: auto;
-            min-width: 430px;
-            background-color: var(--background-color-1);
-            color: var(--text-color);
-            scroll-behavior: smooth;
-            overflow-x: hidden; /* Prevent horizontal scroll */
-        }
-
-        .icon {
-            color: grey;
-            font-size: 1.25rem;
-            margin-right: 0.5rem;
-        }
-
-        /*
-        ################################################################
-        ||                                                            ||
-        ||                         HEADER CSS                         ||
-        ||                                                            ||
-        ################################################################
-        */
-
-        /* === HEADER DESKTOP (unchanged) === */
-        header {
-            width: 100%;
-            display: flex;
-            position: sticky;
-            top: 0;
-            padding: 0 104px;
-            height: var(--header-height);
-            background-color: var(--background-color-2);
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            overflow: hidden;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-        }
-
-        .brand img {
-            height: 40px;
-            margin-right: 10px;
-        }
-
-        /* Download button stays same (desktop) */
-        .download-app .download-btn {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            font-size: 0.875rem;
-            border: none;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: var(--font-weight-2);
-            color: var(--text-color-1);
-            background: linear-gradient(90deg,
-                    var(--bg-cta) 0%,
-                    var(--bg-cta) 50%,
-                    #cbee69 65%,
-                    var(--bg-cta) 100%);
-            background-size: 200% 200%;
-            background-position: right center;
-            transition: background-position 0.5s ease, transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        .download-app .download-btn:hover {
-            background-position: left center;
-        }
-
-
-        /* === ✅ MOBILE RESPONSIVENESS FIX === */
-        @media (max-width: 768px) {
-
-            header {
-                padding: 1.5rem 1rem;
-                /* Reduce large side padding */
-                height: auto;
-                /* Allow auto height so stacking doesn't squeeze */
-                flex-direction: column;
-                /* Stack logo + button vertically */
-                gap: 0.75rem;
-                text-align: center;
-            }
-
-            .brand img {
-                height: 36px;
-                /* Slightly smaller logo for mobile */
-            }
-
-            .download-app .download-btn {
-                width: 100%;
-                /* Make full width button */
-                justify-content: center;
-                padding: 0.9rem 1rem;
-                /* Slightly larger tap size */
-                font-size: 1rem;
-            }
-        }
-
-
-        /*
-        ########################################################################
-        ||                                                                    ||
-        ||                               MAIN CSS                             ||
-        ||                                                                    ||
-        #######################################################################
-        */
-
-        /*
-        ################################################################
-        ||                                                            ||
-        ||                         SWIPER CSS                         ||
-        ||                                                            ||
-        ################################################################
-        */
-
-
-        /* Swiper Section Wrapper */
-        .swiper-section {
-            padding: 1.5rem 6.5rem;
-        }
-
-        /* Banner Content Positioning (Desktop) */
-        .banner-content {
-            position: absolute;
-            top: clamp(3rem, 10vw, 10rem);
-            left: clamp(1rem, 6vw, 5rem);
-            z-index: 10;
-            max-width: 60%;
-        }
-
-        /* Text Styles */
-        .banner-content .banner-text-1 {
-            font-size: clamp(1.4rem, 2.5vw, var(--font-size-1));
-            font-weight: var(--font-weight-1);
-            line-height: 1.2;
-        }
-
-        .banner-content .banner-text-2 {
-            font-size: clamp(1rem, 1.8vw, var(--font-size-2));
-            font-weight: var(--font-weight-2);
-            margin-top: 0.4rem;
-        }
-
-        /* CTA Button */
-        .banner-content .button {
-            margin-top: 1.5rem;
-            padding: .75rem 1.5rem;
-            border: none;
-            border-radius: 0.75rem;
-            font-weight: var(--font-weight-2);
-            background: linear-gradient(104deg, #cbee69 3.97%, var(--bg-cta) 101.83%);
-            background-size: 200% 200%;
-            background-position: right center;
-            cursor: pointer;
-            transition: background-position .5s ease, transform .3s ease;
-        }
-
-        .banner-content .button:hover {
-            background-position: left center;
-        }
-
-        /* Banner Images */
-        .swiper-slide img {
-            width: 100%;
-            height: clamp(16rem, 40vw, 26.25rem);
-            object-fit: cover;
-            border-radius: 1.5rem;
-        }
-
-        /* Pagination */
-        #swiper-1 .swiper-pagination {
-            bottom: 2rem;
-        }
-
-        #swiper-1 .swiper-pagination-bullet {
-            margin: 0 .25rem;
-            opacity: 1;
-            background-color: rgba(255, 255, 255, 0.4);
-            width: .45rem;
-            height: .45rem;
-        }
-
-        #swiper-1 .swiper-pagination-bullet-active {
-            background: linear-gradient(104deg, #d0e98c 3.97%, #a6ec95 101.83%);
-            width: .55rem;
-            height: .55rem;
-        }
-
-        /* ✅ Mobile Responsive */
-        @media (max-width: 768px) {
-
-            .swiper-section {
-                padding: 1rem;
-            }
-
-            #swiper-1 .swiper-pagination {
-                display: none;
-            }
-
-            .banner-content {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                max-width: 90%;
-                transform: translate(-50%, -50%);
-                text-align: center;
-            }
-
-            .banner-content .button {
-                width: 70%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-        }
-
-
-        /*
-        ################################################################
-        ||                                                            ||
-        ||                      GAME CATEGORY CSS                     ||
-        ||                                                            ||
-        ################################################################
-        */
-
-        /* === Game Category Section === */
-        .game-category-section {
-            padding: 1.5rem 6.5rem;
-        }
-
-        /* Outer wrapper */
-        .game-category {
-            padding: 1rem;
-            background: #323232;
-            border-radius: 0.75rem;
-            overflow-x: auto;
-            scrollbar-width: thin;
-        }
-
-        /* Main category navigation */
-        .category {
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 1rem;
-            justify-content: flex-start;
-            align-items: center;
-            white-space: nowrap;
-        }
-
-        .category .button {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            font-size: 0.875rem;
-            border: none;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: var(--font-weight-2);
-            color: var(--text-color-1);
-            background: linear-gradient(90deg,
-                    var(--bg-cta) 0%,
-                    var(--bg-cta) 50%,
-                    #cbee69 65%,
-                    var(--bg-cta) 100%);
-            background-size: 200% 200%;
-            background-position: right center;
-            transition: background-position 0.5s ease, transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        /* Hover effect */
-        .category .button:hover {
-            background-position: left center;
-        }
-
-        .category .button img {
-            height: 1rem;
-        }
-
-        /* Search Button */
-        .category .search-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 2.6rem;
-            height: 2.6rem;
-            margin-left: auto;
-            /* ✅ Keep search on far right */
-            background: var(--background-color-1);
-            border-radius: 0.5rem;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.2s ease;
-        }
-
-        .category .search-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: scale(1.05);
-        }
-
-        /* Providers Dropdown */
-        .category .providers {
-            padding: 0 1rem;
-            height: 2.6rem;
-            width: 16rem;
-            background: var(--background-color-1);
-            border-radius: 0.5rem;
-            border: none;
-            color: var(--text-color);
-            cursor: pointer;
-            font-size: 0.875rem;
-        }
-
-        /* ✅ Mobile Version */
-        .category-2 {
-            display: none;
-        }
-
-        /* ✅ FIX RESPONSIVENESS */
-        @media (max-width: 768px) {
-
-            .game-category-section {
-                padding: 1rem;
-                /* ✅ Remove large side padding */
-            }
-
-            .game-category {
-                padding: 0.75rem;
-                border-radius: 0.6rem;
-            }
-
-            .category {
-                display: none;
-                /* Hide desktop nav */
-            }
-
-            .category-2 {
-                display: flex;
-                justify-content: center;
-                margin-top: 0.5rem;
-            }
-
-            .category-2 select {
-                width: 100%;
-                max-width: 380px;
-                /* ✅ Perfect for Samsung phones */
-                padding: 0.75rem;
-                border-radius: 0.5rem;
-                border: none;
-                background: var(--background-color-1);
-                color: var(--text-color);
-                font-size: 1rem;
-            }
-        }
-
-
-        /*
-        ################################################################
-        ||                                                            ||
-        ||                       TOP PICKS CSS                        ||
-        ||                                                            ||
-        ################################################################
-        */
-
-        .top-picks-section {
-            padding: 1.5rem 6.5rem;
-        }
-
-        .top-picks-title {
-            display: flex;
-            justify-content: space-between;
-            /* space between h2 and link */
-            align-items: center;
-            /* vertically center */
-            margin: 0 0 1rem 0;
-        }
-
-        .top-picks-title h2 {
-            font-size: medium;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            /* space between icon and text */
-        }
-
-        .top-picks-title a {
-            font-size: 0.9rem;
-            text-decoration: none;
-            color: var(--accent, #34d399);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .top-picks-title a:hover {
-            color: var(--accent-2, #ffd166);
-        }
-
-        .top-picks-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, 196px);
-            /* Fixed card width */
-            grid-auto-rows: 16.063rem;
-            /* Fixed card height */
-            gap: 1.2rem;
-            justify-content: center;
-            /* Center the grid */
-        }
-
-        /* Card appearance */
-        .top-picks-grid .grid-img,
-        .top-picks-grid .grid-img-banner {
-            width: 100%;
-            height: 100%;
-            border-radius: 0.75rem;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        /* Hover effect */
-        .top-picks-grid .grid-img:hover {
-            transform: scale(1.05);
-        }
-
-        /* ✅ Banner spans 2 columns AND 2 rows */
-        .top-picks-grid .grid-img-banner {
-            grid-column: span 2;
-        }
-
-        /* ✅ Responsive layout — fixed (replace existing mobile rules for .top-picks-grid) */
-        @media (max-width: 768px) {
-            .top-picks-section {
-                padding: 1.5rem 1rem;
-            }
-
-            .top-picks-grid {
-                grid-template-columns: repeat(2, 1fr);
-                /* let rows size to content instead of forcing a fixed row height */
-                grid-auto-rows: auto;
-                gap: 0.75rem;
-                padding: 0 1rem;
-                align-items: start;
-                /* important: prevent items from stretching & overlapping */
-            }
-
-            /* Banner becomes full width and flows naturally */
-            .top-picks-grid .grid-img-banner {
-                grid-column: 1 / -1;
-                /* full width */
-                width: 100%;
-                height: auto;
-                /* let image decide height */
-                display: block;
-                object-fit: cover;
-                /* cover behavior if aspect ratio differs */
-                align-self: start;
-                /* ensure banner sits at top of its grid cell */
-            }
-
-            /* Regular grid items keep a consistent height but won't overlap banner */
-            .top-picks-grid .grid-img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                align-self: start;
-                /* prevent vertical stretch that causes overlap */
-            }
-        }
-
-        /*
-        ################################################################
-        ||                                                            ||
-        ||                      PROMOTIONS CSS                        ||
-        ||                                                            ||
-        ################################################################
-        */
-
-        .promotions-section {
-            padding: 1.5rem 6.5rem;
-        }
-
-        .promotions-title {
-            display: flex;
-            justify-content: space-between;
-            /* evenly space out h2 and link */
-            align-items: center;
-            /* vertically center */
-            margin: 0 0 1rem 0;
-        }
-
-        .promotions-title h2 {
-            font-size: medium;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            /* space between icon and text */
-        }
-
-        .promotions-title a {
-            font-size: 0.9rem;
-            text-decoration: none;
-            color: var(--accent, #34d399);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .promotions-title a:hover {
-            color: var(--accent-2, #ffd166);
-        }
-
-
-        .promotions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(12rem, 2fr));
-            gap: 1rem;
-
-            justify-content: center;
-        }
-
-        .promotions-grid img {
-            width: 100%;
-            border-radius: .75rem;
-        }
-
-        @media (max-width: 768px) {
-            .promotions-section {
-                padding: 1.5rem 1rem;
-            }
-        }
-
-        /*
-        ################################################################
-        ||                                                            ||
-        ||                          SLOTS CSS                         ||
-        ||                                                            ||
-        ################################################################
-        */
-
-        .slots-section {
-            padding: 1.5rem 6.5rem;
-        }
-
-        .slots-title {
-            display: flex;
-            justify-content: space-between;
-            /* space between h2 and link */
-            align-items: center;
-            /* vertically center */
-            margin: 0 0 1rem 0;
-        }
-
-        .slots-title h2 {
-            font-size: medium;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            /* space between icon and text */
-        }
-
-        .slots-title a {
-            font-size: 0.9rem;
-            text-decoration: none;
-            color: var(--accent, #34d399);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .slots-title a:hover {
-            color: var(--accent-2, #ffd166);
-        }
-
-        .slots-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, 196px);
-            /* Fixed card width */
-            grid-auto-rows: 16.063rem;
-            /* Fixed card height */
-            gap: 1.2rem;
-            justify-content: center;
-            /* Center the grid */
-        }
-
-        /* Card appearance */
-        .slots-grid .grid-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 0.75rem;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        /* Hover effect */
-        .slots-grid .grid-img:hover {
-            transform: scale(1.05);
-        }
-
-        /* ✅ Responsive layout — fixed (replace existing mobile rules for .top-picks-grid) */
-        @media (max-width: 768px) {
-            .slots-section {
-                padding: 1.5rem 1rem;
-            }
-
-            .slots-grid {
-                grid-template-columns: repeat(2, 1fr);
-                /* let rows size to content instead of forcing a fixed row height */
-                grid-auto-rows: auto;
-                gap: 0.75rem;
-                padding: 0 1rem;
-                align-items: start;
-                /* important: prevent items from stretching & overlapping */
-            }
-
-            /* Regular grid items keep a consistent height but won't overlap banner */
-            .slots-grid .grid-img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                align-self: start;
-                /* prevent vertical stretch that causes overlap */
-            }
-        }
-
-        /*
-        ################################################################
-        ||                                                            ||
-        ||                     FLYING GAMES CSS                       ||
-        ||                                                            ||
-        ################################################################
-        */
-
-        .flying-games-section {
-            padding: 1.5rem 6.5rem;
-        }
-
-        .flying-games-title {
-            display: flex;
-            justify-content: space-between;
-            /* space between h2 and link */
-            align-items: center;
-            /* vertically center */
-            margin: 0 0 1rem 0;
-        }
-
-        .flying-games-title h2 {
-            font-size: medium;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            /* space between icon and text */
-        }
-
-        .flying-games-title a {
-            font-size: 0.9rem;
-            text-decoration: none;
-            color: var(--accent, #34d399);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .flying-games-title a:hover {
-            color: var(--accent-2, #ffd166);
-        }
-
-        .flying-games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, 196px);
-            /* Fixed card width */
-            grid-auto-rows: 16.063rem;
-            /* Fixed card height */
-            gap: 1.2rem;
-            justify-content: center;
-            /* Center the grid */
-        }
-
-        /* Card appearance */
-        .flying-games-grid .grid-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 0.75rem;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        /* Hover effect */
-        .flying-games-grid .grid-img:hover {
-            transform: scale(1.05);
-        }
-
-        /* ✅ Responsive layout — fixed (replace existing mobile rules for .top-picks-grid) */
-        @media (max-width: 768px) {
-            .flying-games-section {
-                padding: 1.5rem 1rem;
-            }
-
-            .flying-games-grid {
-                grid-template-columns: repeat(2, 1fr);
-                /* let rows size to content instead of forcing a fixed row height */
-                grid-auto-rows: auto;
-                gap: 0.75rem;
-                padding: 0 1rem;
-                align-items: start;
-                /* important: prevent items from stretching & overlapping */
-            }
-
-            /* Regular grid items keep a consistent height but won't overlap banner */
-            .flying-games-grid .grid-img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                align-self: start;
-                /* prevent vertical stretch that causes overlap */
-            }
-        }
-
-        /*
-        ################################################################
-        ||                                                            ||
-        ||                    SPINNING WHEELS CSS                     ||
-        ||                                                            ||
-        ################################################################
-        */
-
-        .spinning-wheels-section {
-            padding: 1.5rem 6.5rem;
-        }
-
-        .spinning-wheels-title {
-            display: flex;
-            justify-content: space-between;
-            /* space between h2 and link */
-            align-items: center;
-            /* vertically center */
-            margin: 0 0 1rem 0;
-        }
-
-        .spinning-wheels-title h2 {
-            font-size: medium;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            /* space between icon and text */
-        }
-
-        .spinning-wheels-title a {
-            font-size: 0.9rem;
-            text-decoration: none;
-            color: var(--accent, #34d399);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .spinning-wheels-title a:hover {
-            color: var(--accent-2, #ffd166);
-        }
-
-        .spinning-wheels-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, 196px);
-            /* Fixed card width */
-            grid-auto-rows: 16.063rem;
-            /* Fixed card height */
-            gap: 1.2rem;
-            justify-content: center;
-            /* Center the grid */
-        }
-
-        /* Card appearance */
-        .spinning-wheels-grid .grid-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 0.75rem;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        /* Hover effect */
-        .spinning-wheels-grid .grid-img:hover {
-            transform: scale(1.05);
-        }
-
-        /* ✅ Responsive layout — fixed (replace existing mobile rules for .top-picks-grid) */
-        @media (max-width: 768px) {
-            .spinning-wheels-section {
-                padding: 1.5rem 1rem;
-            }
-
-            .spinning-wheels-grid {
-                grid-template-columns: repeat(2, 1fr);
-                /* let rows size to content instead of forcing a fixed row height */
-                grid-auto-rows: auto;
-                gap: 0.75rem;
-                padding: 0 1rem;
-                align-items: start;
-                /* important: prevent items from stretching & overlapping */
-            }
-
-            /* Regular grid items keep a consistent height but won't overlap banner */
-            .spinning-wheels-grid .grid-img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                align-self: start;
-                /* prevent vertical stretch that causes overlap */
-            }
-        }
-
-        /*
-        ################################################################
-        ||                                                            ||
-        ||                     RANDOM GAME CSS                        ||
-        ||                                                            ||
-        ################################################################
-        */
-
-        .game-carousel {
-            width: 100%;
-            padding: 1.5rem 6.5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .game-carousel .swiper {
-            width: 100%;
-            max-width: 1100px;
-            padding-bottom: 80px;
-        }
-
-        .game-carousel-title {
-            margin: 0 0 1rem 0;
-            text-align: center;
-        }
-
-        .game-carousel-title h2 {
-            font-size: medium;
-        }
-
-        .game-carousel .swiper-wrapper {
-            padding-top: 1.5rem;
-        }
-
-        .game-carousel .swiper-slide {
-            background: #1e1e1e;
-            border-radius: 20px;
-            width: 240px;
-            height: 340px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
-        }
-
-        .game-carousel .swiper-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 20px;
-            transition: transform 0.4s ease;
-        }
-
-        .game-carousel .swiper-slide:hover img {
-            transform: scale(1.1);
-        }
-
-        .swiper-pagination-bullet {
-            background: #d0e98c;
-            opacity: 0.8;
-        }
-
-        .swiper-pagination-bullet-active {
-            background: #a6ec95;
-        }
-
-        /* responsive tweaks */
-        @media (max-width: 768px) {
-            .swiper-slide {
-                width: 180px;
-                height: 260px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .swiper-slide {
-                width: 150px;
-                height: 220px;
-            }
-        }
-
-        /*
-        ################################################################
-        ||                                                            ||
-        ||                        ABOUT US CSS                        ||
-        ||                                                            ||
-        ################################################################
-        */
-
-        .about-section {
-            padding: 1.5rem 6.5rem;
-        }
-
-        .about-title {
-            display: flex;
-            margin: 0 0 1rem 0;
-        }
-
-        .about-title h2 {
-            font-size: medium;
-        }
-
-        .about-content {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-        }
-
-        .about-icon img {
-            width: 17rem;
-            height: auto;
-        }
-
-        .about-description {
-            width: 35rem;
-            line-height: 1.6;
-        }
-
-        .about-description h2 {
-            size: medium;
-            margin-bottom: 1rem;
-        }
-
-        .about-description p {
-            color: #969595
-        }
-
-        .cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1rem;
-            justify-content: center;
-        }
-
-        .card {
-            background: #2b2b2b;
-            border-radius: 0.75rem;
-            padding: 1rem;
-            width: 18.75rem;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .card h3 {
-            font-size: small;
-        }
-
-        .card p {
-            font-size: smaller;
-            color: #969595;
-            margin-top: 0.5rem;
-            line-height: 1.6;
-        }
-
-        /*
-        ################################################################
-        ||                                                            ||
-        ||                         FOOTER CSS                         ||
-        ||                                                            ||
-        ################################################################
-        */
-
-        /* Footer Base */
-        .site-footer {
-            background: var(--background-color-3);
-            /* dark purple-black tone */
-            color: #f5f5f5;
-            padding: 3rem 2rem;
-            text-align: center;
-            line-height: 1.6;
-        }
-
-        /* Footer Badges */
-        .footer-badges {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .badge {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: rgba(255, 255, 255, 0.08);
-            padding: 0.75rem 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 0.75rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            min-width: 200px;
-        }
-
-        .badge:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Badge Text */
-        .badge-title {
-            font-size: 1rem;
-            font-weight: 700;
-            margin: 0;
-        }
-
-        .badge-sub {
-            font-size: 0.875rem;
-            color: #969595;
-            margin: 0;
-        }
-
-        /* Footer Info Text */
-        .footer-info {
-            max-width: 800px;
-            margin: 0 auto 1.5rem;
-            color: #969595;
-            font-size: 0.95rem;
-        }
-
-        /* Footer Bottom */
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 2rem;
-            padding-top: 1rem;
-            font-size: 0.875rem;
-            color: #aaa;
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .footer-badges {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .badge {
-                width: 90%;
-                justify-content: center;
-            }
-
-            .footer-info {
-                font-size: 0.9rem;
-                padding: 0 1rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
     <header aria-label="Main navigation">
-        <div class="brand" role="banner">
-            <a href="index.html" aria-label="JaihoSlots Home">
-                <img class="logo" src="images/icon_logo.png" alt="JaihoSlots logo" />
-            </a>
-        </div>
+        <nav class="header-nav" role="navigation" aria-label="Primary">
 
-        <!-- Desktop nav stays as-is -->
-        <div class="download-app">
-            <a class="download-btn" href="#download-apk">DOWNLOAD ANDROID APP</a>
-        </div>
+            <!-- Brand / Home Link -->
+            <div class="brand" role="banner">
+                <a href="index.html" aria-label="Go to JaihoSlots Home page">
+                    <img class="logo" src="images/icon_logo.png" alt="JaihoSlots logo" />
+                </a>
+            </div>
+
+            <!-- Download App Button -->
+            <div class="download-app">
+                <a class="download-btn" href="#download-apk" aria-label="Download Android App">
+                    DOWNLOAD ANDROID APP
+                </a>
+            </div>
+
+        </nav>
     </header>
 
-    <main>
+    <main aria-label="Main content">
         <section class="swiper-section" id="slider-1" aria-label="JaihoSlots promotional slider">
-            <div class="swiper" id="swiper-1" role="region" aria-roledescription="slides"
-                aria-label="JaihoSlots promotions">
+            <div class="swiper" id="swiper-1" role="region" aria-roledescription="carousel"
+                aria-label="Promotional slides" aria-live="polite">
+
                 <div class="swiper-wrapper">
 
                     <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Promotion 1 of 3">
                         <div class="banner-content">
-                            <div class="banner-text-1">
-                                JAIHOSLOTS INDIA'S LUCKY SLOTS
-                            </div>
-                            <div class="banner-text-2">
-                                REGISTER NOW AND GET YOUR WELCOME BONUS
-                            </div>
+                            <div class="banner-text-1">JAIHOSLOTS INDIA'S LUCKY SLOTS</div>
+                            <div class="banner-text-2">REGISTER NOW AND GET YOUR WELCOME BONUS</div>
                             <button class="button" aria-label="Join JaihoSlots now and claim your welcome bonus">JOIN
                                 NOW</button>
                         </div>
-                        <img src="images/banner 1.png" alt="JaihoSlots banner" loading="lazy" />
-                    </div> <!-- end swiper-slide -->
+                        <img src="images/banner 1.png" alt="Welcome bonus promotion banner" loading="lazy" />
+                    </div>
 
                     <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Promotion 2 of 3">
                         <div class="banner-content">
-                            <div class="banner-text-1">
-                                EARN UP TO ₹500 FREE CASH
-                            </div>
-                            <div class="banner-text-2">
-                                BY JUST INVITING YOUR FRIENDS
-                            </div>
+                            <div class="banner-text-1">EARN UP TO ₹500 FREE CASH</div>
+                            <div class="banner-text-2">BY JUST INVITING YOUR FRIENDS</div>
                             <button class="button" aria-label="Join JaihoSlots now to earn ₹500 cash rewards">JOIN
                                 NOW</button>
                         </div>
-                        <img src="images/banner 2.png" alt="JaihoSlots banner" loading="lazy" />
-                    </div> <!-- end swiper-slide -->
+                        <img src="images/banner 2.png" alt="Referral bonus promotion banner" loading="lazy" />
+                    </div>
 
                     <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Promotion 3 of 3">
                         <div class="banner-content">
-                            <div class="banner-text-1">
-                                START YOUR VICTORY
-                            </div>
-                            <div class="banner-text-2">
-                                BY GETTING 100% FIRST DEPOSIT BONUS
-                            </div>
+                            <div class="banner-text-1">START YOUR VICTORY</div>
+                            <div class="banner-text-2">BY GETTING 100% FIRST DEPOSIT BONUS</div>
                             <button class="button"
                                 aria-label="Join JaihoSlots and get 100 percent first deposit bonus">JOIN NOW</button>
                         </div>
-                        <img src="images/banner 3.png" alt="JaihoSlots banner" loading="lazy" />
-                    </div> <!-- end swiper-slide -->
+                        <img src="images/banner 3.png" alt="First deposit bonus promotion banner" loading="lazy" />
+                    </div>
 
                 </div>
-                <div class="swiper-pagination"></div>
-            </div> <!-- end swiper -->
+
+                <!-- Pagination now has an ARIA label -->
+                <div class="swiper-pagination" aria-label="Slide navigation"></div>
+
+            </div>
         </section>
 
         <!-- ✅ Game Category Section -->
-        <section class="game-category-section" aria-label="Game categories and provider filter">
+        <section class="game-category-section" aria-label="Recommended slot games carousel">
             <div class="game-category-wrapper">
-                <div class="game-category" role="navigation" aria-label="Game category navigation">
+
+                <!-- ✅ Single navigation landmark -->
+                <nav class="game-category" aria-label="Game category navigation">
+
+                    <!-- Desktop version -->
                     <div class="category">
-                        <a class="button" href="#toppicks" aria-label="Top Picks category">
-                            <img src="images/icon1.svg" alt="" /> Top Picks
-                        </a>
-                        <a class="button" href="#promotions" aria-label="Promotions category">
-                            <img src="images/icon2.svg" alt="" /> Promotions
-                        </a>
-                        <a class="button" href="#slots" aria-label="Slots category">
-                            <img src="images/icon3.svg" alt="" /> Slots
-                        </a>
-                        <a class="button" href="#flyinggames" aria-label="Flying Games category">
-                            <img src="images/icon4.svg" alt="" /> Flying Games
-                        </a>
-                        <a class="button" href="#spinningwheels" aria-label="Spinning Wheels category">
-                            <img src="images/icon5.svg" alt="" /> Spinning Wheels
-                        </a>
-                        <a class="button" href="#aboutus" aria-label="About Us section">
-                            <img src="images/icon6.svg" alt="" /> About Us
+
+                        <a class="button" href="#toppicks">
+                            <img src="images/icon1.svg" alt="" aria-hidden="true" />
+                            Top Picks
                         </a>
 
-                        <!-- ✅ Search Icon Button (Accessible) -->
+                        <a class="button" href="#promotions">
+                            <img src="images/icon2.svg" alt="" aria-hidden="true" />
+                            Promotions
+                        </a>
+
+                        <a class="button" href="#slots">
+                            <img src="images/icon3.svg" alt="" aria-hidden="true" />
+                            Slots
+                        </a>
+
+                        <a class="button" href="#flyinggames">
+                            <img src="images/icon4.svg" alt="" aria-hidden="true" />
+                            Flying Games
+                        </a>
+
+                        <a class="button" href="#spinningwheels">
+                            <img src="images/icon5.svg" alt="" aria-hidden="true" />
+                            Spinning Wheels
+                        </a>
+
+                        <a class="button" href="#aboutus">
+                            <img src="images/icon6.svg" alt="" aria-hidden="true" />
+                            About Us
+                        </a>
+
+                        <!-- ✅ Search Button -->
                         <button class="search-btn" aria-label="Search games">
-                            <i class="fa-solid fa-magnifying-glass fa-xl" style="color: #6b6b6b;"
-                                aria-hidden="true"></i>
+                            <i class="fa-solid fa-magnifying-glass fa-xl" aria-hidden="true"></i>
                         </button>
 
-                        <!-- ✅ Providers Dropdown -->
-                        <select id="providers" class="providers" aria-label="Select game provider">
-                            <option value="Providers" selected hidden>Providers</option>
+                        <!-- ✅ Providers Dropdown with proper label -->
+                        <select id="providers" class="providers">
+                            <option value="" selected disabled>Select Provider</option>
                         </select>
+
                     </div>
 
-                    <!-- ✅ Mobile-only Dropdown (for smaller screens) -->
+                    <!-- ✅ Mobile Dropdown -->
                     <div class="category-2">
-                        <select aria-label="Mobile game category">
+                        <select id="mobile-category" aria-label="Mobile game category selection">
                             <option value="toppicks">Top Picks</option>
                             <option value="promotions">Promotions</option>
                             <option value="slots">Slots</option>
@@ -1243,119 +154,174 @@
                             <option value="aboutus">About Us</option>
                         </select>
                     </div>
-                </div>
+
+                </nav>
             </div>
         </section>
 
-
-        <section class="top-picks-section" id="games">
+        <section class="top-picks-section" aria-label="Top Picks game section">
             <div class="top-picks">
+
                 <div class="top-picks-title">
-                    <h2><i class="fa-solid fa-star icon"></i> TOP PICKS</h2>
-                    <a href="#">See more</a>
+                    <h2>
+                        <i class="fa-solid fa-star icon" aria-hidden="true"></i>
+                        Top Picks
+                    </h2>
+                    <a href="#toppicks-all" aria-label="View all top pick games">See more</a>
                 </div>
+
                 <div class="top-picks-wrapper">
-                    <div class="top-picks-grid">
-                        <img class="grid-img-banner" src="images/banner_win.png" alt="">
-                        <img class="grid-img" src="images/img_top-picks_1.png" alt="">
-                        <img class="grid-img" src="images/img_top-picks_2.png" alt="">
-                        <img class="grid-img" src="images/img_top-picks_3.png" alt="">
-                        <img class="grid-img" src="images/img_top-picks_4.png" alt="">
-                        <img class="grid-img" src="images/img_top-picks_5.png" alt="">
-                        <img class="grid-img" src="images/img_top-picks_6.png" alt="">
-                        <img class="grid-img" src="images/img_top-picks_7.png" alt="">
-                        <img class="grid-img" src="images/img_top-picks_8.png" alt="">
-                        <img class="grid-img" src="images/img_top-picks_9.png" alt="">
-                        <img class="grid-img" src="images/img_top-picks_10.png" alt="">
-                        <img class="grid-img" src="images/img_top-picks_11.png" alt="">
-                        <img class="grid-img" src="images/img_top-picks_12.png" alt="">
-                        <img class="grid-img" src="images/img_top-picks_13.png" alt="">
-                        <img class="grid-img" src="images/img_top-picks_14.png" alt="">
+
+                    <!-- ✅ Mark the grid as a list -->
+                    <div class="top-picks-grid" role="list" aria-label="Top pick game list">
+
+                        <!-- ✅ Banner should describe what it promotes -->
+                        <img class="grid-img-banner" src="images/win_banner.png" alt="Big win featured game promotion"
+                            role="listitem">
+
+                        <!-- Example naming: update alt text per game name -->
+                        <img class="grid-img" src="images/img_top-picks_1.png" alt="Game 1" role="listitem">
+                        <img class="grid-img" src="images/img_top-picks_2.png" alt="Game 2" role="listitem">
+                        <img class="grid-img" src="images/img_top-picks_3.png" alt="Game 3" role="listitem">
+                        <img class="grid-img" src="images/img_top-picks_4.png" alt="Game 4" role="listitem">
+                        <img class="grid-img" src="images/img_top-picks_5.png" alt="Game 5" role="listitem">
+                        <img class="grid-img" src="images/img_top-picks_6.png" alt="Game 6" role="listitem">
+                        <img class="grid-img" src="images/img_top-picks_7.png" alt="Game 7" role="listitem">
+                        <img class="grid-img" src="images/img_top-picks_8.png" alt="Game 8" role="listitem">
+                        <img class="grid-img" src="images/img_top-picks_9.png" alt="Game 9" role="listitem">
+                        <img class="grid-img" src="images/img_top-picks_10.png" alt="Game 10" role="listitem">
+                        <img class="grid-img" src="images/img_top-picks_11.png" alt="Game 11" role="listitem">
+                        <img class="grid-img" src="images/img_top-picks_12.png" alt="Game 12" role="listitem">
+                        <img class="grid-img" src="images/img_top-picks_13.png" alt="Game 13" role="listitem">
+                        <img class="grid-img" src="images/img_top-picks_14.png" alt="Game 14" role="listitem">
+
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <section class="promotions-section">
+        <section class="promotions-section" aria-label="Promotions section">
             <div class="promotions">
+
                 <div class="promotions-title">
-                    <h2><i class="fa-solid fa-gift icon"></i> PROMOTIONS</h2>
-                    <a href="#">See more</a>
+                    <h2>
+                        <i class="fa-solid fa-gift icon" aria-hidden="true"></i>
+                        Promotions
+                    </h2>
+
+                    <!-- Improved for screen readers -->
+                    <a href="#promotions-all" aria-label="View all promotions">See more</a>
                 </div>
+
                 <div class="promotions-wrapper">
-                    <div class="promotions-grid">
-                        <img src="images/img_banner_1.png" alt="">
-                        <img src="images/img_banner_2.png" alt="">
-                        <img src="images/img_banner_3.png" alt="">
-                        <img src="images/img_banner_4.png" alt="">
-                        <img src="images/img_banner_5.png" alt="">
-                        <img src="images/img_banner_6.png" alt="">
+
+                    <!-- Mark this grid as a list -->
+                    <div class="promotions-grid" role="list" aria-label="Available promotional banners">
+
+                        <!-- Use descriptive alt text based on promo purpose -->
+                        <img src="images/img_banner_1.png" alt="Promotion banner 1" role="listitem">
+                        <img src="images/img_banner_2.png" alt="Promotion banner 2" role="listitem">
+                        <img src="images/img_banner_3.png" alt="Promotion banner 3" role="listitem">
+                        <img src="images/img_banner_4.png" alt="Promotion banner 4" role="listitem">
+                        <img src="images/img_banner_5.png" alt="Promotion banner 5" role="listitem">
+                        <img src="images/img_banner_6.png" alt="Promotion banner 6" role="listitem">
+
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <section class="slots-section" id="games">
+        <section class="slots-section" id="games" aria-label="Slots game selection">
             <div class="slots">
+
                 <div class="slots-title">
-                    <h2><i class="fa-solid fa-circle-dollar-to-slot icon"></i> SLOTS</h2>
-                    <a href="#">See more</a>
+                    <h2>
+                        <i class="fa-solid fa-circle-dollar-to-slot icon" aria-hidden="true"></i>
+                        Slots
+                    </h2>
+                    <a href="#all-slots" aria-label="View all slot games">See more</a>
                 </div>
+
                 <div class="slots-wrapper">
-                    <div class="slots-grid">
-                        <img class="grid-img" src="images/game1.svg" alt="">
-                        <img class="grid-img" src="images/game2.svg" alt="">
-                        <img class="grid-img" src="images/game3.svg" alt="">
-                        <img class="grid-img" src="images/game4.svg" alt="">
-                        <img class="grid-img" src="images/game5.svg" alt="">
-                        <img class="grid-img" src="images/game6.svg" alt="">
-                        <img class="grid-img" src="images/game7.svg" alt="">
-                        <img class="grid-img" src="images/game8.svg" alt="">
-                        <img class="grid-img" src="images/game9.svg" alt="">
-                        <img class="grid-img" src="images/game10.svg" alt="">
-                        <img class="grid-img" src="images/game11.svg" alt="">
-                        <img class="grid-img" src="images/game12.svg" alt="">
-                        <img class="grid-img" src="images/game13.svg" alt="">
+                    <!-- Mark grid as a list -->
+                    <div class="slots-grid" role="list" aria-label="Available slot games">
+
+                        <!-- Each game card is a list item -->
+                        <img class="grid-img" src="images/game1.svg" alt="Slot game 1" role="listitem">
+                        <img class="grid-img" src="images/game2.svg" alt="Slot game 2" role="listitem">
+                        <img class="grid-img" src="images/game3.svg" alt="Slot game 3" role="listitem">
+                        <img class="grid-img" src="images/game4.svg" alt="Slot game 4" role="listitem">
+                        <img class="grid-img" src="images/game5.svg" alt="Slot game 5" role="listitem">
+                        <img class="grid-img" src="images/game6.svg" alt="Slot game 6" role="listitem">
+                        <img class="grid-img" src="images/game7.svg" alt="Slot game 7" role="listitem">
+                        <img class="grid-img" src="images/game8.svg" alt="Slot game 8" role="listitem">
+                        <img class="grid-img" src="images/game9.svg" alt="Slot game 9" role="listitem">
+                        <img class="grid-img" src="images/game10.svg" alt="Slot game 10" role="listitem">
+                        <img class="grid-img" src="images/game11.svg" alt="Slot game 11" role="listitem">
+                        <img class="grid-img" src="images/game12.svg" alt="Slot game 12" role="listitem">
+                        <img class="grid-img" src="images/game13.svg" alt="Slot game 13" role="listitem">
+
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <section class="flying-games-section" id="games">
+        <section class="flying-games-section" id="games" aria-label="Flying games category">
             <div class="flying-games">
+
                 <div class="flying-games-title">
-                    <h2><i class="fa-solid fa-plane-departure icon"></i> FLYING GAMES</h2>
-                    <a href="#">See more</a>
+                    <h2>
+                        <i class="fa-solid fa-plane-departure icon" aria-hidden="true"></i>
+                        Flying Games
+                    </h2>
+                    <a href="#all-flying-games" aria-label="View more flying games">See more</a>
                 </div>
+
                 <div class="flying-games-wrapper">
-                    <div class="flying-games-grid">
-                        <img class="grid-img" src="images/flying1.svg" alt="">
-                        <img class="grid-img" src="images/flying2.svg" alt="">
-                        <img class="grid-img" src="images/flying3.svg" alt="">
-                        <img class="grid-img" src="images/flying4.svg" alt="">
-                        <img class="grid-img" src="images/flying5.svg" alt="">
+                    <!-- Mark grid as a list for better screen reader navigation -->
+                    <div class="flying-games-grid" role="list" aria-label="Available flying games">
+
+                        <img class="grid-img" src="images/flying1.svg" alt="Flying game 1" role="listitem">
+                        <img class="grid-img" src="images/flying2.svg" alt="Flying game 2" role="listitem">
+                        <img class="grid-img" src="images/flying3.svg" alt="Flying game 3" role="listitem">
+                        <img class="grid-img" src="images/flying4.svg" alt="Flying game 4" role="listitem">
+                        <img class="grid-img" src="images/flying5.svg" alt="Flying game 5" role="listitem">
+
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <section class="spinning-wheels-section" id="games">
+        <section class="spinning-wheels-section" id="games" aria-label="Spinning wheels games category">
             <div class="spinning-wheels">
+
                 <div class="spinning-wheels-title">
-                    <h2><i class="fa-solid fa-dharmachakra icon"></i> SPINNING WHEELS</h2>
-                    <a href="#">See more</a>
+                    <h2>
+                        <i class="fa-solid fa-dharmachakra icon" aria-hidden="true"></i>
+                        Spinning Wheels
+                    </h2>
+                    <a href="#all-spinning-wheels" aria-label="View more spinning wheel games">See more</a>
                 </div>
+
                 <div class="spinning-wheels-wrapper">
-                    <div class="spinning-wheels-grid">
-                        <img class="grid-img" src="images/spinning1.svg" alt="">
-                        <img class="grid-img" src="images/spinning2.svg" alt="">
-                        <img class="grid-img" src="images/spinning3.svg" alt="">
-                        <img class="grid-img" src="images/spinning4.svg" alt="">
-                        <img class="grid-img" src="images/spinning5.svg" alt="">
-                        <img class="grid-img" src="images/spinning6.svg" alt="">
-                        <img class="grid-img" src="images/spinning7.svg" alt="">
+                    <!-- Mark grid as list -->
+                    <div class="spinning-wheels-grid" role="list" aria-label="Available spinning wheel games">
+
+                        <img class="grid-img" src="images/spinning1.svg" alt="Spinning wheel game 1" role="listitem">
+                        <img class="grid-img" src="images/spinning2.svg" alt="Spinning wheel game 2" role="listitem">
+                        <img class="grid-img" src="images/spinning3.svg" alt="Spinning wheel game 3" role="listitem">
+                        <img class="grid-img" src="images/spinning4.svg" alt="Spinning wheel game 4" role="listitem">
+                        <img class="grid-img" src="images/spinning5.svg" alt="Spinning wheel game 5" role="listitem">
+                        <img class="grid-img" src="images/spinning6.svg" alt="Spinning wheel game 6" role="listitem">
+                        <img class="grid-img" src="images/spinning7.svg" alt="Spinning wheel game 7" role="listitem">
+
                     </div>
                 </div>
+
             </div>
         </section>
 
@@ -1366,81 +332,69 @@
                     <p>Our specially trained cats will find the right game for you 😺 🍀</p>
                 </div>
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="images/img_filler_1.png" alt="Book of Xmas slot game by Gamomat" loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="images/img_filler_2.png" alt="Magic Unicorn slot game" loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="images/img_filler_3.png" alt="Kitsune’s Scroll Sacred Flames slot game"
-                            loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="images/img_filler_4.png" alt="Wild Cash X9990 slot game by BGaming" loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="images/img_filler_5.png" alt="Book of Museum slot game by GameArt" loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="images/img_filler_6.png" alt="Buzzing Wilds slot game by Pragmatic Play"
-                            loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="images/img_filler_7.png" alt="Big Bass Bonanza slot game by Pragmatic Play"
-                            loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="images/img_filler_8.png" alt="Barn Festival slot game by Pragmatic Play"
-                            loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="images/img_filler_9.png" alt="Dancing Monkeys slot game" loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="images/img_filler_10.png" alt="Dancing Monkeys slot game" loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="images/img_filler_11.png" alt="Dancing Monkeys slot game" loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="images/img_filler_12.png" alt="Dancing Monkeys slot game" loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="images/img_filler_13.png" alt="Dancing Monkeys slot game" loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="images/img_filler_14.png" alt="Dancing Monkeys slot game" loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="images/img_filler_15.png" alt="Dancing Monkeys slot game" loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="images/img_filler_16.png" alt="Dancing Monkeys slot game" loading="lazy">
-                    </div>
+                    <div class="swiper-slide"> <img src="images/img_filler_1.png"
+                            alt="Book of Xmas slot game by Gamomat" loading="lazy"> </div>
+                    <div class="swiper-slide"> <img src="images/img_filler_2.png" alt="Magic Unicorn slot game"
+                            loading="lazy"> </div>
+                    <div class="swiper-slide"> <img src="images/img_filler_3.png"
+                            alt="Kitsune’s Scroll Sacred Flames slot game" loading="lazy"> </div>
+                    <div class="swiper-slide"> <img src="images/img_filler_4.png"
+                            alt="Wild Cash X9990 slot game by BGaming" loading="lazy"> </div>
+                    <div class="swiper-slide"> <img src="images/img_filler_5.png"
+                            alt="Book of Museum slot game by GameArt" loading="lazy"> </div>
+                    <div class="swiper-slide"> <img src="images/img_filler_6.png"
+                            alt="Buzzing Wilds slot game by Pragmatic Play" loading="lazy"> </div>
+                    <div class="swiper-slide"> <img src="images/img_filler_7.png"
+                            alt="Big Bass Bonanza slot game by Pragmatic Play" loading="lazy"> </div>
+                    <div class="swiper-slide"> <img src="images/img_filler_8.png"
+                            alt="Barn Festival slot game by Pragmatic Play" loading="lazy"> </div>
+                    <div class="swiper-slide"> <img src="images/img_filler_9.png" alt="Dancing Monkeys slot game"
+                            loading="lazy"> </div>
+                    <div class="swiper-slide"> <img src="images/img_filler_10.png" alt="Dancing Monkeys slot game"
+                            loading="lazy"> </div>
+                    <div class="swiper-slide"> <img src="images/img_filler_11.png" alt="Dancing Monkeys slot game"
+                            loading="lazy"> </div>
+                    <div class="swiper-slide"> <img src="images/img_filler_12.png" alt="Dancing Monkeys slot game"
+                            loading="lazy"> </div>
+                    <div class="swiper-slide"> <img src="images/img_filler_13.png" alt="Dancing Monkeys slot game"
+                            loading="lazy"> </div>
+                    <div class="swiper-slide"> <img src="images/img_filler_14.png" alt="Dancing Monkeys slot game"
+                            loading="lazy"> </div>
+                    <div class="swiper-slide"> <img src="images/img_filler_15.png" alt="Dancing Monkeys slot game"
+                            loading="lazy"> </div>
+                    <div class="swiper-slide"> <img src="images/img_filler_16.png" alt="Dancing Monkeys slot game"
+                            loading="lazy"> </div>
                 </div>
-
-                <div class="swiper-pagination" aria-hidden="true"></div>
+                <div class="carousel-nav"> <button class="swiper-button-prev"><i
+                            class="fa-solid fa-chevron-left"></i></button> <button class="swiper-button-next"><i
+                            class="fa-solid fa-chevron-right"></i></button> </div>
             </div>
         </section>
 
-        <section class="about-section" id="about">
+        <section class="about-section" id="about" aria-labelledby="about-heading">
             <div class="about">
+
                 <div class="about-title">
-                    <h2><i class="fa-solid fa-circle-info icon"></i> ABOUT US</h2>
+                    <h2 id="about-heading">
+                        <i class="fa-solid fa-circle-info icon" aria-hidden="true"></i> ABOUT US
+                    </h2>
                 </div>
+
                 <div class="about-wrapper">
                     <div class="about-content">
+
+                        <!-- ✅ Icon with descriptive alt text -->
                         <div class="about-icon">
-                            <img src="images/icon_jaihoslots-2.png" alt="">
+                            <img src="images/icon_jaihoslots-2.png" alt="JaiHoSlots brand mascot icon">
                         </div>
-                        <div class="about-description">
+
+                        <!-- ✅ Section labeled as text content -->
+                        <div class="about-description" role="region" aria-label="Platform description">
                             <h2>WELCOME TO JAIHOSLOTS!</h2>
                             <p><b>JaiHoSlots</b> is your trusted gaming partner where fun meets real rewards. Enjoy
-                                non-stop
-                                entertainment, exciting features, and a seamless experience across all devices — perfect
-                                for
-                                both casual players and high rollers.
+                                non-stop entertainment, exciting features, and a seamless experience across all devices
+                                —
+                                perfect for both casual players and high rollers.
                             </p>
                             <p>With exclusive rewards, personalized game picks, 24/7 support, and lightning-fast
                                 withdrawals, we keep your journey thrilling and worry-free. Backed by top-notch
@@ -1450,76 +404,93 @@
                             </p>
                         </div>
                     </div>
+
+                    <!-- ✅ Cards listed as features for screen readers -->
                     <div class="about-card">
-                        <div class="cards">
-                            <div class="card card-1">
+                        <div class="cards" role="list" aria-label="Key platform features">
+
+                            <div class="card card-1" role="listitem" aria-label="24/7 customer support">
                                 <h3>CUSTOMER CARE AND SUPPORT</h3>
-                                <p>Our customer support team is always hands-on to answer any of your questions 24/7</p>
+                                <p>Our customer support team is always hands-on to answer any of your questions 24/7.
+                                </p>
                             </div>
-                            <div class="card card-2">
+
+                            <div class="card card-2" role="listitem" aria-label="Reliable payment guarantees">
                                 <h3>FAIR PAYMENTS</h3>
-                                <p>Guaranteed payments issued on-time every month</p>
+                                <p>Guaranteed payments issued on-time every month.</p>
                             </div>
-                            <div class="card card-3">
+
+                            <div class="card card-3" role="listitem" aria-label="Advanced security protection">
                                 <h3>WORLD CLASS SECURITY</h3>
-                                <p>100% safe and secure transactions. Zero Fraud Guarantee. Complete data and identity
-                                    privacy</p>
+                                <p>100% safe and secure transactions with complete identity protection.</p>
                             </div>
-                            <div class="card card-4">
+
+                            <div class="card card-4" role="listitem" aria-label="Fast withdrawal process">
                                 <h3>VERY FAST</h3>
-                                <p>An average cash out time for the past 24 hours</p>
+                                <p>Lightning-fast average cash out time.</p>
                             </div>
-                            <div class="card card-5">
+
+                            <div class="card card-5" role="listitem" aria-label="Progressive jackpot rewards">
                                 <h3>JACKPOTS</h3>
-                                <p>Our enormous Progressive Jackpots are climbing every second</p>
+                                <p>Our enormous Progressive Jackpots grow every second.</p>
                             </div>
+
                         </div>
                     </div>
+
                 </div>
+
             </div>
         </section>
 
     </main>
 
     <footer class="site-footer" aria-label="JaihoSlots Footer">
+
         <!-- Trust & Certification Badges -->
-        <section class="footer-badges" aria-label="Trust and Certifications">
-            <div class="badge">
-                <img src="images/icon_footer_crown.png" alt="100% Secure Fair Play Policy icon" width="24" height="24"
-                    loading="lazy" />
+        <section class="footer-badges" aria-label="Trust and Certification Information" role="list">
+
+            <div class="badge" role="listitem" aria-label="Fair Play Security Guarantee">
+                <img src="images/icon_footer_crown.png" alt="" width="24" height="24" loading="lazy"
+                    aria-hidden="true" />
                 <div>
                     <h3 class="badge-title">100% Secure</h3>
                     <p class="badge-sub">Fair Play Policy</p>
                 </div>
             </div>
-            <div class="badge">
-                <img src="images/icon_footer_company.png" alt="ISO Certified Company icon" width="24" height="24"
-                    loading="lazy" />
+
+            <div class="badge" role="listitem" aria-label="ISO Certified Organization">
+                <img src="images/icon_footer_company.png" alt="" width="24" height="24" loading="lazy"
+                    aria-hidden="true" />
                 <div>
                     <h3 class="badge-title">ISO Certified</h3>
                     <p class="badge-sub">Company</p>
                 </div>
             </div>
-            <div class="badge">
-                <img src="images/icon_footer_flash.png" alt="Instant Withdrawal icon" width="24" height="24"
-                    loading="lazy" />
+
+            <div class="badge" role="listitem" aria-label="Instant Withdrawal System">
+                <img src="images/icon_footer_flash.png" alt="" width="24" height="24" loading="lazy"
+                    aria-hidden="true" />
                 <div>
                     <h3 class="badge-title">Instant</h3>
                     <p class="badge-sub">Withdrawal</p>
                 </div>
             </div>
-            <div class="badge">
-                <img src="images/icon_footer_crown.png" alt="1 Crore Plus Trusted Users icon" width="24" height="24"
-                    loading="lazy" />
+
+            <div class="badge" role="listitem" aria-label="Over One Crore Trusted Users">
+                <img src="images/icon_footer_crown.png" alt="" width="24" height="24" loading="lazy"
+                    aria-hidden="true" />
                 <div>
                     <h3 class="badge-title">1 Crore +</h3>
                     <p class="badge-sub">Trusted Users</p>
                 </div>
             </div>
+
         </section>
 
         <!-- Company Info -->
-        <section class="footer-info" aria-label="About JaihoSlots">
+        <section class="footer-info" aria-labelledby="footer-about-title">
+            <h2 id="footer-about-title" class="visually-hidden">About JaihoSlots</h2>
             <p>
                 Launched in 2017, <strong>JaihoSlots</strong> is the first online gaming app introduced by
                 <strong>Yono Tech Co. Ltd.</strong> In just a short span of time, JaihoSlots has made its way
@@ -1529,55 +500,14 @@
         </section>
 
         <!-- Footer Bottom -->
-        <div class="footer-bottom">
+        <div class="footer-bottom" aria-label="Footer Legal and Trademark Information">
             <p>© <time datetime="2025">2025</time> JaihoSlots — Play. Win. Earn.</p>
         </div>
+
     </footer>
 
-
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-    <script>
-        new Swiper("#swiper-1", {
-            effect: "fade",
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: "#swiper-1 .swiper-pagination",
-                clickable: true,
-            },
-            lazyLoading: true,
-            loop: true
-        });
-
-        const swiper = new Swiper(".gameSwiper", {
-            effect: "coverflow",
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: "auto",
-            loop: true,
-            loopedSlides: 15, // match total number of slides for symmetry
-            spaceBetween: 0,
-            speed: 800, // smooth out transition
-            coverflowEffect: {
-                rotate: 0,       // keep flat
-                stretch: 10,      // perfect centering, no uneven offset
-                depth: 200,      // balanced depth perception
-                modifier: 1.5,   // reduced exaggeration for symmetry
-                slideShadows: false
-            },
-            /*autoplay: {
-                delay: 2500,                // autoplay interval
-                disableOnInteraction: false,
-            },*/
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-        });
-    </script>
+    <script src="js/script.js"></script>
 </body>
-
 
 </html>
