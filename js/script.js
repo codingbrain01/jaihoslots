@@ -88,6 +88,11 @@ const games = [
     { name: "Hilo", provider: "Jaihoslots Interactive", img: "images/js-game-spin05.svg" },
     { name: "Roulette", provider: "Jaihoslots Interactive", img: "images/js-game-spin06.svg" },
     { name: "Ander Bahar", provider: "Jaihoslots Interactive", img: "images/js-game-spin07.svg" },
+    { name: "Tower", provider: "Jaihoslots Interactive", img: "images/js-game-spin08.svg" },
+    { name: "Coins", provider: "Jaihoslots Interactive", img: "images/js-game-spin09.svg" },
+    { name: "Dice", provider: "Jaihoslots Interactive", img: "images/js-game-spin10.svg" },
+    { name: "Huge Wheel", provider: "Jaihoslots Interactive", img: "images/js-game-spin11.svg" },
+    { name: "Fruits", provider: "Jaihoslots Interactive", img: "images/js-game-spin12.svg" },   
 ];
 
 const searchInput = document.getElementById("game-search");
