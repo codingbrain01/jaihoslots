@@ -84,14 +84,15 @@ header {
 
 .brand {
     display: flex;
-    
+
 }
 
 .brand img {
     height: 40px;
     justify-content: center;
     align-items: center;
-    margin: 0 auto; /* or simply margin: auto 0; */
+    margin: 0 auto;
+    /* or simply margin: auto 0; */
 
 
 }
@@ -178,6 +179,10 @@ header {
     padding: 1.5rem 6.5rem;
 }
 
+.swiper-section .swiper {
+    border-radius: 1.5rem;
+}
+
 /* Banner Content Positioning (Desktop) */
 .banner-content {
     position: absolute;
@@ -187,22 +192,27 @@ header {
     max-width: 60%;
 }
 
-/* Text Styles */
 .banner-content .banner-text-1 {
     font-size: clamp(1.4rem, 2.5vw, var(--font-size-1));
     font-weight: var(--font-weight-1);
     line-height: 1.2;
-    text-shadow: #000000 2px 2px 4px;
-    color: orange;
+    color: #ffb347;
+    /* warm gradient tone */
+    text-shadow:
+        0 0 8px rgba(255, 179, 71, 0.6),
+        0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .banner-content .banner-text-2 {
     font-size: clamp(1rem, 1.8vw, var(--font-size-2));
     font-weight: var(--font-weight-2);
     margin-top: 0.4rem;
-    text-shadow: #000000 2px 2px 4px;
-    color: lightgreen;
+    color: #b4ff9f;
+    text-shadow:
+        0 0 8px rgba(180, 255, 159, 0.5),
+        0 2px 4px rgba(0, 0, 0, 0.8);
 }
+
 
 /* CTA Button */
 .banner-content .button {
@@ -306,6 +316,12 @@ header {
 .game-category-section {
     user-select: none;
     padding: 1.5rem 6.5rem;
+    position: relative;
+    overflow: visible !important; /* ✅ Allow elements to overflow outside */
+}
+
+.game-category-wrapper {
+    position: relative;
 }
 
 /* Outer wrapper */
@@ -315,6 +331,7 @@ header {
     border-radius: 0.75rem;
     overflow-x: auto;
     scrollbar-width: thin;
+    position: relative;
 }
 
 /* Main category navigation */
@@ -355,7 +372,7 @@ header {
 }
 
 .category .button img {
-    height: 1rem;
+    height: 1.5rem;
 }
 
 /* Search Button */
@@ -365,7 +382,6 @@ header {
     justify-content: center;
     width: 2.6rem;
     height: 2.6rem;
-    margin-left: auto;
     /* ✅ Keep search on far right */
     background: var(--background-color-1);
     border-radius: 0.5rem;
@@ -433,6 +449,154 @@ header {
         font-size: 1rem;
     }
 }
+
+/*
+        ################################################################
+        ||                                                            ||
+        ||                      LIVE SEARCH CSS                       ||
+        ||                                                            ||
+        ################################################################
+        */
+
+/* ✅ Wrap both input + button in flex */
+.game-search-box {
+    display: flex;
+    align-items: center;
+    width: 16rem;
+    height: 2.6rem;
+    margin-left: auto;
+    position: relative;
+    overflow: visible;
+}
+
+#game-search {
+    width: 16rem;
+    height: 2.6rem;
+    padding: 0 1rem;
+    margin-left: .2rem;
+    background: var(--background-color-1);
+    border:  none;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-size: 0.875rem;
+}
+
+.search-wrapper {
+    position: relative;
+    width: 260px;
+    margin-top: 0.75rem;
+    margin-left: auto; /* stays aligned right */
+}
+
+#live-search {
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 0.9rem;
+    border-radius: 0.5rem;
+    border: none;
+    outline: none;
+}
+
+/* ✅ Dropdown no longer expands container! */
+/* Dropdown appears below but floating */
+#search-results {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    width: 16rem;
+
+    background: #2b2b2b;
+    border-radius: 0.5rem;
+    border: 1px solid #444;
+    max-height: 220px;
+    overflow-y: auto;
+    z-index: 99999;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: none;
+}
+
+#search-results li {
+    padding: 0.65rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+#search-results li:last-child {
+    border-bottom: none;
+}
+
+#search-results li:hover {
+    background: #3e3e3e;
+}
+
+
+/* ✅ Modal Background */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.75);
+    justify-content: center;
+    align-items: center;
+}
+
+/* ✅ Modal Box */
+.modal-content {
+    background: #1a1a1a;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    text-align: center;
+    width: 90%;
+    max-width: 380px;
+    border: 1px solid #444;
+}
+
+.modal-content img {
+    width: 100%;
+    border-radius: 0.5rem;
+}
+
+.modal-content h2 {
+    margin: 1rem 0 0.25rem;
+    color: #fff;
+}
+
+.modal-content p {
+    color: #ccc;
+    margin-bottom: 1rem;
+}
+
+/* ✅ Close Button */
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* ✅ Play Button */
+.play-btn {
+    background: linear-gradient(90deg, #92ff45, #bbff72);
+    border: none;
+    color: #000;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    width: 100%;
+}
+
 
 
 /*
@@ -513,6 +677,10 @@ header {
 @media (max-width: 768px) {
     .top-picks-section {
         padding: 1.5rem 1rem;
+    }
+
+    .top-picks-title a {
+        font-weight: var(--font-weight-2)
     }
 
     .top-picks-grid {
@@ -609,287 +777,9 @@ header {
     .promotions-section {
         padding: 1.5rem 1rem;
     }
-}
 
-/*
-        ################################################################
-        ||                                                            ||
-        ||                          SLOTS CSS                         ||
-        ||                                                            ||
-        ################################################################
-        */
-
-.slots-section {
-    user-select: none;
-    padding: 1.5rem 6.5rem;
-}
-
-.slots-title {
-    display: flex;
-    justify-content: space-between;
-    /* space between h2 and link */
-    align-items: center;
-    /* vertically center */
-    margin: 0 0 1rem 0;
-}
-
-.slots-title h2 {
-    font-size: medium;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    /* space between icon and text */
-}
-
-.slots-title a {
-    font-size: 0.9rem;
-    text-decoration: none;
-    color: var(--accent, #34d399);
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.slots-title a:hover {
-    color: var(--accent-2, #ffd166);
-}
-
-.slots-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 196px);
-    /* Fixed card width */
-    grid-auto-rows: 16.063rem;
-    /* Fixed card height */
-    gap: 1.2rem;
-    justify-content: center;
-    /* Center the grid */
-}
-
-/* Card appearance */
-.slots-grid .grid-img {
-    width: 100%;
-    height: 100%;
-    border-radius: 0.75rem;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
-
-/* Hover effect */
-.slots-grid .grid-img:hover {
-    transform: scale(1.05);
-}
-
-/* ✅ Responsive layout — fixed (replace existing mobile rules for .top-picks-grid) */
-@media (max-width: 768px) {
-    .slots-section {
-        padding: 1.5rem 1rem;
-    }
-
-    .slots-grid {
-        grid-template-columns: repeat(2, 1fr);
-        /* let rows size to content instead of forcing a fixed row height */
-        grid-auto-rows: auto;
-        gap: 0.75rem;
-        padding: 0 1rem;
-        align-items: start;
-        /* important: prevent items from stretching & overlapping */
-    }
-
-    /* Regular grid items keep a consistent height but won't overlap banner */
-    .slots-grid .grid-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        align-self: start;
-        /* prevent vertical stretch that causes overlap */
-    }
-}
-
-/*
-        ################################################################
-        ||                                                            ||
-        ||                     FLYING GAMES CSS                       ||
-        ||                                                            ||
-        ################################################################
-        */
-
-.flying-games-section {
-    user-select: none;
-    padding: 1.5rem 6.5rem;
-}
-
-.flying-games-title {
-    display: flex;
-    justify-content: space-between;
-    /* space between h2 and link */
-    align-items: center;
-    /* vertically center */
-    margin: 0 0 1rem 0;
-}
-
-.flying-games-title h2 {
-    font-size: medium;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    /* space between icon and text */
-}
-
-.flying-games-title a {
-    font-size: 0.9rem;
-    text-decoration: none;
-    color: var(--accent, #34d399);
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.flying-games-title a:hover {
-    color: var(--accent-2, #ffd166);
-}
-
-.flying-games-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 196px);
-    /* Fixed card width */
-    grid-auto-rows: 16.063rem;
-    /* Fixed card height */
-    gap: 1.2rem;
-    justify-content: center;
-    /* Center the grid */
-}
-
-/* Card appearance */
-.flying-games-grid .grid-img {
-    width: 100%;
-    height: 100%;
-    border-radius: 0.75rem;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
-
-/* Hover effect */
-.flying-games-grid .grid-img:hover {
-    transform: scale(1.05);
-}
-
-/* ✅ Responsive layout — fixed (replace existing mobile rules for .top-picks-grid) */
-@media (max-width: 768px) {
-    .flying-games-section {
-        padding: 1.5rem 1rem;
-    }
-
-    .flying-games-grid {
-        grid-template-columns: repeat(2, 1fr);
-        /* let rows size to content instead of forcing a fixed row height */
-        grid-auto-rows: auto;
-        gap: 0.75rem;
-        padding: 0 1rem;
-        align-items: start;
-        /* important: prevent items from stretching & overlapping */
-    }
-
-    /* Regular grid items keep a consistent height but won't overlap banner */
-    .flying-games-grid .grid-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        align-self: start;
-        /* prevent vertical stretch that causes overlap */
-    }
-}
-
-/*
-        ################################################################
-        ||                                                            ||
-        ||                    SPINNING WHEELS CSS                     ||
-        ||                                                            ||
-        ################################################################
-        */
-
-.spinning-wheels-section {
-    user-select: none;
-    padding: 1.5rem 6.5rem;
-}
-
-.spinning-wheels-title {
-    display: flex;
-    justify-content: space-between;
-    /* space between h2 and link */
-    align-items: center;
-    /* vertically center */
-    margin: 0 0 1rem 0;
-}
-
-.spinning-wheels-title h2 {
-    font-size: medium;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    /* space between icon and text */
-}
-
-.spinning-wheels-title a {
-    font-size: 0.9rem;
-    text-decoration: none;
-    color: var(--accent, #34d399);
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.spinning-wheels-title a:hover {
-    color: var(--accent-2, #ffd166);
-}
-
-.spinning-wheels-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 196px);
-    /* Fixed card width */
-    grid-auto-rows: 16.063rem;
-    /* Fixed card height */
-    gap: 1.2rem;
-    justify-content: center;
-    /* Center the grid */
-}
-
-/* Card appearance */
-.spinning-wheels-grid .grid-img {
-    width: 100%;
-    height: 100%;
-    border-radius: 0.75rem;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
-
-/* Hover effect */
-.spinning-wheels-grid .grid-img:hover {
-    transform: scale(1.05);
-}
-
-/* ✅ Responsive layout — fixed (replace existing mobile rules for .top-picks-grid) */
-@media (max-width: 768px) {
-    .spinning-wheels-section {
-        padding: 1.5rem 1rem;
-    }
-
-    .spinning-wheels-grid {
-        grid-template-columns: repeat(2, 1fr);
-        /* let rows size to content instead of forcing a fixed row height */
-        grid-auto-rows: auto;
-        gap: 0.75rem;
-        padding: 0 1rem;
-        align-items: start;
-        /* important: prevent items from stretching & overlapping */
-    }
-
-    /* Regular grid items keep a consistent height but won't overlap banner */
-    .spinning-wheels-grid .grid-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        align-self: start;
-        /* prevent vertical stretch that causes overlap */
+    .promotions-title a {
+        font-weight: var(--font-weight-2)
     }
 }
 
@@ -913,7 +803,6 @@ header {
 .game-carousel .swiper {
     width: 100%;
     max-width: 1100px;
-    padding-bottom: 80px;
 }
 
 .game-carousel-title {
@@ -1028,6 +917,300 @@ header {
     }
 }
 
+/*
+        ################################################################
+        ||                                                            ||
+        ||                          SLOTS CSS                         ||
+        ||                                                            ||
+        ################################################################
+        */
+
+.slots-section {
+    user-select: none;
+    padding: 1.5rem 6.5rem;
+}
+
+.slots-title {
+    display: flex;
+    justify-content: space-between;
+    /* space between h2 and link */
+    align-items: center;
+    /* vertically center */
+    margin: 0 0 1rem 0;
+}
+
+.slots-title h2 {
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* space between icon and text */
+}
+
+.slots-title a {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--accent, #34d399);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.slots-title a:hover {
+    color: var(--accent-2, #ffd166);
+}
+
+.slots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 196px);
+    /* Fixed card width */
+    grid-auto-rows: 16.063rem;
+    /* Fixed card height */
+    gap: 1.2rem;
+    justify-content: center;
+    /* Center the grid */
+}
+
+/* Card appearance */
+.slots-grid .grid-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.75rem;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.slots-grid .grid-img:hover {
+    transform: scale(1.05);
+}
+
+/* ✅ Responsive layout — fixed (replace existing mobile rules for .top-picks-grid) */
+@media (max-width: 768px) {
+    .slots-section {
+        padding: 1.5rem 1rem;
+    }
+
+    .slots-title a {
+        font-weight: var(--font-weight-2)
+    }
+
+    .slots-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* let rows size to content instead of forcing a fixed row height */
+        grid-auto-rows: auto;
+        gap: 0.75rem;
+        padding: 0 1rem;
+        align-items: start;
+        /* important: prevent items from stretching & overlapping */
+    }
+
+    /* Regular grid items keep a consistent height but won't overlap banner */
+    .slots-grid .grid-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        align-self: start;
+        /* prevent vertical stretch that causes overlap */
+    }
+}
+
+/*
+        ################################################################
+        ||                                                            ||
+        ||                     FLYING GAMES CSS                       ||
+        ||                                                            ||
+        ################################################################
+        */
+
+.flying-games-section {
+    user-select: none;
+    padding: 1.5rem 6.5rem;
+}
+
+.flying-games-title {
+    display: flex;
+    justify-content: space-between;
+    /* space between h2 and link */
+    align-items: center;
+    /* vertically center */
+    margin: 0 0 1rem 0;
+}
+
+.flying-games-title h2 {
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* space between icon and text */
+}
+
+.flying-games-title a {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--accent, #34d399);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.flying-games-title a:hover {
+    color: var(--accent-2, #ffd166);
+}
+
+.flying-games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 196px);
+    /* Fixed card width */
+    grid-auto-rows: 16.063rem;
+    /* Fixed card height */
+    gap: 1.2rem;
+    justify-content: center;
+    /* Center the grid */
+}
+
+/* Card appearance */
+.flying-games-grid .grid-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.75rem;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.flying-games-grid .grid-img:hover {
+    transform: scale(1.05);
+}
+
+/* ✅ Responsive layout — fixed (replace existing mobile rules for .top-picks-grid) */
+@media (max-width: 768px) {
+    .flying-games-section {
+        padding: 1.5rem 1rem;
+    }
+
+    .flying-games-title a {
+        font-weight: var(--font-weight-2)
+    }
+
+    .flying-games-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* let rows size to content instead of forcing a fixed row height */
+        grid-auto-rows: auto;
+        gap: 0.75rem;
+        padding: 0 1rem;
+        align-items: start;
+        /* important: prevent items from stretching & overlapping */
+    }
+
+    /* Regular grid items keep a consistent height but won't overlap banner */
+    .flying-games-grid .grid-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        align-self: start;
+        /* prevent vertical stretch that causes overlap */
+    }
+}
+
+/*
+        ################################################################
+        ||                                                            ||
+        ||                    SPINNING WHEELS CSS                     ||
+        ||                                                            ||
+        ################################################################
+        */
+
+.spinning-wheels-section {
+    user-select: none;
+    padding: 1.5rem 6.5rem;
+    padding-bottom: 5rem;
+}
+
+.spinning-wheels-title {
+    display: flex;
+    justify-content: space-between;
+    /* space between h2 and link */
+    align-items: center;
+    /* vertically center */
+    margin: 0 0 1rem 0;
+}
+
+.spinning-wheels-title h2 {
+    font-size: medium;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* space between icon and text */
+}
+
+.spinning-wheels-title a {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--accent, #34d399);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.spinning-wheels-title a:hover {
+    color: var(--accent-2, #ffd166);
+}
+
+.spinning-wheels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 196px);
+    /* Fixed card width */
+    grid-auto-rows: 16.063rem;
+    /* Fixed card height */
+    gap: 1.2rem;
+    justify-content: center;
+    /* Center the grid */
+}
+
+/* Card appearance */
+.spinning-wheels-grid .grid-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.75rem;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.spinning-wheels-grid .grid-img:hover {
+    transform: scale(1.05);
+}
+
+/* ✅ Responsive layout — fixed (replace existing mobile rules for .top-picks-grid) */
+@media (max-width: 768px) {
+    .spinning-wheels-section {
+        padding: 1.5rem 1rem;
+    }
+
+    .spinning-wheels-title a {
+        font-weight: var(--font-weight-2)
+    }
+
+    .spinning-wheels-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* let rows size to content instead of forcing a fixed row height */
+        grid-auto-rows: auto;
+        gap: 0.75rem;
+        padding: 0 1rem;
+        align-items: start;
+        /* important: prevent items from stretching & overlapping */
+    }
+
+    /* Regular grid items keep a consistent height but won't overlap banner */
+    .spinning-wheels-grid .grid-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        align-self: start;
+        /* prevent vertical stretch that causes overlap */
+    }
+}
 
 /*
         ################################################################
