@@ -183,3 +183,13 @@ const swiper = new Swiper(".gameSwiper", {
     },
 
 });
+
+document.querySelector(".search-btn").addEventListener("touchstart", function () {
+    this.classList.add("pressed");
+
+    // Remove state immediately after tap so it snaps back to normal
+    setTimeout(() => {
+        this.classList.remove("pressed");
+        this.blur();
+    }, 80);  // 80ms keeps natural tap feel
+});
