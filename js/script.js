@@ -92,7 +92,7 @@ const games = [
     { name: "Coins", provider: "Jaihoslots Interactive", img: "images/js-game-spin09.svg" },
     { name: "Dice", provider: "Jaihoslots Interactive", img: "images/js-game-spin10.svg" },
     { name: "Huge Wheel", provider: "Jaihoslots Interactive", img: "images/js-game-spin11.svg" },
-    { name: "Fruits", provider: "Jaihoslots Interactive", img: "images/js-game-spin12.svg" },   
+    { name: "Fruits", provider: "Jaihoslots Interactive", img: "images/js-game-spin12.svg" },
 ];
 
 const searchInput = document.getElementById("game-search");
@@ -192,4 +192,42 @@ document.querySelector(".search-btn").addEventListener("touchstart", function ()
         this.classList.remove("pressed");
         this.blur();
     }, 80);  // 80ms keeps natural tap feel
+});
+
+// Get all promo links
+const promoLinks = document.querySelectorAll('.promo-link');
+
+// Add event listener to each promo link
+promoLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const modalId = link.dataset.modal;
+        const modal = document.getElementById(`${modalId}-modal`);
+        modal.setAttribute('aria-hidden', 'false');
+        modal.style.display = 'block';
+        document.body.classList.add('modal-open'); // Add modal-open class to body
+    });
+});
+
+// Get all close modal buttons
+const closeModalButtons = document.querySelectorAll('.promo-close-modal');
+
+// Add event listener to each close modal button
+closeModalButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const modal = button.closest('.promo-modal');
+        modal.setAttribute('aria-hidden', 'true');
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open'); // Remove modal-open class from body
+    });
+});
+
+// Close modal when clicked outside
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('promo-modal')) {
+        const modal = e.target;
+        modal.setAttribute('aria-hidden', 'true');
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open'); // Remove modal-open class from body
+    }
 });

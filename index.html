@@ -46,6 +46,42 @@
         </nav>
     </header>
 
+    <div class="side" id="side" aria-label="Social media links">
+        <ul type="none">
+            <li style="border: none">
+                <a href="http://jaihoslots.club/" target="_blank" aria-label="WhatsApp">
+                    <div class="side2box"><img src="images/side-wa.png" alt="WhatsApp logo" /></div>
+                </a>
+            </li>
+            <li style="border: none">
+                <a href="https://t.me/JaiHoSlots" target="_blank" aria-label="Telegram">
+                    <div class="side2box"><img src="images/side-tg.png" alt="Telegram logo" /></div>
+                </a>
+            </li>
+            <li style="border: none">
+                <a href="https://www.instagram.com/jaihoslotsofficial" target="_blank" aria-label="Instagram">
+                    <div class="side2box"><img src="images/side-ig.png" alt="Instagram logo" /></div>
+                </a>
+            </li>
+            <li style="border: none">
+                <a href="https://www.facebook.com/JaiHoSlotsOfficial" target="_blank" aria-label="Facebook">
+                    <div class="side2box"><img src="images/side-fb.png" alt="Facebook logo" /></div>
+                </a>
+            </li>
+            <li style="border: none">
+                <a href="https://www.youtube.com/@JaiHoSlots_Official" target="_blank" aria-label="YouTube">
+                    <div class="side2box"><img src="images/side-yt.png" alt="YouTube logo" /></div>
+                </a>
+            </li>
+            <li style="border: none">
+                <a href="https://i.q-chats.com/chatlink.html?tag=78c1f22373cc1982cc078c2dfd6c1c80&language=en"
+                    target="_blank" aria-label="Customer Support">
+                    <div class="side2box"><img src="images/side-cs.png" alt="Customer Support logo" /></div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
     <main aria-label="Main content">
         <section class="swiper-section" id="slider-1" aria-label="JaihoSlots promotional slider">
             <div class="swiper" id="swiper-1" role="region" aria-roledescription="carousel"
@@ -226,11 +262,58 @@
                     <div class="promotions-grid" role="list" aria-label="Available promotional banners">
 
                         <!-- Use descriptive alt text based on promo purpose -->
-                        <a href="promotions.html"><img src="images/promotion-1.svg" alt="Promotion banner 1" role="listitem"></a>
-                        <a href="promotions.html"><img src="images/promotion-2.svg" alt="Promotion banner 2" role="listitem"></a>
-                        <a href="promotions.html"><img src="images/promotion-3.svg" alt="Promotion banner 3" role="listitem"></a>
-                        <a href="promotions.html"><img src="images/promotion-4.svg" alt="Promotion banner 4" role="listitem"></a>
+                        <a href="#" class="promo-link" data-modal="promo-1">
+                            <img src="images/promotion-1.svg" alt="Promotion banner 1" role="listitem">
+                        </a>
+                        <a href="#" class="promo-link" data-modal="promo-2">
+                            <img src="images/promotion-2.svg" alt="Promotion banner 2" role="listitem">
+                        </a>
+                        <a href="#" class="promo-link" data-modal="promo-3">
+                            <img src="images/promotion-3.svg" alt="Promotion banner 3" role="listitem">
+                        </a>
+                        <a href="#" class="promo-link" data-modal="promo-4">
+                            <img src="images/promotion-4.svg" alt="Promotion banner 4" role="listitem">
+                        </a>
 
+                    </div>
+                </div>
+
+                <!-- Modal containers -->
+                <div id="promo-1-modal" class="promo-modal" aria-hidden="true" role="dialog"
+                    aria-labelledby="promo-1-title">
+                    <div class="promo-modal-content">
+                        <span class="promo-close-modal" role="button" aria-label="Close promotion modal">&times;</span>
+                        <h2 id="promo-1-title">MYSTERY BONUS – Direct to Your Mailbox!</h2><br>
+                        <p><b>Keep an eye on your in-app mailbox</b> — JaihoSlots surprises players with exclusive Mystery Bonuses from time to time! There is a special rewards waiting just for you.</p><br>
+                        <p>It’s our way of saying thank you for playing. Open your mailbox regularly so you never miss out on a hidden reward!</p>
+                    </div>
+                </div>
+                <div id="promo-2-modal" class="promo-modal" aria-hidden="true" role="dialog"
+                    aria-labelledby="promo-2-title">
+                    <div class="promo-modal-content">
+                        <span class="promo-close-modal" role="button" aria-label="Close promotion modal">&times;</span>
+                        <h2 id="promo-2-title">WEEKLY AND MONTHLY CARDS – More Value, More Rewards!</h2><br>
+                        <p><b>💳 Weekly Card</b> – Enjoy daily bonus rewards for 7 days straight! One purchase, and you’ll keep receiving credits every single day.</p><br>
+                        <p><b>💳 Monthly Card</b> – Get maximum value with 30 days of continuous daily rewards! Perfect for players who love long-term benefits and nonstop gameplay.</p><br>
+                        <p>Both cards are designed to give you bigger savings, consistent rewards, and a smoother gaming experience at JaihoSlots.</p>
+                    </div>
+                </div>
+                <div id="promo-3-modal" class="promo-modal" aria-hidden="true" role="dialog"
+                    aria-labelledby="promo-3-title">
+                    <div class="promo-modal-content">
+                        <span class="promo-close-modal" role="button" aria-label="Close promotion modal">&times;</span>
+                        <h2 id="promo-3-title">First Deposit Bonus</h2><br>
+                        <p>Get rewarded on your very first top-up! When you make your first deposit at JaihoSlots, you will automatically receive our First Deposit Bonus based on the current promotion. This gives you extra playing balance, more game time, and a better chance to win.</p><br>
+                        <p>Simple, fast, and instantly credited—your perfect start at JaihoSlots!</p>
+                    </div>
+                </div>
+                <div id="promo-4-modal" class="promo-modal" aria-hidden="true" role="dialog"
+                    aria-labelledby="promo-4-title">
+                    <div class="promo-modal-content">
+                        <span class="promo-close-modal" role="button" aria-label="Close promotion modal">&times;</span>
+                        <h2 id="promo-4-title">Daily Task Bonus</h2><br>
+                        <p>Complete simple daily tasks and enjoy instant rewards every day! Just log in, play your favorite games, and finish easy missions to earn bonus credits. The more tasks you complete, the more rewards you receive.</p><br>
+                        <p>Stay active, boost your gameplay, and enjoy even more chances to win with the JaihoSlots Daily Task Bonus!</p>
                     </div>
                 </div>
 
@@ -515,6 +598,5 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="js/script.js"></script>
 </body>
-
 
 </html>

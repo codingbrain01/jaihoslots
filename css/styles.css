@@ -155,7 +155,6 @@ header {
     }
 }
 
-
 /*
         ########################################################################
         ||                                                                    ||
@@ -163,6 +162,53 @@ header {
         ||                                                                    ||
         #######################################################################
         */
+
+
+.side {
+    position: fixed;
+    width: 48px;
+    height: 240px;
+    right: 0;
+    top: 214px;
+    z-index: 100;
+    border-radius: 15px;
+}
+
+.side ul li {
+    width: 48px;
+    height: 48px;
+    float: left;
+    position: relative;
+    border-bottom: 1px solid #444;
+    text-decoration: none;
+}
+
+.side ul li .side2box {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    top: 0;
+    right: 0;
+    transition: all 0.3s;
+    background: var(--background-color-2);
+    opacity: 0.8;
+    filter: Alpha(opacity=80);
+    color: #fff;
+    font: 14px/48px "";
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.side ul li .side2box img {
+    width: 40px;
+}
+
+.side ul li img {
+    float: left;
+}
 
 /*
         ################################################################
@@ -428,7 +474,8 @@ header {
 }
 
 .search-btn {
-    -webkit-tap-highlight-color: transparent; /* remove ugly default highlight */
+    -webkit-tap-highlight-color: transparent;
+    /* remove ugly default highlight */
 }
 
 .search-btn:focus,
@@ -751,6 +798,51 @@ header {
     border-radius: .75rem;
 }
 
+.promo-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Changed to 100vh */
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    overflow: hidden; /* Added overflow hidden */
+}
+
+.promo-modal-content {
+    background-color: var(--background-color-3);
+    border-radius: .75rem;
+    position: absolute; /* Changed to absolute */
+    top: 50%; /* Added top 50% */
+    left: 50%; /* Added left 50% */
+    transform: translate(-50%, -50%); /* Added transform */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    max-height: 90vh; /* Added max-height */
+    overflow-y: auto; /* Added overflow-y auto */
+}
+
+.promo-close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.promo-close-modal:hover,
+.promo-close-modal:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Add this to prevent body scrolling when modal is open */
+body.modal-open {
+    overflow: hidden;
+}
+
 @media (max-width: 768px) {
     .promotions-section {
         padding: 1.5rem 1rem;
@@ -758,6 +850,10 @@ header {
 
     .promotions-title a {
         font-weight: var(--font-weight-2)
+    }
+
+    .promo-modal-content {
+        width: 80%;
     }
 }
 
