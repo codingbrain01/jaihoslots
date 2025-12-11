@@ -824,6 +824,14 @@ header {
     overflow-y: auto; /* Added overflow-y auto */
 }
 
+.promo-modal-content img {
+    width: 50%;
+    border-radius: .5rem;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 1.5rem;
+}
+
 .promo-close-modal {
     color: #aaa;
     float: right;
@@ -854,6 +862,10 @@ body.modal-open {
 
     .promo-modal-content {
         width: 80%;
+    }
+
+    .promo-modal-content img {
+        width: 100%;
     }
 }
 
