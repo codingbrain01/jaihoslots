@@ -44,8 +44,6 @@ body {
     background-color: var(--background-color-1);
     color: var(--text-color);
     scroll-behavior: smooth;
-    overflow-x: hidden;
-    overflow-y: auto;
     /* Prevent horizontal scroll */
 }
 
@@ -1441,6 +1439,38 @@ body.modal-open {
         ||                                                            ||
         ################################################################
         */
+
+        /* Scroll to Top Button (Debug Mode – guaranteed visible) */
+#scrollTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: rgb(33, 128, 41); /* TEMP for visibility */
+    color: white;
+    font-size: 2rem;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    display: flex;         /* Force visible */
+    justify-content: center;
+    align-items: center;
+
+    z-index: 999999999;    /* Forces button above EVERYTHING */
+
+    /* Floating animation */
+    animation: floatUpDown 1.4s ease-in-out infinite;
+}
+
+/* ✨ Floating effect keyframes */
+@keyframes floatUpDown {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
 
 /* Footer Base */
 .site-footer {

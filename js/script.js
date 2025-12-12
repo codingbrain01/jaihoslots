@@ -231,3 +231,25 @@ document.addEventListener('click', (e) => {
         document.body.classList.remove('modal-open'); // Remove modal-open class from body
     }
 });
+
+console.log("Scroll script active."); // Debug
+
+const scrollBtn = document.getElementById("scrollTopBtn");
+
+// Start hidden once JS is ready
+scrollBtn.style.display = "none";
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+        scrollBtn.style.display = "flex";
+    } else {
+        scrollBtn.style.display = "none";
+    }
+});
+
+scrollBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
